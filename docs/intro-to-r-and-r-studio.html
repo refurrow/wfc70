@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologist</title>
-  <meta name="description" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologist" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <title> 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta property="og:title" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta name="twitter:title" content=" 1 Intro to R and R Studio | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-05-27" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>Old Labs (2024)</b></span></li>
+<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologist</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
           </h1>
         </div>
 
@@ -344,20 +344,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">1.1.1.1</span> Downloading Tidyverse<a href="intro-to-r-and-r-studio.html#downloading-tidyverse" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For example to download <em>Tidyverse</em>, the main package utilized in WFC70, you will write:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro-to-r-and-r-studio.html#cb3-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<pre><code>## Installing package into &#39;C:/Users/bookw/AppData/Local/R/win-library/4.4&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## package &#39;tidyverse&#39; successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-##  C:\Users\bookw\AppData\Local\Temp\Rtmp0U0GAm\downloaded_packages</code></pre>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="intro-to-r-and-r-studio.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ──────────
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro-to-r-and-r-studio.html#cb5-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching core tidyverse packages ──────────────────────────────────── tidyverse 2.0.0 ──
 ## ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ## ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ## ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-## ✔ purrr     1.0.4</code></pre>
-<pre><code>## ── Conflicts ───────── tidyverse_conflicts() ──
+## ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+## ✔ purrr     1.0.2     
+## ── Conflicts ────────────────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -403,42 +398,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rahhernandez/trial/edit/main/03-introtor.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/rahhernandez/trial/blob/main/03-introtor.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/03-introtor.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/03-introtor.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

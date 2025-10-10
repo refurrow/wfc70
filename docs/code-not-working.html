@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologist</title>
-  <meta name="description" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologist" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <title> 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta property="og:title" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta name="twitter:title" content=" 2 Code not Working? | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-05-27" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>Old Labs (2024)</b></span></li>
+<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologist</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
           </h1>
         </div>
 
@@ -357,26 +357,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-fix-the-code" class="section level3 hasAnchor" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Example: Fix the Code<a href="code-not-working.html#example-fix-the-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As a practice, see if you can identify what is wrong in this code and fix it! We will be using the Palmer penguins package.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="code-not-working.html#cb9-1" tabindex="-1"></a>penguins_raw </span></code></pre></div>
-<pre><code>## # A tibble: 344 × 17
-##    studyName `Sample Number` Species         Region Island Stage `Individual ID`
-##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          
-##  1 PAL0708                 1 Adelie Penguin… Anvers Torge… Adul… N1A1           
-##  2 PAL0708                 2 Adelie Penguin… Anvers Torge… Adul… N1A2           
-##  3 PAL0708                 3 Adelie Penguin… Anvers Torge… Adul… N2A1           
-##  4 PAL0708                 4 Adelie Penguin… Anvers Torge… Adul… N2A2           
-##  5 PAL0708                 5 Adelie Penguin… Anvers Torge… Adul… N3A1           
-##  6 PAL0708                 6 Adelie Penguin… Anvers Torge… Adul… N3A2           
-##  7 PAL0708                 7 Adelie Penguin… Anvers Torge… Adul… N4A1           
-##  8 PAL0708                 8 Adelie Penguin… Anvers Torge… Adul… N4A2           
-##  9 PAL0708                 9 Adelie Penguin… Anvers Torge… Adul… N5A1           
-## 10 PAL0708                10 Adelie Penguin… Anvers Torge… Adul… N5A2           
-## # ℹ 334 more rows
-## # ℹ 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,
-## #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;,
-## #   `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;,
-## #   `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="code-not-working.html#cb11-1" tabindex="-1"></a>penguins_torgersen <span class="ot">&lt;-</span> <span class="fu">filter</span>(Penguins_raw, island <span class="sc">==</span> <span class="st">&quot;Torgersen&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="code-not-working.html#cb7-1" tabindex="-1"></a>penguins_raw </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="code-not-working.html#cb8-1" tabindex="-1"></a>penguins_torgersen <span class="ot">&lt;-</span> <span class="fu">filter</span>(Penguins_raw, island <span class="sc">==</span> <span class="st">&quot;Torgersen&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -400,42 +382,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rahhernandez/trial/edit/main/04-tutorials.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/rahhernandez/trial/blob/main/04-tutorials.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/04-tutorials.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/04-tutorials.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

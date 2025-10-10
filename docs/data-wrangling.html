@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologist</title>
-  <meta name="description" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologist" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <title> 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta property="og:title" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta name="twitter:title" content=" 4 Data Wrangling | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-05-27" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>Old Labs (2024)</b></span></li>
+<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologist</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
           </h1>
         </div>
 
@@ -394,30 +394,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Example<a href="data-wrangling.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us look at the penguin data once more.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-wrangling.html#cb12-1" tabindex="-1"></a><span class="co">#installing the packages and running it</span></span>
-<span id="cb12-2"><a href="data-wrangling.html#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="data-wrangling.html#cb12-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;palmerpenguins&quot;</span>)</span>
-<span id="cb12-4"><a href="data-wrangling.html#cb12-4" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling.html#cb9-1" tabindex="-1"></a><span class="co">#installing the packages and running it</span></span>
+<span id="cb9-2"><a href="data-wrangling.html#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="data-wrangling.html#cb9-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;palmerpenguins&quot;</span>)</span></code></pre></div>
+<pre><code>## Installing package into &#39;C:/Users/refurrow/AppData/Local/R/win-library/4.4&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## package &#39;palmerpenguins&#39; successfully unpacked and MD5 sums checked
+## 
+## The downloaded binary packages are in
+##  C:\Users\refurrow\AppData\Local\Temp\RtmpQBepNb\downloaded_packages</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-wrangling.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
 <p>Let us look at the raw data set.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling.html#cb13-1" tabindex="-1"></a>penguins_raw</span></code></pre></div>
 <pre><code>## # A tibble: 344 × 17
-##    studyName `Sample Number` Species         Region Island Stage `Individual ID`
-##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          
-##  1 PAL0708                 1 Adelie Penguin… Anvers Torge… Adul… N1A1           
-##  2 PAL0708                 2 Adelie Penguin… Anvers Torge… Adul… N1A2           
-##  3 PAL0708                 3 Adelie Penguin… Anvers Torge… Adul… N2A1           
-##  4 PAL0708                 4 Adelie Penguin… Anvers Torge… Adul… N2A2           
-##  5 PAL0708                 5 Adelie Penguin… Anvers Torge… Adul… N3A1           
-##  6 PAL0708                 6 Adelie Penguin… Anvers Torge… Adul… N3A2           
-##  7 PAL0708                 7 Adelie Penguin… Anvers Torge… Adul… N4A1           
-##  8 PAL0708                 8 Adelie Penguin… Anvers Torge… Adul… N4A2           
-##  9 PAL0708                 9 Adelie Penguin… Anvers Torge… Adul… N5A1           
-## 10 PAL0708                10 Adelie Penguin… Anvers Torge… Adul… N5A2           
+##    studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Completion`
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;              
+##  1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1            Yes                
+##  2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2            Yes                
+##  3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1            Yes                
+##  4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2            Yes                
+##  5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1            Yes                
+##  6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2            Yes                
+##  7 PAL0708                 7 Adelie… Anvers Torge… Adul… N4A1            No                 
+##  8 PAL0708                 8 Adelie… Anvers Torge… Adul… N4A2            No                 
+##  9 PAL0708                 9 Adelie… Anvers Torge… Adul… N5A1            Yes                
+## 10 PAL0708                10 Adelie… Anvers Torge… Adul… N5A2            Yes                
 ## # ℹ 334 more rows
-## # ℹ 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,
-## #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;,
-## #   `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;,
-## #   `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
+## # ℹ 9 more variables: `Date Egg` &lt;date&gt;, `Culmen Length (mm)` &lt;dbl&gt;,
+## #   `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;,
+## #   Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
 <p>Let me say that I want to make a data set of Gentoo penguins and am only concern with the columns of sex and flipper length. Which code would I use?</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-wrangling.html#cb15-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, species<span class="sc">==</span><span class="st">&quot;gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
 <span id="cb15-2"><a href="data-wrangling.html#cb15-2" tabindex="-1"></a>  <span class="fu">select</span>(Sex, <span class="fu">flipper_length</span> (mm))</span></code></pre></div>
@@ -449,42 +454,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rahhernandez/trial/edit/main/05-datawrangling.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/rahhernandez/trial/blob/main/05-datawrangling.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/05-datawrangling.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/05-datawrangling.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

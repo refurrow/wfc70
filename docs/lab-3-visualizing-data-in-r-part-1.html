@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologist</title>
-  <meta name="description" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologist" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <title>C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta property="og:title" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta name="twitter:title" content="C Lab 3: Visualizing data in R (Part 1) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-05-27" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>Old Labs (2024)</b></span></li>
+<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologist</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
           </h1>
         </div>
 
@@ -409,39 +409,37 @@ notice that nothing new has shown up in the global environment. However, the
 data frames are actually loaded (but hidden).</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb55-1" tabindex="-1"></a>penguins</span></code></pre></div>
 <pre><code>## # A tibble: 344 × 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181        3750
-##  2 Adelie  Torgersen           39.5          17.4               186        3800
-##  3 Adelie  Torgersen           40.3          18                 195        3250
-##  4 Adelie  Torgersen           NA            NA                  NA          NA
-##  5 Adelie  Torgersen           36.7          19.3               193        3450
-##  6 Adelie  Torgersen           39.3          20.6               190        3650
-##  7 Adelie  Torgersen           38.9          17.8               181        3625
-##  8 Adelie  Torgersen           39.2          19.6               195        4675
-##  9 Adelie  Torgersen           34.1          18.1               193        3475
-## 10 Adelie  Torgersen           42            20.2               190        4250
-## # ℹ 334 more rows
-## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007
+##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007
+##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007
+##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007
+## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007
+## # ℹ 334 more rows</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb57-1" tabindex="-1"></a>penguins_raw</span></code></pre></div>
 <pre><code>## # A tibble: 344 × 17
-##    studyName `Sample Number` Species         Region Island Stage `Individual ID`
-##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;          
-##  1 PAL0708                 1 Adelie Penguin… Anvers Torge… Adul… N1A1           
-##  2 PAL0708                 2 Adelie Penguin… Anvers Torge… Adul… N1A2           
-##  3 PAL0708                 3 Adelie Penguin… Anvers Torge… Adul… N2A1           
-##  4 PAL0708                 4 Adelie Penguin… Anvers Torge… Adul… N2A2           
-##  5 PAL0708                 5 Adelie Penguin… Anvers Torge… Adul… N3A1           
-##  6 PAL0708                 6 Adelie Penguin… Anvers Torge… Adul… N3A2           
-##  7 PAL0708                 7 Adelie Penguin… Anvers Torge… Adul… N4A1           
-##  8 PAL0708                 8 Adelie Penguin… Anvers Torge… Adul… N4A2           
-##  9 PAL0708                 9 Adelie Penguin… Anvers Torge… Adul… N5A1           
-## 10 PAL0708                10 Adelie Penguin… Anvers Torge… Adul… N5A2           
+##    studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Completion`
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;              
+##  1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1            Yes                
+##  2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2            Yes                
+##  3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1            Yes                
+##  4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2            Yes                
+##  5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1            Yes                
+##  6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2            Yes                
+##  7 PAL0708                 7 Adelie… Anvers Torge… Adul… N4A1            No                 
+##  8 PAL0708                 8 Adelie… Anvers Torge… Adul… N4A2            No                 
+##  9 PAL0708                 9 Adelie… Anvers Torge… Adul… N5A1            Yes                
+## 10 PAL0708                10 Adelie… Anvers Torge… Adul… N5A2            Yes                
 ## # ℹ 334 more rows
-## # ℹ 10 more variables: `Clutch Completion` &lt;chr&gt;, `Date Egg` &lt;date&gt;,
-## #   `Culmen Length (mm)` &lt;dbl&gt;, `Culmen Depth (mm)` &lt;dbl&gt;,
-## #   `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;, Sex &lt;chr&gt;,
-## #   `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
+## # ℹ 9 more variables: `Date Egg` &lt;date&gt;, `Culmen Length (mm)` &lt;dbl&gt;,
+## #   `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;,
+## #   Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
 <p>I prefer to formally load the data into my environment, which you can do with
 the <code>data()</code> function.</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb59-1" tabindex="-1"></a><span class="co"># the palmerpenguins package called their data &quot;penguins&quot;</span></span>
@@ -453,34 +451,34 @@ the <code>data()</code> function.</p>
 <span id="cb60-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb60-3" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code></pre></div>
 <pre><code>## Rows: 344
 ## Columns: 8
-## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
-## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, …
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, …
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb62-1" tabindex="-1"></a><span class="fu">glimpse</span>(penguins_raw)</span></code></pre></div>
 <pre><code>## Rows: 344
 ## Columns: 17
-## $ studyName             &lt;chr&gt; &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL…
-## $ `Sample Number`       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1…
-## $ Species               &lt;chr&gt; &quot;Adelie Penguin (Pygoscelis adeliae)&quot;, &quot;Adelie P…
-## $ Region                &lt;chr&gt; &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;…
-## $ Island                &lt;chr&gt; &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgerse…
-## $ Stage                 &lt;chr&gt; &quot;Adult, 1 Egg Stage&quot;, &quot;Adult, 1 Egg Stage&quot;, &quot;Adu…
-## $ `Individual ID`       &lt;chr&gt; &quot;N1A1&quot;, &quot;N1A2&quot;, &quot;N2A1&quot;, &quot;N2A2&quot;, &quot;N3A1&quot;, &quot;N3A2&quot;, …
-## $ `Clutch Completion`   &lt;chr&gt; &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;, …
-## $ `Date Egg`            &lt;date&gt; 2007-11-11, 2007-11-11, 2007-11-16, 2007-11-16,…
-## $ `Culmen Length (mm)`  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34…
-## $ `Culmen Depth (mm)`   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18…
-## $ `Flipper Length (mm)` &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190,…
-## $ `Body Mass (g)`       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…
-## $ Sex                   &lt;chr&gt; &quot;MALE&quot;, &quot;FEMALE&quot;, &quot;FEMALE&quot;, NA, &quot;FEMALE&quot;, &quot;MALE&quot;…
-## $ `Delta 15 N (o/oo)`   &lt;dbl&gt; NA, 8.94956, 8.36821, NA, 8.76651, 8.66496, 9.18…
-## $ `Delta 13 C (o/oo)`   &lt;dbl&gt; NA, -24.69454, -25.33302, NA, -25.32426, -25.298…
-## $ Comments              &lt;chr&gt; &quot;Not enough blood for isotopes.&quot;, NA, NA, &quot;Adult…</code></pre>
+## $ studyName             &lt;chr&gt; &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0…
+## $ `Sample Number`       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
+## $ Species               &lt;chr&gt; &quot;Adelie Penguin (Pygoscelis adeliae)&quot;, &quot;Adelie Penguin (Pygo…
+## $ Region                &lt;chr&gt; &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, …
+## $ Island                &lt;chr&gt; &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgers…
+## $ Stage                 &lt;chr&gt; &quot;Adult, 1 Egg Stage&quot;, &quot;Adult, 1 Egg Stage&quot;, &quot;Adult, 1 Egg St…
+## $ `Individual ID`       &lt;chr&gt; &quot;N1A1&quot;, &quot;N1A2&quot;, &quot;N2A1&quot;, &quot;N2A2&quot;, &quot;N3A1&quot;, &quot;N3A2&quot;, &quot;N4A1&quot;, &quot;N4A…
+## $ `Clutch Completion`   &lt;chr&gt; &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;, &quot;No&quot;, &quot;Yes&quot;,…
+## $ `Date Egg`            &lt;date&gt; 2007-11-11, 2007-11-11, 2007-11-16, 2007-11-16, 2007-11-16,…
+## $ `Culmen Length (mm)`  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37…
+## $ `Culmen Depth (mm)`   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17…
+## $ `Flipper Length (mm)` &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 1…
+## $ `Body Mass (g)`       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 33…
+## $ Sex                   &lt;chr&gt; &quot;MALE&quot;, &quot;FEMALE&quot;, &quot;FEMALE&quot;, NA, &quot;FEMALE&quot;, &quot;MALE&quot;, &quot;FEMALE&quot;, …
+## $ `Delta 15 N (o/oo)`   &lt;dbl&gt; NA, 8.94956, 8.36821, NA, 8.76651, 8.66496, 9.18718, 9.46060…
+## $ `Delta 13 C (o/oo)`   &lt;dbl&gt; NA, -24.69454, -25.33302, NA, -25.32426, -25.29805, -25.2179…
+## $ Comments              &lt;chr&gt; &quot;Not enough blood for isotopes.&quot;, NA, NA, &quot;Adult not sampled…</code></pre>
 <p>A few questions to orient ourselves to these data.</p>
 <ol style="list-style-type: decimal">
 <li><p>Which data frame has more variables, or are they the same?</p></li>
@@ -503,8 +501,7 @@ relationship between the x- and y-axis. It has a geometry called <code>geom_poin
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb64-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb64-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb64-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
 <span id="cb64-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb64-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing missing values or
-## values outside the scale range
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <p>Hooray, we have made our first ggplot! However, today we want to practice
@@ -521,10 +518,8 @@ distribution of all of our measurements of bill length.</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb66-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb66-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb66-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
 <span id="cb66-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb66-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better
-## value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p>Because histograms just count values for one variable, there is only
 one aesthetic (<code>x=bill_length_mm</code>). The geometry was for a histogram is
@@ -542,16 +537,14 @@ x-values/bars) for a histogram. Let’s specify a smaller number.</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb69-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb69-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb69-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
 <span id="cb69-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb69-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <p>Alternatively, we could specify a <code>binwidth</code>, setting how wide each bin should
 be. Let’s try using a <code>binwidth</code> of 2 (the units for this column are millimeters.)</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb71-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb71-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb71-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
 <span id="cb71-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb71-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Now for the fun part. We can quickly add informative complexity. Let’s keep
 track of all three species in our histogram. We can add the <code>fill</code> aesthetic
@@ -561,8 +554,7 @@ first and see why it is NOT ideal here.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb73-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb73-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb73-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
 <span id="cb73-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb73-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 <p>Hmmm, this is not right. We want the whole bars colored. For some geometries,
 <code>color</code> only changes the borders, not the full shapes. But color will often be
@@ -571,8 +563,7 @@ fill in a whole shape with color, you use <code>fill</code> instead.</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb75-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb75-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb75-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
 <span id="cb75-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb75-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <p>This is still not quite right. It is showing all the data, now color-coded, but
 it is stacking the numbers rather than showing three separate histograms with
@@ -582,8 +573,7 @@ another argument called <code>position</code>.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb77-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb77-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb77-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
 <span id="cb77-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb77-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_bin()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 <p>We made two changes. We made it so each species has a separate
 histogram starting from a count of 0. And we made the bars partially transparent
@@ -597,8 +587,7 @@ each species.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="lab-3-visualizing-data-in-r-part-1.html#cb79-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
 <span id="cb79-2"><a href="lab-3-visualizing-data-in-r-part-1.html#cb79-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
 <span id="cb79-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb79-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_boxplot()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_boxplot()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>This is easier to look at. We can see quite clearly that Adelie Penguins have
 the lowest bill length, while the Chinstrap and Gentoo Penguin samples have
@@ -665,8 +654,7 @@ for the species it represents.</li>
 <span id="cb87-3"><a href="lab-3-visualizing-data-in-r-part-1.html#cb87-3" tabindex="-1"></a>                <span class="at">y =</span> bill_depth_mm,</span>
 <span id="cb87-4"><a href="lab-3-visualizing-data-in-r-part-1.html#cb87-4" tabindex="-1"></a>                <span class="at">color =</span> species)) <span class="sc">+</span></span>
 <span id="cb87-5"><a href="lab-3-visualizing-data-in-r-part-1.html#cb87-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing missing values or
-## values outside the scale range
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 </div>
@@ -711,10 +699,8 @@ himself using <code>theme_bw()</code> and <code>theme_classic()</code>.</li>
 <span id="cb89-4"><a href="lab-3-visualizing-data-in-r-part-1.html#cb89-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb89-5"><a href="lab-3-visualizing-data-in-r-part-1.html#cb89-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
 <span id="cb89-6"><a href="lab-3-visualizing-data-in-r-part-1.html#cb89-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;culmen length (mm)&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing non-finite outside
-## the scale range (`stat_boxplot()`).</code></pre>
-<pre><code>## Warning: Removed 2 rows containing missing values or
-## values outside the scale range
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_boxplot()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 
@@ -740,42 +726,42 @@ himself using <code>theme_bw()</code> and <code>theme_classic()</code>.</li>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rahhernandez/trial/edit/main/09-lab3_2024.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/rahhernandez/trial/blob/main/09-lab3_2024.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/09-lab3_2024.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/09-lab3_2024.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

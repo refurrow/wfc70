@@ -1,8 +1,8 @@
 book_filename: "bookdownproj"
 output_dir: docs
 delete_merged_file: true
-edit: https://github.com/rahhernandez/trial/edit/main/%s
-view: https://github.com/rahhernandez/trial/blob/main/%s
+edit: https://github.com/refurrow/wfc70/edit/main/%s
+view: https://github.com/refurrow/wfc70/blob/main/%s
 language:
   ui:
     chapter_name: " "

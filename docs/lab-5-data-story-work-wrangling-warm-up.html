@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologist</title>
-  <meta name="description" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologist" />
-  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+  <title>E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta property="og:title" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologist" />
+  <meta name="twitter:title" content="E Lab 5: Data Story Work, Wrangling Warm-up | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-05-27" />
+<meta name="date" content="2025-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>Old Labs (2024)</b></span></li>
+<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologist</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
           </h1>
         </div>
 
@@ -358,7 +358,7 @@ in detail in the Data Carpentry course “Data Analysis and Visualisation in R f
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-1" tabindex="-1"></a><span class="co"># loading a csv file from this URL. The header argument just tells R</span></span>
 <span id="cb105-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-2" tabindex="-1"></a><span class="co"># that the first row is not data, but is instead a header</span></span>
 <span id="cb105-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-3" tabindex="-1"></a><span class="co"># with column names</span></span>
-<span id="cb105-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-4" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/portal_data_joined.csv&quot;</span>,</span>
+<span id="cb105-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-4" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/portal_data_joined.csv&quot;</span>,</span>
 <span id="cb105-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-5" tabindex="-1"></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb105-6"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-6" tabindex="-1"></a></span>
 <span id="cb105-7"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-7" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
@@ -373,19 +373,19 @@ Desert near Portal, Arizona.</p>
 <span id="cb106-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-2" tabindex="-1"></a><span class="fu">glimpse</span>(mammals)</span></code></pre></div>
 <pre><code>## Rows: 34,786
 ## Columns: 13
-## $ record_id       &lt;int&gt; 1, 72, 224, 266, 349, 363, 435, 506, 588, 661, 748, 84…
-## $ month           &lt;int&gt; 7, 8, 9, 10, 11, 11, 12, 1, 2, 3, 4, 5, 6, 8, 9, 10, 1…
-## $ day             &lt;int&gt; 16, 19, 13, 16, 12, 12, 10, 8, 18, 11, 8, 6, 9, 5, 4, …
-## $ year            &lt;int&gt; 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1978, 1978, …
-## $ plot_id         &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
-## $ species_id      &lt;chr&gt; &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, …
-## $ sex             &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;M…
-## $ hindfoot_length &lt;int&gt; 32, 31, NA, NA, NA, NA, NA, NA, NA, NA, NA, 32, NA, 34…
-## $ weight          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, 218, NA, NA, 204, 200,…
-## $ genus           &lt;chr&gt; &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;,…
-## $ species         &lt;chr&gt; &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albig…
-## $ taxa            &lt;chr&gt; &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rod…
-## $ plot_type       &lt;chr&gt; &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;,…</code></pre>
+## $ record_id       &lt;int&gt; 1, 72, 224, 266, 349, 363, 435, 506, 588, 661, 748, 845, 990, 1164…
+## $ month           &lt;int&gt; 7, 8, 9, 10, 11, 11, 12, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 4, 5, 7, …
+## $ day             &lt;int&gt; 16, 19, 13, 16, 12, 12, 10, 8, 18, 11, 8, 6, 9, 5, 4, 8, 5, 29, 30…
+## $ year            &lt;int&gt; 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1978, 1978, 1978, 1978, …
+## $ plot_id         &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+## $ species_id      &lt;chr&gt; &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, …
+## $ sex             &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;, &quot;M&quot;,…
+## $ hindfoot_length &lt;int&gt; 32, 31, NA, NA, NA, NA, NA, NA, NA, NA, NA, 32, NA, 34, 32, NA, NA…
+## $ weight          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, 218, NA, NA, 204, 200, 199, 197, N…
+## $ genus           &lt;chr&gt; &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, …
+## $ species         &lt;chr&gt; &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albig…
+## $ taxa            &lt;chr&gt; &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Roden…
+## $ plot_type       &lt;chr&gt; &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, …</code></pre>
 <p>You’ll notice that we have a lot of data. The columns tell us the day, month,
 and year that each observation was made, as well as the plot id, the genus and
 species of each observation, a <code>species_id</code> that is a shorthand version of
@@ -421,8 +421,7 @@ each species.</p>
 <span id="cb109-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
 <span id="cb109-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight, <span class="at">color =</span> species_id)) <span class="sc">+</span></span>
 <span id="cb109-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<pre><code>## Warning: Removed 832 rows containing missing values or
-## values outside the scale range
+<pre><code>## Warning: Removed 832 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-1" tabindex="-1"></a><span class="co"># faceting by species</span></span>
@@ -430,8 +429,7 @@ each species.</p>
 <span id="cb111-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
 <span id="cb111-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb111-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code></pre></div>
-<pre><code>## Warning: Removed 832 rows containing missing values or
-## values outside the scale range
+<pre><code>## Warning: Removed 832 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-59-2.png" width="672" /></p>
 <div id="your-task-10-minutes" class="section level3 hasAnchor" number="10.3.1">
@@ -510,8 +508,8 @@ at each plot for each year.</p>
 <span id="cb114-19"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-19" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">23</span>,<span class="dv">24</span>) <span class="sc">~</span> <span class="st">&quot;all rodent exclosure&quot;</span>,</span>
 <span id="cb114-20"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-20" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">20</span>) <span class="sc">~</span> <span class="st">&quot;krat short-term exclosure&quot;</span>,</span>
 <span id="cb114-21"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-21" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>) <span class="sc">~</span> <span class="st">&quot;spectab exclosure&quot;</span>))</span></code></pre></div>
-<pre><code>## `summarise()` has grouped output by &#39;plot_id&#39;.
-## You can override using the `.groups` argument.</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;plot_id&#39;. You can override using the `.groups`
+## argument.</code></pre>
 <p>We have two different measurements of diversity. The <code>richness</code> column
 is just a count of exactly how many different rodent species were found
 in that plot in that year. The <code>shannon_d</code> column is a measure of
@@ -557,42 +555,42 @@ of exploratory data analysis.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/rahhernandez/trial/edit/main/11-lab5_2024.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": "https://github.com/rahhernandez/trial/blob/main/11-lab5_2024.Rmd",
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/11-lab5_2024.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/11-lab5_2024.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
