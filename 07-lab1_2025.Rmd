@@ -16,7 +16,7 @@ By the end of this lab, you should be able to program in R to:
 
 On your lab computer, open up RStudio. With RStudio open, click File -\> New File -\> R Script. Your workspace should look something like this.
 
-![The RStudio Workspace](../images/workspace.PNG)
+![The RStudio Workspace](/images/workspace.PNG)
 
 Let’s begin by running some calculations in the console. R is basically a very fancy calculator. Run the next few lines by copying and pasting each one into the console, pressing the “Enter” key after each line.
 
