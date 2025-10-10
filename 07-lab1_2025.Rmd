@@ -1,4 +1,4 @@
-# (APPENDIX) WFC Lab 1 (2025) {-}
+# (APPENDIX) WFC 70 Labs {-}
 
 # Lab 1: R, data, and the RStudio panels
 

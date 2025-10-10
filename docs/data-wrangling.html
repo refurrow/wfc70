@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -394,18 +394,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="example" class="section level3 hasAnchor" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> Example<a href="data-wrangling.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us look at the penguin data once more.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data-wrangling.html#cb9-1" tabindex="-1"></a><span class="co">#installing the packages and running it</span></span>
-<span id="cb9-2"><a href="data-wrangling.html#cb9-2" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="data-wrangling.html#cb9-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;palmerpenguins&quot;</span>)</span></code></pre></div>
-<pre><code>## Installing package into &#39;C:/Users/refurrow/AppData/Local/R/win-library/4.4&#39;
-## (as &#39;lib&#39; is unspecified)</code></pre>
-<pre><code>## package &#39;palmerpenguins&#39; successfully unpacked and MD5 sums checked
-## 
-## The downloaded binary packages are in
-##  C:\Users\refurrow\AppData\Local\Temp\RtmpQBepNb\downloaded_packages</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-wrangling.html#cb12-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data-wrangling.html#cb8-1" tabindex="-1"></a><span class="co">#installing the packages and running it</span></span>
+<span id="cb8-2"><a href="data-wrangling.html#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="data-wrangling.html#cb8-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;palmerpenguins&quot;</span>)</span></code></pre></div>
+<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-wrangling.html#cb10-1" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
 <p>Let us look at the raw data set.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling.html#cb13-1" tabindex="-1"></a>penguins_raw</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-wrangling.html#cb11-1" tabindex="-1"></a>penguins_raw</span></code></pre></div>
 <pre><code>## # A tibble: 344 × 17
 ##    studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Completion`
 ##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;              
@@ -424,12 +419,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## #   `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;,
 ## #   Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
 <p>Let me say that I want to make a data set of Gentoo penguins and am only concern with the columns of sex and flipper length. Which code would I use?</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-wrangling.html#cb15-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, species<span class="sc">==</span><span class="st">&quot;gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="data-wrangling.html#cb15-2" tabindex="-1"></a>  <span class="fu">select</span>(Sex, <span class="fu">flipper_length</span> (mm))</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-wrangling.html#cb16-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, <span class="at">species=</span><span class="st">&quot;Gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="data-wrangling.html#cb16-2" tabindex="-1"></a>  <span class="fu">select</span>(penguins_raw Sex, Flipper <span class="fu">Length</span> (mm))</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-wrangling.html#cb17-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, species<span class="sc">==</span><span class="st">&quot;Gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="data-wrangling.html#cb17-2" tabindex="-1"></a>  <span class="fu">select</span>(Sex, Flipper <span class="fu">Length</span> (mm))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-wrangling.html#cb13-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, species<span class="sc">==</span><span class="st">&quot;gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="data-wrangling.html#cb13-2" tabindex="-1"></a>  <span class="fu">select</span>(Sex, <span class="fu">flipper_length</span> (mm))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-wrangling.html#cb14-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, <span class="at">species=</span><span class="st">&quot;Gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="data-wrangling.html#cb14-2" tabindex="-1"></a>  <span class="fu">select</span>(penguins_raw Sex, Flipper <span class="fu">Length</span> (mm))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-wrangling.html#cb15-1" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> <span class="fu">filter</span>(penguins_raw, species<span class="sc">==</span><span class="st">&quot;Gentoo penguin (Pygoscelis papua)&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="data-wrangling.html#cb15-2" tabindex="-1"></a>  <span class="fu">select</span>(Sex, Flipper <span class="fu">Length</span> (mm))</span></code></pre></div>
 
 </div>
 </div>

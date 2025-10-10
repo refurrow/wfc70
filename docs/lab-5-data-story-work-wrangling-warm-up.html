@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -355,22 +355,22 @@ in detail in the Data Carpentry course “Data Analysis and Visualisation in R f
 <p>This is mostly review about the data introduced at the end of Monday’s lecture.</p>
 <div id="loading-data-1" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">E.2.1</span> Loading data<a href="lab-5-data-story-work-wrangling-warm-up.html#loading-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-1" tabindex="-1"></a><span class="co"># loading a csv file from this URL. The header argument just tells R</span></span>
-<span id="cb105-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-2" tabindex="-1"></a><span class="co"># that the first row is not data, but is instead a header</span></span>
-<span id="cb105-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-3" tabindex="-1"></a><span class="co"># with column names</span></span>
-<span id="cb105-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-4" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/portal_data_joined.csv&quot;</span>,</span>
-<span id="cb105-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-5" tabindex="-1"></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb105-6"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-6" tabindex="-1"></a></span>
-<span id="cb105-7"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-7" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
-<span id="cb105-8"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb105-8" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-1" tabindex="-1"></a><span class="co"># loading a csv file from this URL. The header argument just tells R</span></span>
+<span id="cb103-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-2" tabindex="-1"></a><span class="co"># that the first row is not data, but is instead a header</span></span>
+<span id="cb103-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-3" tabindex="-1"></a><span class="co"># with column names</span></span>
+<span id="cb103-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-4" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/portal_data_joined.csv&quot;</span>,</span>
+<span id="cb103-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-5" tabindex="-1"></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb103-6"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-6" tabindex="-1"></a></span>
+<span id="cb103-7"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-7" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
+<span id="cb103-8"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb103-8" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="about-these-data" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">E.2.2</span> About these data<a href="lab-5-data-story-work-wrangling-warm-up.html#about-these-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The data are part of the Portal Project Teaching Database <a href="https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10">https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10</a>.
 They come from a long-term mammal and plant monitoring study in the Chihuahuan
 Desert near Portal, Arizona.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-1" tabindex="-1"></a><span class="co"># getting a sense of our variables</span></span>
-<span id="cb106-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-2" tabindex="-1"></a><span class="fu">glimpse</span>(mammals)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb104-1" tabindex="-1"></a><span class="co"># getting a sense of our variables</span></span>
+<span id="cb104-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb104-2" tabindex="-1"></a><span class="fu">glimpse</span>(mammals)</span></code></pre></div>
 <pre><code>## Rows: 34,786
 ## Columns: 13
 ## $ record_id       &lt;int&gt; 1, 72, 224, 266, 349, 363, 435, 506, 588, 661, 748, 845, 990, 1164…
@@ -403,10 +403,10 @@ were excluded, or a plot where only one species was excluded
 <p>Your first activity is to explore size relationships on a filtered subset
 of these data, looking at just a few species. We will get you started with
 some code to filter the data.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb108-1" tabindex="-1"></a><span class="co"># selecting only genus Dipodomys, and only for the control plots</span></span>
-<span id="cb108-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb108-2" tabindex="-1"></a><span class="co"># then removing any individuals who were not identified to species (the &quot;sp.&quot;)</span></span>
-<span id="cb108-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb108-3" tabindex="-1"></a>dipodomys <span class="ot">&lt;-</span> <span class="fu">filter</span>(mammals, genus <span class="sc">==</span> <span class="st">&quot;Dipodomys&quot;</span> <span class="sc">&amp;</span> plot_type <span class="sc">==</span> <span class="st">&quot;Control&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb108-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb108-4" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-1" tabindex="-1"></a><span class="co"># selecting only genus Dipodomys, and only for the control plots</span></span>
+<span id="cb106-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-2" tabindex="-1"></a><span class="co"># then removing any individuals who were not identified to species (the &quot;sp.&quot;)</span></span>
+<span id="cb106-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-3" tabindex="-1"></a>dipodomys <span class="ot">&lt;-</span> <span class="fu">filter</span>(mammals, genus <span class="sc">==</span> <span class="st">&quot;Dipodomys&quot;</span> <span class="sc">&amp;</span> plot_type <span class="sc">==</span> <span class="st">&quot;Control&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb106-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb106-4" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>)</span></code></pre></div>
 <p>We will learn more about the pipe, <code>|&gt;</code>, next week. It is basically saying
 “Then do this”, and passing your data frame on to the next line. It allows you
 to not have to re-enter the name of the data frame at every step of tidying
@@ -417,18 +417,18 @@ as <em>Dipodomys sp.</em> rather than the name of a specific species. (When you 
 <p>We now have a simplified data frame for only the three kangaroo rat species.
 Here are two examples of visualizing the hindfoot and weight relationships for
 each species.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-1" tabindex="-1"></a><span class="co"># scatterplot with color</span></span>
-<span id="cb109-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
-<span id="cb109-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight, <span class="at">color =</span> species_id)) <span class="sc">+</span></span>
-<span id="cb109-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb107-1" tabindex="-1"></a><span class="co"># scatterplot with color</span></span>
+<span id="cb107-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb107-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
+<span id="cb107-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb107-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight, <span class="at">color =</span> species_id)) <span class="sc">+</span></span>
+<span id="cb107-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb107-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 832 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-1" tabindex="-1"></a><span class="co"># faceting by species</span></span>
-<span id="cb111-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
-<span id="cb111-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
-<span id="cb111-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb111-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-1" tabindex="-1"></a><span class="co"># faceting by species</span></span>
+<span id="cb109-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
+<span id="cb109-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb109-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb109-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb109-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code></pre></div>
 <pre><code>## Warning: Removed 832 rows containing missing values or values outside the scale range
 ## (`geom_point()`).</code></pre>
 <p><img src="bookdownproj_files/figure-html/unnamed-chunk-59-2.png" width="672" /></p>
@@ -438,7 +438,7 @@ each species.</p>
 frame called <code>sigmodon</code> that includes only species in the genus Sigmodon. With
 these new data, create a violin plot of hindfoot length, colored by sex, and
 faceted by species. You should find the code above to be very helpful.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb113-1" tabindex="-1"></a><span class="co"># write your code and comments in this chunk</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb111-1" tabindex="-1"></a><span class="co"># write your code and comments in this chunk</span></span></code></pre></div>
 </div>
 </div>
 <div id="part-2-a-wrangling-plan" class="section level2 hasAnchor" number="10.4">
@@ -487,27 +487,27 @@ folder on Google Drive.</p>
 <h3><span class="header-section-number">E.6.1</span> Transforming the data (scary code behind the scenes)<a href="lab-5-data-story-work-wrangling-warm-up.html#transforming-the-data-scary-code-behind-the-scenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Run the code below to create a new data frame that summarizes the diversity
 at each plot for each year.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-1" tabindex="-1"></a><span class="co"># creating a function to calculate Shannon&#39;s diversity index</span></span>
-<span id="cb114-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-2" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="cf">function</span>(x)</span>
-<span id="cb114-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-3" tabindex="-1"></a>{</span>
-<span id="cb114-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-4" tabindex="-1"></a>  proportions <span class="ot">&lt;-</span> <span class="fu">table</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
-<span id="cb114-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-5" tabindex="-1"></a>  D <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(proportions<span class="sc">*</span><span class="fu">log</span>(proportions))</span>
-<span id="cb114-6"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-6" tabindex="-1"></a>  <span class="fu">return</span>(D)</span>
-<span id="cb114-7"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-7" tabindex="-1"></a>}</span>
-<span id="cb114-8"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-8" tabindex="-1"></a></span>
-<span id="cb114-9"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-9" tabindex="-1"></a><span class="co"># calculating the diversity of rodents in two ways, after filtering data</span></span>
-<span id="cb114-10"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-10" tabindex="-1"></a>mammals_diversity <span class="ot">&lt;-</span> mammals <span class="sc">|&gt;</span></span>
-<span id="cb114-11"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-11" tabindex="-1"></a>  <span class="fu">filter</span>(taxa <span class="sc">==</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> genus <span class="sc">!=</span> <span class="st">&quot;Dipodomys&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb114-12"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-12" tabindex="-1"></a>  <span class="fu">filter</span>(genus <span class="sc">!=</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb114-13"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-13" tabindex="-1"></a>  <span class="fu">group_by</span>(plot_id, year) <span class="sc">|&gt;</span></span>
-<span id="cb114-14"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-14" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">richness =</span> <span class="fu">length</span>(<span class="fu">unique</span>(species_id)),</span>
-<span id="cb114-15"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-15" tabindex="-1"></a>            <span class="at">shannon_d =</span> <span class="fu">shannon</span>(species_id)) <span class="sc">|&gt;</span></span>
-<span id="cb114-16"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">plot_type =</span> <span class="fu">case_match</span>(plot_id,</span>
-<span id="cb114-17"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-17" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">17</span>,<span class="dv">22</span>) <span class="sc">~</span> <span class="st">&quot;control&quot;</span>,</span>
-<span id="cb114-18"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-18" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">21</span>) <span class="sc">~</span> <span class="st">&quot;krat long-term exclosure&quot;</span>,</span>
-<span id="cb114-19"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-19" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">23</span>,<span class="dv">24</span>) <span class="sc">~</span> <span class="st">&quot;all rodent exclosure&quot;</span>,</span>
-<span id="cb114-20"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-20" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">20</span>) <span class="sc">~</span> <span class="st">&quot;krat short-term exclosure&quot;</span>,</span>
-<span id="cb114-21"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-21" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>) <span class="sc">~</span> <span class="st">&quot;spectab exclosure&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-1" tabindex="-1"></a><span class="co"># creating a function to calculate Shannon&#39;s diversity index</span></span>
+<span id="cb112-2"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-2" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="cf">function</span>(x)</span>
+<span id="cb112-3"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-3" tabindex="-1"></a>{</span>
+<span id="cb112-4"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-4" tabindex="-1"></a>  proportions <span class="ot">&lt;-</span> <span class="fu">table</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb112-5"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-5" tabindex="-1"></a>  D <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(proportions<span class="sc">*</span><span class="fu">log</span>(proportions))</span>
+<span id="cb112-6"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-6" tabindex="-1"></a>  <span class="fu">return</span>(D)</span>
+<span id="cb112-7"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-7" tabindex="-1"></a>}</span>
+<span id="cb112-8"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-8" tabindex="-1"></a></span>
+<span id="cb112-9"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-9" tabindex="-1"></a><span class="co"># calculating the diversity of rodents in two ways, after filtering data</span></span>
+<span id="cb112-10"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-10" tabindex="-1"></a>mammals_diversity <span class="ot">&lt;-</span> mammals <span class="sc">|&gt;</span></span>
+<span id="cb112-11"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-11" tabindex="-1"></a>  <span class="fu">filter</span>(taxa <span class="sc">==</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> genus <span class="sc">!=</span> <span class="st">&quot;Dipodomys&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb112-12"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-12" tabindex="-1"></a>  <span class="fu">filter</span>(genus <span class="sc">!=</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb112-13"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-13" tabindex="-1"></a>  <span class="fu">group_by</span>(plot_id, year) <span class="sc">|&gt;</span></span>
+<span id="cb112-14"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-14" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">richness =</span> <span class="fu">length</span>(<span class="fu">unique</span>(species_id)),</span>
+<span id="cb112-15"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-15" tabindex="-1"></a>            <span class="at">shannon_d =</span> <span class="fu">shannon</span>(species_id)) <span class="sc">|&gt;</span></span>
+<span id="cb112-16"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">plot_type =</span> <span class="fu">case_match</span>(plot_id,</span>
+<span id="cb112-17"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-17" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">17</span>,<span class="dv">22</span>) <span class="sc">~</span> <span class="st">&quot;control&quot;</span>,</span>
+<span id="cb112-18"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-18" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">21</span>) <span class="sc">~</span> <span class="st">&quot;krat long-term exclosure&quot;</span>,</span>
+<span id="cb112-19"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-19" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">23</span>,<span class="dv">24</span>) <span class="sc">~</span> <span class="st">&quot;all rodent exclosure&quot;</span>,</span>
+<span id="cb112-20"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-20" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">20</span>) <span class="sc">~</span> <span class="st">&quot;krat short-term exclosure&quot;</span>,</span>
+<span id="cb112-21"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb112-21" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>) <span class="sc">~</span> <span class="st">&quot;spectab exclosure&quot;</span>))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;plot_id&#39;. You can override using the `.groups`
 ## argument.</code></pre>
 <p>We have two different measurements of diversity. The <code>richness</code> column
@@ -530,7 +530,7 @@ x-values, y-values, colors, facets, etc. Remember that we have two different
 measures of diversity. This kind of quick plotting in many ways is a key part
 of exploratory data analysis.</p>
 <p><strong><em>Create an effective figure to illustrate a pattern that you have found.</em></strong></p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb116-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="lab-5-data-story-work-wrangling-warm-up.html#cb114-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
 
 </div>
 </div>

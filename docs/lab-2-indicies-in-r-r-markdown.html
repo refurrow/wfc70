@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -381,27 +381,27 @@ and have that code run to generate interesting plots or other outputs.</p>
 <div id="part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">B.3</span> Part 2: Indices and column names (5 minutes, instructor will lead)<a href="lab-2-indicies-in-r-r-markdown.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s pull up last week’s data very quickly.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb37-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
-<span id="cb37-2"><a href="lab-2-indicies-in-r-r-markdown.html#cb37-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
-<span id="cb37-3"><a href="lab-2-indicies-in-r-r-markdown.html#cb37-3" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="lab-2-indicies-in-r-r-markdown.html#cb37-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb35-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
+<span id="cb35-2"><a href="lab-2-indicies-in-r-r-markdown.html#cb35-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb35-3"><a href="lab-2-indicies-in-r-r-markdown.html#cb35-3" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="lab-2-indicies-in-r-r-markdown.html#cb35-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
 <p>It is often the case that you want to select only a particular column in a
 data frame, or a particular value in a vector. Let’s see first, then discuss.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb38-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb36-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] 1337</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb40-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb38-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
 <pre><code>## [1] 2019 2020 2021 2022</code></pre>
 <p>You should note that <code>idaho_wolves[4]</code> outputs the 4th value in that vector
 (1337). And that <code>idaho$year</code> shows you the entire <code>year</code> column in the
 data frame <code>idaho</code>.</p>
 <p>Let’s look at some more complex code.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb42-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb40-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 1545 1556 1543</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb44-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb42-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>## [1] 1545 1543</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb46-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb44-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 2020</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb46-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 2019</code></pre>
 <p>A few things to unpack. First, we used a very odd function (the <code>:</code> operator),
 which is a quick way for R to create a vector that is a sequence of numbers.<br />
@@ -422,12 +422,12 @@ plotting.</p>
 <div id="part-3-index-work-on-your-own-10-minutes-on-your-own" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">B.4</span> Part 3: Index work on your own (10 minutes, on your own)<a href="lab-2-indicies-in-r-r-markdown.html#part-3-index-work-on-your-own-10-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are some new data.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
-<span id="cb50-2"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
-<span id="cb50-3"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
-<span id="cb50-4"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
-<span id="cb50-5"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
-<span id="cb50-6"><a href="lab-2-indicies-in-r-r-markdown.html#cb50-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
+<span id="cb48-2"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
+<span id="cb48-3"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb48-4"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
+<span id="cb48-5"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
+<span id="cb48-6"><a href="lab-2-indicies-in-r-r-markdown.html#cb48-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
 <p>We did something cute, and added a third column that just says “montana” in
 literally every row. (Nice to keep the state associated with the data
 in the other columns.)</p>
@@ -439,7 +439,7 @@ in the other columns.)</p>
 <li><p>Create a new <code>idaho</code> data frame that includes a population column, a year
 column, and a state column that just says “idaho” in every entry.</p></li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb51-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="lab-2-indicies-in-r-r-markdown.html#cb49-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
 </div>
 <div id="part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="section level2 hasAnchor" number="7.5">
 <h2><span class="header-section-number">B.5</span> Part 4: Messing around with R Markdown (15 minutes, on your own)<a href="lab-2-indicies-in-r-r-markdown.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>

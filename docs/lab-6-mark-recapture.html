@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="appendix"><span><b>WFC Lab 1 (2025)</b></span></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels.html"><a href="lab-1-r-data-and-the-rstudio-panels.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
@@ -356,32 +356,32 @@ Experimental Range.<br />
 that you don’t even have to do the Schnabel calculation by hand. With the
 right vectors for M, T, and R, that final line does the multiplying, adding,
 and dividing, and should yield exactly what we found during lecture.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lab-6-mark-recapture.html#cb117-1" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
-<span id="cb117-2"><a href="lab-6-mark-recapture.html#cb117-2" tabindex="-1"></a></span>
-<span id="cb117-3"><a href="lab-6-mark-recapture.html#cb117-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lab-6-mark-recapture.html#cb118-1" tabindex="-1"></a><span class="co">#loading data</span></span>
-<span id="cb118-2"><a href="lab-6-mark-recapture.html#cb118-2" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="lab-6-mark-recapture.html#cb118-3" tabindex="-1"></a>sjer_jan17 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/mam_pertrapnight_2017_01_basic.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lab-6-mark-recapture.html#cb119-1" tabindex="-1"></a> <span class="co">#wrangling for a simpler data set with just one species</span></span>
-<span id="cb119-2"><a href="lab-6-mark-recapture.html#cb119-2" tabindex="-1"></a> </span>
-<span id="cb119-3"><a href="lab-6-mark-recapture.html#cb119-3" tabindex="-1"></a>pebo_jan17 <span class="ot">&lt;-</span> sjer_jan17 <span class="sc">|&gt;</span>  <span class="co">#start with the full data, THEN</span></span>
-<span id="cb119-4"><a href="lab-6-mark-recapture.html#cb119-4" tabindex="-1"></a>  <span class="fu">filter</span>(scientificName <span class="sc">==</span> <span class="st">&quot;Peromyscus boylii&quot;</span>) <span class="sc">|&gt;</span> <span class="co">#filter for P. boylii, THEN</span></span>
-<span id="cb119-5"><a href="lab-6-mark-recapture.html#cb119-5" tabindex="-1"></a>  <span class="fu">select</span>(collectDate, tagID, recapture, fate, plotID, nlcdClass) <span class="co"># selecting only these columns</span></span>
-<span id="cb119-6"><a href="lab-6-mark-recapture.html#cb119-6" tabindex="-1"></a></span>
-<span id="cb119-7"><a href="lab-6-mark-recapture.html#cb119-7" tabindex="-1"></a><span class="co"># creating a table from the date column and the recapture column</span></span>
-<span id="cb119-8"><a href="lab-6-mark-recapture.html#cb119-8" tabindex="-1"></a> </span>
-<span id="cb119-9"><a href="lab-6-mark-recapture.html#cb119-9" tabindex="-1"></a>pebo_table <span class="ot">&lt;-</span> <span class="fu">table</span>(pebo_jan17<span class="sc">$</span>collectDate,pebo_jan17<span class="sc">$</span>recapture)</span>
-<span id="cb119-10"><a href="lab-6-mark-recapture.html#cb119-10" tabindex="-1"></a>pebo_table</span>
-<span id="cb119-11"><a href="lab-6-mark-recapture.html#cb119-11" tabindex="-1"></a></span>
-<span id="cb119-12"><a href="lab-6-mark-recapture.html#cb119-12" tabindex="-1"></a> <span class="co">#entering our mark-recapture data</span></span>
-<span id="cb119-13"><a href="lab-6-mark-recapture.html#cb119-13" tabindex="-1"></a> </span>
-<span id="cb119-14"><a href="lab-6-mark-recapture.html#cb119-14" tabindex="-1"></a>pebo_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">14</span>)</span>
-<span id="cb119-15"><a href="lab-6-mark-recapture.html#cb119-15" tabindex="-1"></a>pebo_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">6</span>)</span>
-<span id="cb119-16"><a href="lab-6-mark-recapture.html#cb119-16" tabindex="-1"></a>pebo_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
-<span id="cb119-17"><a href="lab-6-mark-recapture.html#cb119-17" tabindex="-1"></a></span>
-<span id="cb119-18"><a href="lab-6-mark-recapture.html#cb119-18" tabindex="-1"></a> <span class="co">#adding up sum of M*T values, then dividing by sum of R values</span></span>
-<span id="cb119-19"><a href="lab-6-mark-recapture.html#cb119-19" tabindex="-1"></a> </span>
-<span id="cb119-20"><a href="lab-6-mark-recapture.html#cb119-20" tabindex="-1"></a><span class="fu">sum</span>(pebo_M<span class="sc">*</span>pebo_T)<span class="sc">/</span><span class="fu">sum</span>(pebo_R)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-6-mark-recapture.html#cb115-1" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
+<span id="cb115-2"><a href="lab-6-mark-recapture.html#cb115-2" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="lab-6-mark-recapture.html#cb115-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lab-6-mark-recapture.html#cb116-1" tabindex="-1"></a><span class="co">#loading data</span></span>
+<span id="cb116-2"><a href="lab-6-mark-recapture.html#cb116-2" tabindex="-1"></a></span>
+<span id="cb116-3"><a href="lab-6-mark-recapture.html#cb116-3" tabindex="-1"></a>sjer_jan17 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/mam_pertrapnight_2017_01_basic.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lab-6-mark-recapture.html#cb117-1" tabindex="-1"></a> <span class="co">#wrangling for a simpler data set with just one species</span></span>
+<span id="cb117-2"><a href="lab-6-mark-recapture.html#cb117-2" tabindex="-1"></a> </span>
+<span id="cb117-3"><a href="lab-6-mark-recapture.html#cb117-3" tabindex="-1"></a>pebo_jan17 <span class="ot">&lt;-</span> sjer_jan17 <span class="sc">|&gt;</span>  <span class="co">#start with the full data, THEN</span></span>
+<span id="cb117-4"><a href="lab-6-mark-recapture.html#cb117-4" tabindex="-1"></a>  <span class="fu">filter</span>(scientificName <span class="sc">==</span> <span class="st">&quot;Peromyscus boylii&quot;</span>) <span class="sc">|&gt;</span> <span class="co">#filter for P. boylii, THEN</span></span>
+<span id="cb117-5"><a href="lab-6-mark-recapture.html#cb117-5" tabindex="-1"></a>  <span class="fu">select</span>(collectDate, tagID, recapture, fate, plotID, nlcdClass) <span class="co"># selecting only these columns</span></span>
+<span id="cb117-6"><a href="lab-6-mark-recapture.html#cb117-6" tabindex="-1"></a></span>
+<span id="cb117-7"><a href="lab-6-mark-recapture.html#cb117-7" tabindex="-1"></a><span class="co"># creating a table from the date column and the recapture column</span></span>
+<span id="cb117-8"><a href="lab-6-mark-recapture.html#cb117-8" tabindex="-1"></a> </span>
+<span id="cb117-9"><a href="lab-6-mark-recapture.html#cb117-9" tabindex="-1"></a>pebo_table <span class="ot">&lt;-</span> <span class="fu">table</span>(pebo_jan17<span class="sc">$</span>collectDate,pebo_jan17<span class="sc">$</span>recapture)</span>
+<span id="cb117-10"><a href="lab-6-mark-recapture.html#cb117-10" tabindex="-1"></a>pebo_table</span>
+<span id="cb117-11"><a href="lab-6-mark-recapture.html#cb117-11" tabindex="-1"></a></span>
+<span id="cb117-12"><a href="lab-6-mark-recapture.html#cb117-12" tabindex="-1"></a> <span class="co">#entering our mark-recapture data</span></span>
+<span id="cb117-13"><a href="lab-6-mark-recapture.html#cb117-13" tabindex="-1"></a> </span>
+<span id="cb117-14"><a href="lab-6-mark-recapture.html#cb117-14" tabindex="-1"></a>pebo_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">14</span>)</span>
+<span id="cb117-15"><a href="lab-6-mark-recapture.html#cb117-15" tabindex="-1"></a>pebo_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">6</span>)</span>
+<span id="cb117-16"><a href="lab-6-mark-recapture.html#cb117-16" tabindex="-1"></a>pebo_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb117-17"><a href="lab-6-mark-recapture.html#cb117-17" tabindex="-1"></a></span>
+<span id="cb117-18"><a href="lab-6-mark-recapture.html#cb117-18" tabindex="-1"></a> <span class="co">#adding up sum of M*T values, then dividing by sum of R values</span></span>
+<span id="cb117-19"><a href="lab-6-mark-recapture.html#cb117-19" tabindex="-1"></a> </span>
+<span id="cb117-20"><a href="lab-6-mark-recapture.html#cb117-20" tabindex="-1"></a><span class="fu">sum</span>(pebo_M<span class="sc">*</span>pebo_T)<span class="sc">/</span><span class="fu">sum</span>(pebo_R)</span></code></pre></div>
 <p>You estimate 22 individuals in this population, using the Schnabel estimator.
 Okay, in a moment we will set you loose to try things on your own, but
 first let’s do a quick <code>_join()</code>.</p>
@@ -393,10 +393,10 @@ precipitation, so it would be interesting to see whether our sample size
 varies depending on the weather conditions. (For example, if our mice
 are inactive in very cold weather, we will expect to catch fewer mice in
 our traps on cold nights.)</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="lab-6-mark-recapture.html#cb120-1" tabindex="-1"></a><span class="co"># weather for the site</span></span>
-<span id="cb120-2"><a href="lab-6-mark-recapture.html#cb120-2" tabindex="-1"></a><span class="co"># the csv was having formatting issues, so we switched here to loading</span></span>
-<span id="cb120-3"><a href="lab-6-mark-recapture.html#cb120-3" tabindex="-1"></a><span class="co"># a txt file using read.delim()</span></span>
-<span id="cb120-4"><a href="lab-6-mark-recapture.html#cb120-4" tabindex="-1"></a>sjer_weather <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/sjer_weather.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lab-6-mark-recapture.html#cb118-1" tabindex="-1"></a><span class="co"># weather for the site</span></span>
+<span id="cb118-2"><a href="lab-6-mark-recapture.html#cb118-2" tabindex="-1"></a><span class="co"># the csv was having formatting issues, so we switched here to loading</span></span>
+<span id="cb118-3"><a href="lab-6-mark-recapture.html#cb118-3" tabindex="-1"></a><span class="co"># a txt file using read.delim()</span></span>
+<span id="cb118-4"><a href="lab-6-mark-recapture.html#cb118-4" tabindex="-1"></a>sjer_weather <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/sjer_weather.txt&quot;</span>)</span></code></pre></div>
 <p>We have many fewer rows, because for each night we just have a single
 suite of measurements (rather than separate rows for each individual
 caught in our original data). <code>lowTemp</code> is the lowest temperature that night
@@ -478,14 +478,14 @@ function.)
 <p>Enter your data below, and uncomment and run the lines afterwards. You have
 four nights (three resamples), so you’ll have three values each for
 M, T, and R.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="lab-6-mark-recapture.html#cb122-1" tabindex="-1"></a><span class="co">#uncomment the lines below and fill in the right values for the</span></span>
-<span id="cb122-2"><a href="lab-6-mark-recapture.html#cb122-2" tabindex="-1"></a><span class="co">#M, T, and R vectors</span></span>
-<span id="cb122-3"><a href="lab-6-mark-recapture.html#cb122-3" tabindex="-1"></a></span>
-<span id="cb122-4"><a href="lab-6-mark-recapture.html#cb122-4" tabindex="-1"></a><span class="co">#rema_M &lt;- c()</span></span>
-<span id="cb122-5"><a href="lab-6-mark-recapture.html#cb122-5" tabindex="-1"></a><span class="co">#rema_T &lt;- c()</span></span>
-<span id="cb122-6"><a href="lab-6-mark-recapture.html#cb122-6" tabindex="-1"></a><span class="co">#rema_R &lt;- c()</span></span>
-<span id="cb122-7"><a href="lab-6-mark-recapture.html#cb122-7" tabindex="-1"></a></span>
-<span id="cb122-8"><a href="lab-6-mark-recapture.html#cb122-8" tabindex="-1"></a><span class="co">#sum(rema_M*rema_T)/sum(rema_R)</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="lab-6-mark-recapture.html#cb120-1" tabindex="-1"></a><span class="co">#uncomment the lines below and fill in the right values for the</span></span>
+<span id="cb120-2"><a href="lab-6-mark-recapture.html#cb120-2" tabindex="-1"></a><span class="co">#M, T, and R vectors</span></span>
+<span id="cb120-3"><a href="lab-6-mark-recapture.html#cb120-3" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="lab-6-mark-recapture.html#cb120-4" tabindex="-1"></a><span class="co">#rema_M &lt;- c()</span></span>
+<span id="cb120-5"><a href="lab-6-mark-recapture.html#cb120-5" tabindex="-1"></a><span class="co">#rema_T &lt;- c()</span></span>
+<span id="cb120-6"><a href="lab-6-mark-recapture.html#cb120-6" tabindex="-1"></a><span class="co">#rema_R &lt;- c()</span></span>
+<span id="cb120-7"><a href="lab-6-mark-recapture.html#cb120-7" tabindex="-1"></a></span>
+<span id="cb120-8"><a href="lab-6-mark-recapture.html#cb120-8" tabindex="-1"></a><span class="co">#sum(rema_M*rema_T)/sum(rema_R)</span></span></code></pre></div>
 <ul>
 <li><strong><em>What is your final estimate for the Feb 2017 population size?</em></strong></li>
 </ul>
@@ -500,7 +500,7 @@ you are using),</li>
 <li>use <code>bind_rows()</code> to combine the summary from Jan and Feb,</li>
 <li>create a plot of temperature versus sample size for both month’s data.</li>
 </ul>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lab-6-mark-recapture.html#cb123-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-6-mark-recapture.html#cb121-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
 </div>
 </div>
 <div id="wrapping-up-5-minutes-5" class="section level2 hasAnchor" number="11.3">
