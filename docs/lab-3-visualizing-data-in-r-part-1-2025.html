@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>E Lab 3: Visualizing data in R (Part 1) (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="E Lab 3: Visualizing data in R (Part 1) (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="E Lab 3: Visualizing data in R (Part 1) (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="E Lab 3: Visualizing data in R (Part 1) (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  
+  
+  
+
+<meta name="author" content="Rob Furrow" />
+
+
+<meta name="date" content="2025-10-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"/>
+<link rel="next" href="lab-4-visualizing-data-in-r-part-2.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WFC70</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to WFC 70</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="getting-started.html"><a href="getting-started.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>0.1</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-with-labs"><i class="fa fa-check"></i><b>0.2</b> Getting Started With Labs</a></li>
+<li class="chapter" data-level="0.3" data-path="getting-started.html"><a href="getting-started.html#working-from-home"><i class="fa fa-check"></i><b>0.3</b> Working From Home</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html"><i class="fa fa-check"></i><b>1</b> Intro to R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#packages"><i class="fa fa-check"></i><b>1.1</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#installing-packages"><i class="fa fa-check"></i><b>1.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#finding-packages"><i class="fa fa-check"></i><b>1.1.2</b> Finding Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#knitting"><i class="fa fa-check"></i><b>1.2</b> Knitting</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="code-not-working.html"><a href="code-not-working.html"><i class="fa fa-check"></i><b>2</b> Code not Working?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="code-not-working.html"><a href="code-not-working.html#checklist"><i class="fa fa-check"></i><b>2.1</b> Checklist</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="code-not-working.html"><a href="code-not-working.html#example-fix-the-code"><i class="fa fa-check"></i><b>2.1.1</b> Example: Fix the Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#finding-data"><i class="fa fa-check"></i><b>3.1</b> Finding Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>4.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>4.1.1</b> Filter</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>4.1.2</b> Joins</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>4.1.3</b> Select</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>4.1.4</b> Mutate</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>4.1.5</b> Pivot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>4.2</b> Tying Everything Together</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>4.2.1</b> Checklist</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>4.2.2</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#types-of-graphs"><i class="fa fa-check"></i><b>5.1</b> Types of Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization.html"><a href="data-visualization.html#violin-plot"><i class="fa fa-check"></i><b>5.1.2</b> Violin Plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.4</b> Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
+</ul></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
+<li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels (2025)</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#the-command-line-console-versus-a-r-script"><i class="fa fa-check"></i><b>A.1.1</b> The command line / “Console” versus a R script</a></li>
+<li class="chapter" data-level="A.1.2" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#r-data-is-often-stored-in-vectors"><i class="fa fa-check"></i><b>A.1.2</b> R data is often stored in “vectors”</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-2-trying-things-out-yourselves-10-minutes-on-your-own"><i class="fa fa-check"></i><b>A.2</b> Part 2: Trying things out yourselves (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="A.3" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-3-making-toast-10-minutes-total"><i class="fa fa-check"></i><b>A.3</b> Part 3: Making toast (10 minutes total)</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#class-discussion-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.3.1</b> Class discussion (5 minutes, instructor will lead)</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-4-data-frames-to-link-data-together-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.4</b> Part 4: Data frames to link data together (5 minutes, instructor will lead)</a></li>
+<li class="chapter" data-level="A.5" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#wrapping-up-5-minutes"><i class="fa fa-check"></i><b>A.5</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="A.6" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#extra-material-for-interest-will-not-be-assessed-on-any-homework"><i class="fa fa-check"></i><b>A.6</b> Extra material for interest (will not be assessed on any homework)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html"><i class="fa fa-check"></i><b>B</b> Lab 2: Indicies in R, R Markdown (2025)</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>B.1</b> Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#r-vs.-rstudio"><i class="fa fa-check"></i><b>B.1.1</b> R vs. RStudio</a></li>
+<li class="chapter" data-level="B.1.2" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#r-scripts-.r-files-vs.-r-markdown-files-.rmd"><i class="fa fa-check"></i><b>B.1.2</b> R scripts (.R files) vs. R Markdown files (.Rmd)</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>B.2</b> Part 2: Indices and column names (5 minutes, instructor will lead)</a></li>
+<li class="chapter" data-level="B.3" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#part-3-index-work-on-your-own-10-minutes-on-your-own"><i class="fa fa-check"></i><b>B.3</b> Part 3: Index work on your own (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="B.4" data-path="lab-2-indicies-in-r-r-markdown-2025.html"><a href="lab-2-indicies-in-r-r-markdown-2025.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own"><i class="fa fa-check"></i><b>B.4</b> Part 4: Messing around with R Markdown (15 minutes, on your own)</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="put-something-here..html"><a href="put-something-here..html"><i class="fa fa-check"></i><b>C</b> Put something here.</a>
+<ul>
+<li class="chapter" data-level="C.0.1" data-path="put-something-here..html"><a href="put-something-here..html#put-something-else-here."><i class="fa fa-check"></i><b>C.0.1</b> Put something else here.</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"><a href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"><i class="fa fa-check"></i><b>D</b> Here I am writing a regular sentence, it should not be big and weird!</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"><a href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html#wrapping-up-5-minutes-1"><i class="fa fa-check"></i><b>D.1</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="D.2" data-path="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"><a href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html#extra-material-for-interest"><i class="fa fa-check"></i><b>D.2</b> Extra material for interest</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html"><i class="fa fa-check"></i><b>E</b> Lab 3: Visualizing data in R (Part 1) (2025)</a>
+<ul>
+<li class="chapter" data-level="E.0.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources"><i class="fa fa-check"></i><b>E.0.1</b> Resources</a></li>
+<li class="chapter" data-level="E.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-packages-in-r-covered-in-lecture-so-only-here-for-reference"><i class="fa fa-check"></i><b>E.1</b> Part 1: Packages in R (covered in lecture, so only here for reference)</a>
+<ul>
+<li class="chapter" data-level="E.1.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#installing-an-r-package"><i class="fa fa-check"></i><b>E.1.1</b> Installing an R package</a></li>
+<li class="chapter" data-level="E.1.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-an-r-package"><i class="fa fa-check"></i><b>E.1.2</b> Loading an R package</a></li>
+<li class="chapter" data-level="E.1.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1b-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>E.1.3</b> Part 1b (5 minutes, instructor leading)</a></li>
+</ul></li>
+<li class="chapter" data-level="E.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-2-using-ggplot-for-plotting-in-r-15-minutes-self-led"><i class="fa fa-check"></i><b>E.2</b> Part 2: Using ggplot() for plotting in R (15 minutes, self-led)</a></li>
+<li class="chapter" data-level="E.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-3-exploring-15-minutes-self-led"><i class="fa fa-check"></i><b>E.3</b> Part 3: Exploring (15 minutes, self-led)</a></li>
+<li class="chapter" data-level="E.4" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-2"><i class="fa fa-check"></i><b>E.4</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="E.5" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material"><i class="fa fa-check"></i><b>E.5</b> Extra material</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html"><i class="fa fa-check"></i><b>F</b> Lab 4: Visualizing data in R (Part 2)</a>
+<ul>
+<li class="chapter" data-level="F.0.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#resources-1"><i class="fa fa-check"></i><b>F.0.1</b> Resources</a></li>
+<li class="chapter" data-level="F.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#part-0-figure-of-the-week-5-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>F.1</b> Part 0: Figure of the week (5-10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="F.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#part-1-new-data-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>F.2</b> Part 1: New data! (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="F.2.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#loading-data"><i class="fa fa-check"></i><b>F.2.1</b> Loading data</a></li>
+<li class="chapter" data-level="F.2.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#about-these-data-for-reference-not-for-discussion-during-lab"><i class="fa fa-check"></i><b>F.2.2</b> About these data (for reference, not for discussion during lab)</a></li>
+</ul></li>
+<li class="chapter" data-level="F.3" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#independent-work-25-minutes"><i class="fa fa-check"></i><b>F.3</b> Independent work (25 minutes)</a>
+<ul>
+<li class="chapter" data-level="F.3.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-1-working-with-geom_jitter"><i class="fa fa-check"></i><b>F.3.1</b> Task 1: working with <code>geom_jitter()</code></a></li>
+<li class="chapter" data-level="F.3.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#making-consistent-changes-to-data-attributes"><i class="fa fa-check"></i><b>F.3.2</b> Making consistent changes to data attributes</a></li>
+<li class="chapter" data-level="F.3.3" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-2-changing-attributes-throughout-a-plot"><i class="fa fa-check"></i><b>F.3.3</b> Task 2: changing attributes throughout a plot</a></li>
+<li class="chapter" data-level="F.3.4" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#adding-a-theme"><i class="fa fa-check"></i><b>F.3.4</b> Adding a theme</a></li>
+<li class="chapter" data-level="F.3.5" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-3-themes"><i class="fa fa-check"></i><b>F.3.5</b> Task 3: themes</a></li>
+<li class="chapter" data-level="F.3.6" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#customizing-labels"><i class="fa fa-check"></i><b>F.3.6</b> Customizing labels</a></li>
+<li class="chapter" data-level="F.3.7" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#interlude-finding-data-for-the-data-story-assignment"><i class="fa fa-check"></i><b>F.3.7</b> Interlude: finding data for the Data Story assignment</a></li>
+<li class="chapter" data-level="F.3.8" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-4-nice-labels-time-permitting"><i class="fa fa-check"></i><b>F.3.8</b> Task 4: Nice labels (time permitting)</a></li>
+</ul></li>
+<li class="chapter" data-level="F.4" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#wrapping-up-5-minutes-3"><i class="fa fa-check"></i><b>F.4</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="F.5" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#extra-material-for-interest-will-not-be-assessed-on-any-homework-1"><i class="fa fa-check"></i><b>F.5</b> Extra material for interest (will not be assessed on any homework)</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html"><i class="fa fa-check"></i><b>G</b> Lab 5: Data Story Work, Wrangling Warm-up</a>
+<ul>
+<li class="chapter" data-level="G.0.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#resources-2"><i class="fa fa-check"></i><b>G.0.1</b> Resources</a></li>
+<li class="chapter" data-level="G.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-0-figure-of-the-week-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>G.1</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="G.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-1-new-data-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>G.2</b> Part 1: New data! (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="G.2.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#loading-data-1"><i class="fa fa-check"></i><b>G.2.1</b> Loading data</a></li>
+<li class="chapter" data-level="G.2.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#about-these-data"><i class="fa fa-check"></i><b>G.2.2</b> About these data</a></li>
+</ul></li>
+<li class="chapter" data-level="G.3" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-1-visualizing-size-relationships"><i class="fa fa-check"></i><b>G.3</b> Part 1: visualizing size relationships</a>
+<ul>
+<li class="chapter" data-level="G.3.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#your-task-10-minutes"><i class="fa fa-check"></i><b>G.3.1</b> Your task (10 minutes)</a></li>
+</ul></li>
+<li class="chapter" data-level="G.4" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-2-a-wrangling-plan"><i class="fa fa-check"></i><b>G.4</b> Part 2: a wrangling plan</a></li>
+<li class="chapter" data-level="G.5" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#wrapping-up-5-minutes-4"><i class="fa fa-check"></i><b>G.5</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="G.6" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#extra-material-1"><i class="fa fa-check"></i><b>G.6</b> Extra material</a>
+<ul>
+<li class="chapter" data-level="G.6.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#transforming-the-data-scary-code-behind-the-scenes"><i class="fa fa-check"></i><b>G.6.1</b> Transforming the data (scary code behind the scenes)</a></li>
+<li class="chapter" data-level="G.6.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#your-task"><i class="fa fa-check"></i><b>G.6.2</b> Your task</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="H" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html"><i class="fa fa-check"></i><b>H</b> Lab 6: Mark-recapture</a>
+<ul>
+<li class="chapter" data-level="H.0.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#resources-3"><i class="fa fa-check"></i><b>H.0.1</b> Resources</a></li>
+<li class="chapter" data-level="H.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>H.1</b> Part 1: Reminder of lecture data (10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="H.2" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#adding-weather-data-joining-data-frames"><i class="fa fa-check"></i><b>H.2</b> Adding weather data (joining data frames)</a>
+<ul>
+<li class="chapter" data-level="H.2.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#more-joining-time-permitting"><i class="fa fa-check"></i><b>H.2.1</b> More joining (time permitting)</a></li>
+</ul></li>
+<li class="chapter" data-level="H.3" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#wrapping-up-5-minutes-5"><i class="fa fa-check"></i><b>H.3</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="H.4" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#extra-material-2"><i class="fa fa-check"></i><b>H.4</b> Extra material</a></li>
+</ul></li>
+<li class="chapter" data-level="I" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html"><i class="fa fa-check"></i><b>I</b> Lab 7: File Management, Troubleshooting, Data Story</a>
+<ul>
+<li class="chapter" data-level="I.0.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#resources-4"><i class="fa fa-check"></i><b>I.0.1</b> Resources</a></li>
+<li class="chapter" data-level="I.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#part-1-navigating-file-structure-10-minutes-on-your-own"><i class="fa fa-check"></i><b>I.1</b> Part 1: Navigating file structure (10 minutes, on your own)</a>
+<ul>
+<li class="chapter" data-level="I.1.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#unzipping-lab7_data.zip"><i class="fa fa-check"></i><b>I.1.1</b> Unzipping “Lab7_data.zip”</a></li>
+<li class="chapter" data-level="I.1.2" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#loading-the-data"><i class="fa fa-check"></i><b>I.1.2</b> Loading the data</a></li>
+</ul></li>
+<li class="chapter" data-level="I.2" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#part-2-dealing-with-wonky-data-10-minutes-on-your-own"><i class="fa fa-check"></i><b>I.2</b> Part 2: Dealing with wonky data (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="I.3" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#data-story-work-any-remaining-time"><i class="fa fa-check"></i><b>I.3</b> Data story work (any remaining time)</a></li>
+<li class="chapter" data-level="I.4" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#wrapping-up-5-minutes-6"><i class="fa fa-check"></i><b>I.4</b> Wrapping up (5 minutes)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab-3-visualizing-data-in-r-part-1-2025" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">E</span> Lab 3: Visualizing data in R (Part 1) (2025)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#lab-3-visualizing-data-in-r-part-1-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this lab, we will get into one of the really fun parts of R programming –
+<strong><em>making figures!</em></strong></p>
+<p>By the end of this lab, you should be able to:</p>
+<ul>
+<li>load an R package using the <code>library()</code> function,</li>
+<li>install R packages as needed using <code>install.packages()</code>,</li>
+<li>use the <code>ggplot2</code> package within the <code>tidyverse</code> to write simple code to
+plot data,</li>
+<li>create boxplots, histograms, and scatterplots to compare the distributions
+of different subgroups of data.</li>
+</ul>
+<div id="resources" class="section level3 hasAnchor" number="10.0.1">
+<h3><span class="header-section-number">E.0.1</span> Resources<a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This lab is loosely based on chapter 1 in the online textbook “R for Data
+Science” (second edition), which you can find online here:
+<a href="https://r4ds.hadley.nz/data-visualize" class="uri">https://r4ds.hadley.nz/data-visualize</a></p>
+<hr />
+</div>
+<div id="part-1-packages-in-r-covered-in-lecture-so-only-here-for-reference" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">E.1</span> Part 1: Packages in R (covered in lecture, so only here for reference)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-packages-in-r-covered-in-lecture-so-only-here-for-reference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Many functions and data in R are not instantly available. Instead, they are
+available online as “packages”. Packages extend the usefulness of R with new
+functions and data (and documentation/metadata), and they are hosted online in a
+standard way for easy installation and loading.</p>
+<div id="installing-an-r-package" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">E.1.1</span> Installing an R package<a href="lab-3-visualizing-data-in-r-part-1-2025.html#installing-an-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Installing an R package</em> is easy to do within RStudio. In the computer labs we
+have already installed most R packages that you will need for any coding in WFC
+70. However, when you are programming on your personal computer you will need to
+install any packages that need to be loaded for a particular lab or HW. <strong><em>You
+only need to install an R package once.</em></strong></p>
+<p>The code chunk below is only necessary if you are working on this lab at home,
+because these packages are already installed in the computer lab.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-1" tabindex="-1"></a><span class="co"># the line below is commented so it won&#39;t run.</span></span>
+<span id="cb50-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-2" tabindex="-1"></a><span class="co"># if you need to install the packages, delete the hashtag then run </span></span>
+<span id="cb50-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-3" tabindex="-1"></a><span class="co"># the line below, but then turn it into a comment again</span></span>
+<span id="cb50-4"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-4" tabindex="-1"></a><span class="co"># before knitting</span></span>
+<span id="cb50-5"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-5" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb50-6" tabindex="-1"></a><span class="co"># install.packages(c(&quot;tidyverse&quot;, &quot;palmerpenguins&quot;))</span></span></code></pre></div>
+<p><strong><em>Delete or comment out any install.packages() commands before you knit.
+You cannot knit an Rmd that still has active install.packages() code.</em></strong></p>
+</div>
+<div id="loading-an-r-package" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">E.1.2</span> Loading an R package<a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-an-r-package" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong><em>On the other hand, you must have code to load any relevant R packages
+inside of your Rmd if you go on to use functions/data from those packages
+in your Rmd.</em></strong></p>
+<p><em>Loading an R package</em> tells R/RStudio that you plan to use that package during
+your current sessions. <strong><em>You need to load an R package in every session that
+you use it.</em></strong> After it is loaded, it will stay loaded until you close
+R/RStudio.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb51-1" tabindex="-1"></a><span class="co"># loading the tidyverse package</span></span>
+<span id="cb51-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb51-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>If you run this code and get the error message that there is no package called
+‘tidyverse’, that means that the package is not installed, and you’ll need to
+use the earlier code to install it.</p>
+<p>Assuming everything worked, in your output you’ll notice a somewhat odd message.
+It says “Attaching core tidyverse packages” and then lists several cryptic
+names. Unlike most packages, <code>tidyverse</code> is a suite of multiple R packages, but
+you can load them all in one line to save time, because they are commonly used
+together.</p>
+<p>Today we are primarily using functions from the <code>ggplot2</code> package, which was
+loaded when we used the <code>library(tidyverse)</code> command in the code chunk above.</p>
+</div>
+<div id="part-1b-5-minutes-instructor-leading" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">E.1.3</span> Part 1b (5 minutes, instructor leading)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1b-5-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We also need to load the package with the penguin data.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb52-1" tabindex="-1"></a><span class="co">#loading the palmerpenguins package, which contains two data frames</span></span>
+<span id="cb52-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb52-2" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code></pre></div>
+<p>There is one odd thing about data sets that are included in R packages. You will
+notice that nothing new has shown up in the global environment. However, the
+data frames are actually loaded (but hidden).</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb53-1" tabindex="-1"></a>penguins</span></code></pre></div>
+<pre><code>## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g sex     year
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750 male    2007
+##  2 Adelie  Torgersen           39.5          17.4               186        3800 female  2007
+##  3 Adelie  Torgersen           40.3          18                 195        3250 female  2007
+##  4 Adelie  Torgersen           NA            NA                  NA          NA &lt;NA&gt;    2007
+##  5 Adelie  Torgersen           36.7          19.3               193        3450 female  2007
+##  6 Adelie  Torgersen           39.3          20.6               190        3650 male    2007
+##  7 Adelie  Torgersen           38.9          17.8               181        3625 female  2007
+##  8 Adelie  Torgersen           39.2          19.6               195        4675 male    2007
+##  9 Adelie  Torgersen           34.1          18.1               193        3475 &lt;NA&gt;    2007
+## 10 Adelie  Torgersen           42            20.2               190        4250 &lt;NA&gt;    2007
+## # ℹ 334 more rows</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb55-1" tabindex="-1"></a>penguins_raw</span></code></pre></div>
+<pre><code>## # A tibble: 344 × 17
+##    studyName `Sample Number` Species Region Island Stage `Individual ID` `Clutch Completion`
+##    &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;           &lt;chr&gt;              
+##  1 PAL0708                 1 Adelie… Anvers Torge… Adul… N1A1            Yes                
+##  2 PAL0708                 2 Adelie… Anvers Torge… Adul… N1A2            Yes                
+##  3 PAL0708                 3 Adelie… Anvers Torge… Adul… N2A1            Yes                
+##  4 PAL0708                 4 Adelie… Anvers Torge… Adul… N2A2            Yes                
+##  5 PAL0708                 5 Adelie… Anvers Torge… Adul… N3A1            Yes                
+##  6 PAL0708                 6 Adelie… Anvers Torge… Adul… N3A2            Yes                
+##  7 PAL0708                 7 Adelie… Anvers Torge… Adul… N4A1            No                 
+##  8 PAL0708                 8 Adelie… Anvers Torge… Adul… N4A2            No                 
+##  9 PAL0708                 9 Adelie… Anvers Torge… Adul… N5A1            Yes                
+## 10 PAL0708                10 Adelie… Anvers Torge… Adul… N5A2            Yes                
+## # ℹ 334 more rows
+## # ℹ 9 more variables: `Date Egg` &lt;date&gt;, `Culmen Length (mm)` &lt;dbl&gt;,
+## #   `Culmen Depth (mm)` &lt;dbl&gt;, `Flipper Length (mm)` &lt;dbl&gt;, `Body Mass (g)` &lt;dbl&gt;,
+## #   Sex &lt;chr&gt;, `Delta 15 N (o/oo)` &lt;dbl&gt;, `Delta 13 C (o/oo)` &lt;dbl&gt;, Comments &lt;chr&gt;</code></pre>
+<p>I prefer to formally load the data into my environment, which you can do with
+the <code>data()</code> function.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb57-1" tabindex="-1"></a><span class="co"># the palmerpenguins package called their data &quot;penguins&quot;</span></span>
+<span id="cb57-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb57-2" tabindex="-1"></a><span class="co"># and the command will load both data frames</span></span>
+<span id="cb57-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb57-3" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code></pre></div>
+<p>Now we can see the data frames in our environment. Let’s take a closer look.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb58-1" tabindex="-1"></a><span class="co"># the glimpse() function lets you see the variable (columns) and</span></span>
+<span id="cb58-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb58-2" tabindex="-1"></a><span class="co"># a few observations for each variable (rows)</span></span>
+<span id="cb58-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb58-3" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code></pre></div>
+<pre><code>## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, …
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgersen…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182, …
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, NA…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb60-1" tabindex="-1"></a><span class="fu">glimpse</span>(penguins_raw)</span></code></pre></div>
+<pre><code>## Rows: 344
+## Columns: 17
+## $ studyName             &lt;chr&gt; &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0708&quot;, &quot;PAL0…
+## $ `Sample Number`       &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 1…
+## $ Species               &lt;chr&gt; &quot;Adelie Penguin (Pygoscelis adeliae)&quot;, &quot;Adelie Penguin (Pygo…
+## $ Region                &lt;chr&gt; &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, &quot;Anvers&quot;, …
+## $ Island                &lt;chr&gt; &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgersen&quot;, &quot;Torgers…
+## $ Stage                 &lt;chr&gt; &quot;Adult, 1 Egg Stage&quot;, &quot;Adult, 1 Egg Stage&quot;, &quot;Adult, 1 Egg St…
+## $ `Individual ID`       &lt;chr&gt; &quot;N1A1&quot;, &quot;N1A2&quot;, &quot;N2A1&quot;, &quot;N2A2&quot;, &quot;N3A1&quot;, &quot;N3A2&quot;, &quot;N4A1&quot;, &quot;N4A…
+## $ `Clutch Completion`   &lt;chr&gt; &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;, &quot;No&quot;, &quot;Yes&quot;,…
+## $ `Date Egg`            &lt;date&gt; 2007-11-11, 2007-11-11, 2007-11-16, 2007-11-16, 2007-11-16,…
+## $ `Culmen Length (mm)`  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37…
+## $ `Culmen Depth (mm)`   &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17…
+## $ `Flipper Length (mm)` &lt;dbl&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 1…
+## $ `Body Mass (g)`       &lt;dbl&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 33…
+## $ Sex                   &lt;chr&gt; &quot;MALE&quot;, &quot;FEMALE&quot;, &quot;FEMALE&quot;, NA, &quot;FEMALE&quot;, &quot;MALE&quot;, &quot;FEMALE&quot;, …
+## $ `Delta 15 N (o/oo)`   &lt;dbl&gt; NA, 8.94956, 8.36821, NA, 8.76651, 8.66496, 9.18718, 9.46060…
+## $ `Delta 13 C (o/oo)`   &lt;dbl&gt; NA, -24.69454, -25.33302, NA, -25.32426, -25.29805, -25.2179…
+## $ Comments              &lt;chr&gt; &quot;Not enough blood for isotopes.&quot;, NA, NA, &quot;Adult not sampled…</code></pre>
+<p>A few questions to orient ourselves to these data.</p>
+<ol style="list-style-type: decimal">
+<li><p>Which data frame has more variables, or are they the same?</p></li>
+<li><p>Which data frame has more observations, or are they the same?</p></li>
+<li><p>What is different about the column/variable names in <code>penguins</code> as compared
+to <code>penguins_raw</code>?</p></li>
+</ol>
+</div>
+</div>
+<div id="part-2-using-ggplot-for-plotting-in-r-15-minutes-self-led" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">E.2</span> Part 2: Using ggplot() for plotting in R (15 minutes, self-led)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-2-using-ggplot-for-plotting-in-r-15-minutes-self-led" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The core function in the <code>ggplot2</code> package is called <code>ggplot()</code>. But making
+plots using <code>ggplot()</code> is like making lasagna. You have to add layers until
+you’ve produced the perfect result.</p>
+<p>Recall from lecture that we need the base canvas with the data (and aesthetics),
+as well as at least one additional <em>geometry</em> layer. We will see lots of types
+of <code>geom</code> in this course. We’ll briefly begin with a critical type of plot,
+the scatterplot. That shows two-dimensional points to illustrate the
+relationship between the x- and y-axis. It has a geometry called <code>geom_point()</code>.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb62-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb62-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb62-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb62-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb62-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>Hooray, we have made our first ggplot! However, today we want to practice
+making histograms and boxplots. So we’ll need some slightly different aesthetics
+and geometries. We only started with scatterplots because they are so common,
+and they have a very clearly defined x- and y-axis.</p>
+<p><strong><em>Before we move on, there is one crucial thing to note: each time you add a
+new layer (e.g. a <code>geom</code>, some labels for nicer x- and y-axis titles, etc.) you
+need to have a plus symbol, +, at the end of the previous line of code.
+Otherwise R does not know to keep looking for additional layers before making
+the plot.</em></strong></p>
+<p>Let’s try out a histogram. First, we might simply want to visualize the
+distribution of all of our measurements of bill length.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb64-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb64-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb64-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb64-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb64-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Because histograms just count values for one variable, there is only
+one aesthetic (<code>x=bill_length_mm</code>). The geometry was for a histogram is
+<code>geom_histogram()</code>. There are a few things we might want to consider.</p>
+<ul>
+<li>This has a lot of separate bins. We might say it is a very <em>fine-grained</em>
+histogram. We can adjust that with <em>arguments</em> inside of <code>geom_histogram()</code>.</li>
+<li>This is summarizing data from multiple species at once. That is not very
+meaningful. We can separate these out in several different ways.</li>
+</ul>
+<p>To address the first issue, you may have noticed that geometries are also
+functions, so their output can be modified using arguments just like most other
+functions in R. By default this function creates 30 bins (thirty separate
+x-values/bars) for a histogram. Let’s specify a smaller number.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb67-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb67-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb67-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb67-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb67-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<p>Alternatively, we could specify a <code>binwidth</code>, setting how wide each bin should
+be. Let’s try using a <code>binwidth</code> of 2 (the units for this column are millimeters.)</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb69-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb69-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb69-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb69-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb69-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<p>Now for the fun part. We can quickly add informative complexity. Let’s keep
+track of all three species in our histogram. We can add the <code>fill</code> aesthetic.
+<code>fill</code> and the very similar <code>color</code> aesthetics allow you to color code different
+data points based on another variable/column in your data. Let’s try <code>color</code>
+first and see why it is NOT ideal here.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb71-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb71-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb71-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb71-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb71-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
+<p>Hmmm, this is not right. We want the whole bars colored. For some geometries,
+<code>color</code> only changes the borders, not the full shapes. But color will often be
+useful, for example to change the color of points when using <code>geom_point()</code>. To
+fill in a whole shape with color, you use <code>fill</code> instead.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb73-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb73-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb73-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb73-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb73-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>This is still not quite right. It is showing all the data, now color-coded, but
+it is stacking the numbers rather than showing three separate histograms with
+some overlap in the x-values. That is because <code>geom_histogram()</code> defaults to
+stacking data, even if there is a <code>fill</code> aesthetic. You can fix that by changing
+another argument called <code>position</code>.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb75-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb75-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb75-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb75-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb75-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>We made two changes. We made it so each species has a separate
+histogram starting from a count of 0. And we made the bars partially transparent
+with the <code>alpha</code> argument. (0 is totally transparent, 1 is totally solid
+colors.) It’s a little wonky, but we can pretty much read each histogram now.</p>
+<p>Instead, let’s switch to box-and-whisker plots. These use a different geometry,
+<code>geom_boxplot</code>, and they will have a continuous variable for one axis, and
+usually also a discrete variable (e.g., species) for the other axis. Let’s
+stick with bill length and species and make three vertical boxplots, one for
+each species.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb77-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb77-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb77-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb77-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb77-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_boxplot()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>This is easier to look at. We can see quite clearly that Adelie Penguins have
+the lowest bill length, while the Chinstrap and Gentoo Penguin samples have
+subtantial overlap in bill length.</p>
+</div>
+<div id="part-3-exploring-15-minutes-self-led" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">E.3</span> Part 3: Exploring (15 minutes, self-led)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-3-exploring-15-minutes-self-led" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the code chunks below to try out some plotting with a new variable.</p>
+<ol style="list-style-type: decimal">
+<li>Create a histogram like the fancy, partially transparent one we made above,
+but for the variable <code>bill_depth_mm</code> instead of bill length, still using the
+<code>fill</code> aesthetic with the <code>species</code> column. Hint: copy and paste that
+code into the chunk below, then switch the variable name(s) as needed.</li>
+</ol>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb79-1" tabindex="-1"></a><span class="co"># write your code in this chunk</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Now create a boxplot with <code>species</code> as the x-axis and <code>bill_depth_mm</code> as the
+y-axis.</li>
+</ol>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb80-1" tabindex="-1"></a><span class="co"># write your code in this chunk</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Compare with your results for bill length. Bill depth refers to the
+thickness (top to bottom) of a bill, while bill length is the distance from
+the base of the bill to the tip. Which species seems to have an overall
+short, thick bill? Which species seems to have an overall long, skinny bill?
+Double-check by googling the species to see some photos.</li>
+</ol>
+<p><em>Remove this and add your text notes here.</em></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Try to fix these snippets of broken code. You will note that we have added
+an option to these code chunks that says “eval = FALSE”. That is how we say
+that RStudio should not try to actually run (evaluate) that code when
+knitting the Rmd file into HTML. Because the code is broken, it you tried to
+knit when “eval = TRUE” (i.e. when RStudio will try to run that code), then
+it will return and error and your code won’t knit. Feel free to remove that
+option or switch it to “eval = TRUE” after you have fixed the code for each
+chunk. <strong><em>Note: if you are ever trying to knit a HW and your code is
+returning errors, you can always set those chunks to “eval = FALSE” if you
+want to still be able to submit your knit file.</em></strong></li>
+</ol>
+<p>Chunk 1 – this plot won’t run.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-1" tabindex="-1"></a><span class="co"># uncomment the code below and try to fix it</span></span>
+<span id="cb81-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-2" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-3" tabindex="-1"></a><span class="co">#ggplot(data = penguins,</span></span>
+<span id="cb81-4"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-4" tabindex="-1"></a><span class="co">#  x = species,</span></span>
+<span id="cb81-5"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-5" tabindex="-1"></a><span class="co">#  y = body_mass_g) +</span></span>
+<span id="cb81-6"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb81-6" tabindex="-1"></a><span class="co">#  geom_boxplot()</span></span></code></pre></div>
+<p>Chunk 2 – a blank plot won’t do.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb82-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb82-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb82-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_depth_mm))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb83-1" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
+<pre><code>## geom_violin: draw_quantiles = NULL, na.rm = FALSE, orientation = NA
+## stat_ydensity: trim = TRUE, scale = area, na.rm = FALSE, orientation = NA, bounds = c(-Inf, Inf)
+## position_dodge</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>(Time permitting.)</strong> The code below creates a scatterplot with bill length
+and bill depth, while also color coding the points. Review the code, then
+try to do the same thing for a boxplot of bill length, color-coding each box
+for the species it represents.</li>
+</ol>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb85-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb85-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, </span>
+<span id="cb85-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb85-3" tabindex="-1"></a>                <span class="at">y =</span> bill_depth_mm,</span>
+<span id="cb85-4"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb85-4" tabindex="-1"></a>                <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb85-5"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb85-5" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+</div>
+<div id="wrapping-up-5-minutes-2" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">E.4</span> Wrapping up (5 minutes)<a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Knit your file to HTML, and save the original Rmd, then add them to your WFC 98
+folder on Google Drive.</p>
+<hr />
+<hr />
+</div>
+<div id="extra-material" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">E.5</span> Extra material<a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Look over the intro chapter on data visualization in the R for Data Science
+textbook <a href="https://r4ds.hadley.nz/data-visualize" class="uri">https://r4ds.hadley.nz/data-visualize</a>. Here are a few things to
+try out.
+<ul>
+<li>Add a <code>geom_smooth()</code> layer on top of <code>geom_point()</code> for one of the
+scatterplots we made. What does it do?</li>
+<li>Check out <code>geom_density()</code> instead of <code>geom_histogram()</code> in one of our
+histogram-making code chunks above. What does it do? Try adding the
+argument <code>adjust = 1/2</code> or <code>adjust = 2</code> and see how it changes the
+shape. (You will need to remove the <code>bin</code> or <code>binwidth</code> options, because
+those are only relevant for <code>geom_histogram()</code>).</li>
+<li>Try out the exercises in section 2.4.3.</li>
+</ul></li>
+<li>Try to make the same scatterplot we made in our very first plot, but using
+<code>penguins_raw</code> instead of penguins. Can R handle column names that have
+spaces in them? (Hint: using the left quote symbol, `, on either side of
+the name will allow R to understand that you are trying to refer to a column
+name.)</li>
+<li>Check out this code and plot below. It is a prettier version of our boxplot for
+culmen length. Google some of the additional layers I added to see how to
+create and modify them yourself.
+You may want to explore themes, explained more on <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">this website</a>. Rob often finds
+himself using <code>theme_bw()</code> and <code>theme_classic()</code>.</li>
+</ul>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins,</span>
+<span id="cb87-2"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-2" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span></span>
+<span id="cb87-3"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb87-4"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-4" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb87-5"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb87-6"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#cb87-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;culmen length (mm)&quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Removed 2 rows containing non-finite outside the scale range (`stat_boxplot()`).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale range
+## (`geom_point()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-4-visualizing-data-in-r-part-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/09-lab3_2025.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/09-lab3_2025.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>A Lab 1: R, data, and the RStudio panels (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="A Lab 1: R, data, and the RStudio panels (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="A Lab 1: R, data, and the RStudio panels (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="A Lab 1: R, data, and the RStudio panels (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="data-visualization.html"/>
+<link rel="next" href="lab-2-indicies-in-r-r-markdown-2025.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -331,19 +331,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="lab-1-r-data-and-the-rstudio-panels-2025" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">A</span> Lab 1: R, data, and the RStudio panels (2025)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#lab-1-r-data-and-the-rstudio-panels-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this lab, we will learn a few foundations of programming and get acquainted with R and RStudio.</p>
+<p>By the end of this lab, you should be able to program in R to:</p>
+<ul>
+<li>make arithmetic calculations,</li>
+<li>create an object to hold a vector of values,</li>
+<li>convert from a set of vectors to a data frame.</li>
+</ul>
+<hr />
+<div id="part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">A.1</span> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On your lab computer, open up RStudio. With RStudio open, click File -&gt; New File -&gt; R Script. Your workspace should look something like this.</p>
+<div class="float">
+<img src="images/workspace.PNG" alt="The RStudio Workspace" />
+<div class="figcaption">The RStudio Workspace</div>
+</div>
+<p>Let’s begin by running some calculations in the console. R is basically a very fancy calculator. Run the next few lines by copying and pasting each one into the console, pressing the “Enter” key after each line.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb16-1" tabindex="-1"></a><span class="dv">35</span><span class="sc">+</span><span class="dv">10</span></span></code></pre></div>
+<pre><code>## [1] 45</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb18-1" tabindex="-1"></a>(<span class="dv">6</span><span class="sc">*</span><span class="dv">2</span><span class="sc">+</span><span class="dv">48</span>)<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb20-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb20-2"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb20-3" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb20-4"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb20-4" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb20-5" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb22-1" tabindex="-1"></a><span class="co">#A^3 </span></span></code></pre></div>
+<p>What happened when you ran that final line of code when you uncomment it? Hint, take a look at the “Environment” pane in the upper right of RStudio. What are the names of the objects that you stored? Which lines of code created those objects in the Environment? Is <code>A</code> in the Environment?</p>
+<blockquote>
+<p><strong><em>Takeaway: You can store values (or sets of values) in R by assigning them a name. But NAMES ARE CASE SENSITIVE, so <code>A</code> is not the same as <code>a</code>.</em></strong> This named information is called an <strong><em>object</em></strong>, and it could be anything from a single value, a spreadsheet with many columns of measurements for many individual organisms, a list containing a wide array of information, or even a function that can be used to make complex calculations.</p>
+</blockquote>
+<div id="the-command-line-console-versus-a-r-script" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">A.1.1</span> The command line / “Console” versus a R script<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#the-command-line-console-versus-a-r-script" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Our workspace may still feel a little confusing. We have asked you to write things in an R script (upper left) and then copy them into the console(also called the <em>command line</em>, lower left) and press enter. R will only actually run the code that is entered into the console. But if you only program in the console, you won’t have useful documentation of everything you’ve done, and it may be hard to reproduce. <strong><em>And, if you close R, everything you’ve entered will be gone.</em></strong></p>
+<p>Instead, R programmers will generally write scripts (which are files that end in the suffix “.R”), so they can have a single place to save all the code they used for a particular task or project. Later in the course we’ll learn an even more flexible way to document our code using an RMarkdown file, which allows you to integrate regular text, R code, and R plots and other outputs into one easy-to-read document. But that’s too much for today. Let’s delve a little deeper into R’s features.</p>
+</div>
+<div id="r-data-is-often-stored-in-vectors" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">A.1.2</span> R data is often stored in “vectors”<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#r-data-is-often-stored-in-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A vector in R is a way to store a sequence of values. In our case, the vectors we look at will usually be a sequence of numbers, but they could also be storing a set of TRUE/FALSE values, a set of “strings” (i.e. letters/words/sentences) or a few other types. Much of the data you use in R will be stored as vectors, often organized with each vector as a column in a bigger matrix/spreadsheet of data (this is called a data frame). Let’s create some vectors. We will use a function in R called <code>c()</code>. That function lets you combine a sequence of values into a vector. You enter each value, separated by a comma.</p>
+<p>From this point onward, you should initially write/paste the code into your script (upper left), then run those lines in the console. You can directly run the lines in a script by pressing the <code>Crtl</code>+<code>Enter</code> keys at the same time (it’s <code>Cmd</code>+<code>Enter</code> on a Mac), while your cursor is on that line of code. Try that for this next set of commands.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb23-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
+<span id="cb23-2"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb23-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span></code></pre></div>
+<p>Look at your upper right panel in RStudio. You should see two new objects in your environment. When your line of code is storing a new object in the environment, it won’t show any output. But you can always enter the name of that object into the console and press enter to view it. (<em>Tip: If you start writing a name, R will try to autocomplete, you can press <code>Tab</code> to take its suggestion.</em>)</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb24-1" tabindex="-1"></a>idaho_wolves</span></code></pre></div>
+<pre><code>## [1] 1545 1556 1543 1337</code></pre>
+<p>Now let’s have R do something useful. <code>c()</code> was the first function you’ve seen, but R has lots of functions. When you run a function, it will always have round brackets, <code>()</code>, usually with some inputs inside. In programming, we call the inputs to a function the <strong><em>arguments</em></strong>. Let’s try out another function, <code>mean()</code>. This function’s main argument is a vector, and it will calculate the average of the values in the vector.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb26-1" tabindex="-1"></a><span class="fu">mean</span>(idaho_wolves)</span></code></pre></div>
+<pre><code>## [1] 1495.25</code></pre>
+<p>Two related functions are <code>length()</code>, which tells you how many values are in your vector, and <code>sum()</code>, which adds up all the values. The mean of a vector is just the sum divided by the length, so you can try to calculate the same value we calculated above using <code>sum()</code> and <code>length()</code>.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb28-1" tabindex="-1"></a><span class="fu">sum</span>(idaho_wolves)<span class="sc">/</span><span class="fu">length</span>(idaho_wolves)</span></code></pre></div>
+<pre><code>## [1] 1495.25</code></pre>
+<hr />
+<hr />
+</div>
+</div>
+<div id="part-2-trying-things-out-yourselves-10-minutes-on-your-own" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">A.2</span> Part 2: Trying things out yourselves (10 minutes, on your own)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-2-trying-things-out-yourselves-10-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Create two data vector using these data. The first should be called <code>mt_wolves</code>, and the second <code>mt_years</code>.</li>
+</ol>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb30-1" tabindex="-1"></a><span class="co"># write code to store these data as mt_wolves</span></span>
+<span id="cb30-2"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb30-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span></code></pre></div>
+<pre><code>## [1] 1119 1107 1147 1153 1181 1143 1087</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb32-1" tabindex="-1"></a><span class="co"># write code to store these data as mt_years</span></span>
+<span id="cb32-2"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb32-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span></code></pre></div>
+<pre><code>## [1] 2016 2017 2018 2019 2020 2021 2022</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Calculate the mean of <code>mt_wolves</code> using the <code>mean()</code> function.</p></li>
+<li><p>Run the code <code>plot(x = mt_years, y = mt_wolves)</code>. You should see a plot labeled with “mt_years” on the x-axis and “mt_wolves” on the y-axis.</p></li>
+</ol>
+<p>Check in with your neighbor – does this population appear to be stable? What else would you want to know? Are you happy with the way this plot is representing these data?</p>
+<ol start="4" style="list-style-type: decimal">
+<li>(Time permitting). <em>If you have finished quickly, this question provides some extra prompts for you to explore. This material will not be assessed on HW 1.</em> So far you ran the <code>plot()</code> function using only two arguments (the x-values and the y-values). <code>plot()</code> can take many more arguments as well, including specifying better limits for your x- and y-axes. Run the code <code>plot(x = mt_years, y = mt_wolves, ylim = c(0,1200))</code>. What is different about this plot from your previous one? Try out some different numbers there, or add an additional argument <code>xlim</code> to adjust the x-axis.</li>
+</ol>
+<hr />
+<hr />
+</div>
+<div id="part-3-making-toast-10-minutes-total" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">A.3</span> Part 3: Making toast (10 minutes total)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-3-making-toast-10-minutes-total" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Open google drive and create a folder for WFC 98. Then make a google doc to use for notes for the non-coding parts of today. Take 2 minutes to think about and write down the steps required to making toast, starting with a bag of bread and a toaster. Imagine you are explaining this to a 5-year-old who is a reasonable human being, but has never used a toaster by themselves.</p>
+<p>After 3 minutes, check in with your neighbors to your left and right. If you are by yourself, feel free to scoot over to a different station to chat with folks.</p>
+<div id="class-discussion-5-minutes-instructor-will-lead" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">A.3.1</span> Class discussion (5 minutes, instructor will lead)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#class-discussion-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<hr />
+<hr />
+</div>
+</div>
+<div id="part-4-data-frames-to-link-data-together-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">A.4</span> Part 4: Data frames to link data together (5 minutes, instructor will lead)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-4-data-frames-to-link-data-together-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Hopefully the toast-making activity has you thinking about giving precise directions. It can be very helpful to try to imagine any line of R code into a sentence, and practice saying exactly what you think that code is doing. In an R script, we can actually do that using <strong><em>comments</em></strong>. A comment is a line of code/text that will NOT be run, but can provide useful notes to remind you what particular code chunks are doing. Comment lines start with the hashtag symbol, <code>#</code>. Pay attention to the comments in the code below.</p>
+<p>Most data you work with in R will not be stored as many individual vectors. Instead, there is a useful data structure called a <strong><em>data frame</em></strong> that can keep track of several associated values. It might be easier to think about this with an example. Run the following code to make a data frame with both wolf population and years for the state of Idaho.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb34-1" tabindex="-1"></a><span class="co"># This code creates a data frame with a column named &quot;population&quot; that has values from</span></span>
+<span id="cb34-2"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb34-2" tabindex="-1"></a><span class="co"># the idaho_wolves vector, and a column named &quot;year&quot; with values from </span></span>
+<span id="cb34-3"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb34-3" tabindex="-1"></a><span class="co"># idaho_years</span></span>
+<span id="cb34-4"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#cb34-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
+<p>Let’s check out this new object, <code>idaho</code>, in our environment (top right). It says “4 obs. of 2 variables”. Now click on its name (“idaho”) in the environment. R should open a new tab in the upper left that shows you a spreadsheet version of those data. There are four rows and two columns. They correspond to four observations (the population in each of those four years), and we have two variables associated with each observation (the number of wolves and the year).</p>
+<p>More generally, data frames in R offer a way to store spreadsheet data as a single object, with rows corresponding to the number of observations in your data set, and columns representing the variables. The columns can have pleasantly descriptive names to help you know what they represent; here they are “population” and “year”. Part of your first homework will guide you through a few more steps for manipulating data frames.</p>
+<hr />
+<hr />
+</div>
+<div id="wrapping-up-5-minutes" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">A.5</span> Wrapping up (5 minutes)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#wrapping-up-5-minutes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Finally, you should have a lot of code written out in your script. Make sure that you save that script (In the very upper left of RStudio click on “File” then “Save As…” and save it to the computer’s desktop.) Then save the .R file it to your WFC 98 google drive folder. Be sure also that it has a nice, descriptive file name, like “WFC98_lab1.R”, so that you can easily find it later. Make sure that your google doc with notes from today is also saved in the WFC 98 folder.</p>
+<hr />
+<hr />
+</div>
+<div id="extra-material-for-interest-will-not-be-assessed-on-any-homework" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">A.6</span> Extra material for interest (will not be assessed on any homework)<a href="lab-1-r-data-and-the-rstudio-panels-2025.html#extra-material-for-interest-will-not-be-assessed-on-any-homework" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Under the Tools tab (top of your workspace), you can open “Global Options…”. Explore through here to see ways to customize your RStudio workspace. You may want to try out some other “Editor themes” in the “Appearance” tab.</li>
+<li>There is a great graduate student course called R-DAVIS that has lots of useful materials online. Check out their introductory lesson here: <a href="https://gge-ucd.github.io/R-DAVIS/lesson_01_intro_r_rstudio.html" class="uri">https://gge-ucd.github.io/R-DAVIS/lesson_01_intro_r_rstudio.html</a>.</li>
+</ul>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-2-indicies-in-r-r-markdown-2025.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -374,7 +485,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/%s",
+    "link": "https://github.com/refurrow/wfc70/edit/main/07-lab1_2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -382,7 +493,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/%s",
+    "link": "https://github.com/refurrow/wfc70/blob/main/07-lab1_2025.Rmd",
     "text": null
   },
   "download": null,

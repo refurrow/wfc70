@@ -1,0 +1,224 @@
+# Lab 2: Indicies in R, R Markdown  (2025)
+
+Goals
+
+In this lab, we will do a small amount of R programming, learn how to
+write reproducible analyses using R Markdown, and get started on skills
+to read primary literature. This week, rather than just reading the lab 
+pdf, we want you to open the R Markdown file "WFC70_lab2.Rmd" and do your coding
+directly in the relevant places in the Rmd.
+
+By the end of this lab, you should be able to:
+
+-   use indices and data frame column names to select particular pieces
+    of data,
+-   edit an R Markdown file to integrate text and code and change the
+    document style,
+-   knit an R Markdown file.
+
+
+------------------------------------------------------------------------
+
+## Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)
+
+### R vs. RStudio
+
+This short section has some clarifications about the programs we are
+use. You are using the programming language R. That is the primary skill
+you are developing in these labs. But the program we open to write our R
+code is called RStudio. RStudio is known as an IDE (an *integrated
+development environment*), which is a fancy way to say that it is a
+useful program in which to write and run your R code. So, on a future
+CV, say that you are proficient in R (and, soon enough, R Markdown). You
+don't have to explicitly mention RStudio.
+
+This raises another issue that throws people off at the start. ***Always
+begin your programming sessions by opening RStudio, not just the R
+program.*** The default R program is not a very user friendly
+environment for coding and does not work well with R Markdown (.Rmd)
+files.
+
+### R scripts (.R files) vs. R Markdown files (.Rmd)
+
+When people are performing substantial amounts of R programming, they
+tend to write their code in scripts. These are files that end in ".R",
+and they are intended to include nothing but code (ideally with some
+comments as well).
+
+However, R scripts do not provide an easy way to combine regular text
+and code. Sure, you can (and should) add comments to your code to
+explain what each line is doing. But comments are not an easily readable
+way to include large amounts of text. R scripts also do not allow for
+images, plots, or displays of the results of code.
+
+That's where R Markdown comes in. With a ".Rmd" file, the default is
+that you are writing text. However, you can also add code chunks with R
+code, and have that code run to generate interesting plots or other
+outputs.
+
+## Part 2: Indices and column names (5 minutes, instructor will lead)
+
+Let's pull up last week's data very quickly.
+
+```{r}
+idaho_wolves <- c(1545, 1556, 1543, 1337)
+idaho_years <- c(2019, 2020, 2021, 2022)
+
+idaho <- data.frame(population = idaho_wolves, year = idaho_years)
+```
+
+It is often the case that you want to select only a particular column in
+a data frame, or a particular value in a vector. Let's see first, then
+discuss.
+
+```{r}
+idaho_wolves[4]
+
+idaho$year
+```
+
+You should note that `idaho_wolves[4]` outputs the 4th value in that
+vector (1337). And that `idaho$year` shows you the entire `year` column
+in the data frame `idaho`.
+
+Let's look at some more complex code.
+
+```{r}
+idaho_wolves[1:3]
+idaho_wolves[c(1,3)]
+
+idaho$year[2]
+idaho[1,2]
+```
+
+A few things to unpack. First, we used a very odd function (the `:`
+operator), which is a quick way for R to create a vector that is a
+sequence of numbers. The code tells us to pull the 1st through 3rd entry in 
+our vector. This function will often be useful. Try running `7:20`, then try 
+running `10:5`. That's right, it even works backwards.
+
+Next, if we want to specify several entries, we can't just write 1,3. We
+need to make the relevant indices (1 and 3) into a vector as `c(1,3)`, with 
+commas separating the values. Then we use that inside our square brackets to 
+find the 1st and 3rd entry.
+
+Because `idaho$year` is just a vector (from that column's values), we
+can pick particular entries in the same way. However, if we have a
+dataframe, there are both rows and columns. In that case, you would
+entry two values/vectors: one for the row(s) and one for the column(s).
+So `idaho[1,2]` gives you the value from the 1st row and second column.
+We won't use this approach much -- there are more sophisticated tools
+for selecting parts of our data for tidying or plotting.
+
+## Part 3: Index work on your own (10 minutes, on your own)
+
+Here are some new data.
+
+```{r}
+#creating a data frame for montana populations through time
+mt_wolves <- c(1119, 1107, 1147, 1153, 1181, 1143, 1087)
+mt_years <- c(2016, 2017, 2018, 2019, 2020, 2021, 2022)
+montana <- data.frame(population = mt_wolves,
+                      year = mt_years,
+                      state = c("montana"))
+
+```
+
+We did something cute, and added a third column that just says "montana"
+in literally every row. (Nice to keep the state associated with the data
+in the other columns.)
+
+Your tasks:
+
+1.  Write code to select the 2nd through 4th values in the `mt_wolves`
+    vector.
+
+2.  Write code to select the 1st, 2nd, and 6th entry in `mt_years`.
+
+3.  Select just the `year` column in the `montana` data frame.
+
+4.  Create a new `idaho` data frame that includes a population column, a
+    year column, and a state column that just says "idaho" in every
+    entry.
+
+```{r}
+# all code goes in here
+
+
+
+```
+
+## Part 4: Messing around with R Markdown (15 minutes, on your own)
+
+In RStudio, if you click on the Help tab at the top, you will see a
+selection labeled "Cheat Sheets". Select "R Markdown Cheat Sheet", which
+will download and open a pdf. This cheat sheet is also posted on Canvas
+in Files. I find it a little overwhelming, but here you really just need
+to focus on the right side of the first page "Write with Markdown".
+
+This section has instructions about how to format text, create headers,
+make lists, etc. Let's try things out.
+
+1.  **Knit this document to an html file.** To do this, click on the
+    down arrow/triangle just to the right of the "Knit" button that is
+    on the navigation bar below the name of the file. A dropdown menu
+    will appear -- click "Knit to HTML".
+
+This should quickly create an html file (like the kinds that represent
+web pages) that you can view. It should include the text, code, and plots. 
+Take a minute to see how different parts of the Rmd produced different kind of 
+formatting.
+
+Just above your Rmd file, you should also see a little button that says
+"Visual". If you select that, you can switch to a visual edit which
+allows for easy styling of an Rmd.
+
+2.  **Create some headers using the \# symbol.** Which one is the
+    biggest? The smallest? You can create headers of six different
+    sizes, from \# to ######.
+
+# Put something here.
+
+### Put something else here.
+
+##### And some more.
+
+3.  **Style your text.**
+
+Italicize this sentence.
+
+Bold this sentence.
+
+4.  **Create an unordered list** (like bullet points in a powerpoint) of
+    your five favorite foods. For one of the foods, add at least two
+    sub-items (perhaps those could be specific variations of that food)
+
+5.  At the end of the previous section, we manipulated some Montana wolf
+    data. **Use these numbers to create a table with two columns**
+    (first header "year", second header "pop. size").
+    
+6.  Adjust the formatting of the next line so that it's not a header.
+
+# Here I am writing a regular sentence, it should not be big and weird!
+
+
+## Wrapping up (5 minutes)
+
+Knit your file to HTML, and save the original Rmd, then add them to your
+WFC 70 folder on Google Drive.
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+## Extra material for interest
+
+-   Browse [this article on R
+    Markdown](https://rmarkdown.rstudio.com/articles_intro.html). Try
+    creating a new .Rmd file and exploring.
+
+-   Try adding the option "echo=FALSE" to the top of an R code chunk
+    (see the examples in the bottom left on the first page of the R
+    Markdown cheat sheet). How does the HTML file look different after
+    you knit the .Rmd file again? What about using "eval=FALSE"?
+

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>B Lab 2: Indicies in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="B Lab 2: Indicies in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="B Lab 2: Indicies in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="B Lab 2: Indicies in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="lab-1-r-data-and-the-rstudio-panels-2025.html"/>
+<link rel="next" href="put-something-here..html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -331,19 +331,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="lab-2-indicies-in-r-r-markdown-2025" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">B</span> Lab 2: Indicies in R, R Markdown (2025)<a href="lab-2-indicies-in-r-r-markdown-2025.html#lab-2-indicies-in-r-r-markdown-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Goals</p>
+<p>In this lab, we will do a small amount of R programming, learn how to
+write reproducible analyses using R Markdown, and get started on skills
+to read primary literature. This week, rather than just reading the lab
+pdf, we want you to open the R Markdown file “WFC70_lab2.Rmd” and do your coding
+directly in the relevant places in the Rmd.</p>
+<p>By the end of this lab, you should be able to:</p>
+<ul>
+<li>use indices and data frame column names to select particular pieces
+of data,</li>
+<li>edit an R Markdown file to integrate text and code and change the
+document style,</li>
+<li>knit an R Markdown file.</li>
+</ul>
+<hr />
+<div id="part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">B.1</span> Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)<a href="lab-2-indicies-in-r-r-markdown-2025.html#part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-vs.-rstudio" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">B.1.1</span> R vs. RStudio<a href="lab-2-indicies-in-r-r-markdown-2025.html#r-vs.-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This short section has some clarifications about the programs we are
+use. You are using the programming language R. That is the primary skill
+you are developing in these labs. But the program we open to write our R
+code is called RStudio. RStudio is known as an IDE (an <em>integrated
+development environment</em>), which is a fancy way to say that it is a
+useful program in which to write and run your R code. So, on a future
+CV, say that you are proficient in R (and, soon enough, R Markdown). You
+don’t have to explicitly mention RStudio.</p>
+<p>This raises another issue that throws people off at the start. <strong><em>Always
+begin your programming sessions by opening RStudio, not just the R
+program.</em></strong> The default R program is not a very user friendly
+environment for coding and does not work well with R Markdown (.Rmd)
+files.</p>
+</div>
+<div id="r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">B.1.2</span> R scripts (.R files) vs. R Markdown files (.Rmd)<a href="lab-2-indicies-in-r-r-markdown-2025.html#r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When people are performing substantial amounts of R programming, they
+tend to write their code in scripts. These are files that end in “.R”,
+and they are intended to include nothing but code (ideally with some
+comments as well).</p>
+<p>However, R scripts do not provide an easy way to combine regular text
+and code. Sure, you can (and should) add comments to your code to
+explain what each line is doing. But comments are not an easily readable
+way to include large amounts of text. R scripts also do not allow for
+images, plots, or displays of the results of code.</p>
+<p>That’s where R Markdown comes in. With a “.Rmd” file, the default is
+that you are writing text. However, you can also add code chunks with R
+code, and have that code run to generate interesting plots or other
+outputs.</p>
+</div>
+</div>
+<div id="part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">B.2</span> Part 2: Indices and column names (5 minutes, instructor will lead)<a href="lab-2-indicies-in-r-r-markdown-2025.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s pull up last week’s data very quickly.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb35-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
+<span id="cb35-2"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb35-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb35-3"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb35-3" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb35-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
+<p>It is often the case that you want to select only a particular column in
+a data frame, or a particular value in a vector. Let’s see first, then
+discuss.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb36-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 1337</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb38-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
+<pre><code>## [1] 2019 2020 2021 2022</code></pre>
+<p>You should note that <code>idaho_wolves[4]</code> outputs the 4th value in that
+vector (1337). And that <code>idaho$year</code> shows you the entire <code>year</code> column
+in the data frame <code>idaho</code>.</p>
+<p>Let’s look at some more complex code.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb40-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 1545 1556 1543</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb42-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>## [1] 1545 1543</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb44-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2020</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb46-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2019</code></pre>
+<p>A few things to unpack. First, we used a very odd function (the <code>:</code>
+operator), which is a quick way for R to create a vector that is a
+sequence of numbers. The code tells us to pull the 1st through 3rd entry in
+our vector. This function will often be useful. Try running <code>7:20</code>, then try
+running <code>10:5</code>. That’s right, it even works backwards.</p>
+<p>Next, if we want to specify several entries, we can’t just write 1,3. We
+need to make the relevant indices (1 and 3) into a vector as <code>c(1,3)</code>, with
+commas separating the values. Then we use that inside our square brackets to
+find the 1st and 3rd entry.</p>
+<p>Because <code>idaho$year</code> is just a vector (from that column’s values), we
+can pick particular entries in the same way. However, if we have a
+dataframe, there are both rows and columns. In that case, you would
+entry two values/vectors: one for the row(s) and one for the column(s).
+So <code>idaho[1,2]</code> gives you the value from the 1st row and second column.
+We won’t use this approach much – there are more sophisticated tools
+for selecting parts of our data for tidying or plotting.</p>
+</div>
+<div id="part-3-index-work-on-your-own-10-minutes-on-your-own" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">B.3</span> Part 3: Index work on your own (10 minutes, on your own)<a href="lab-2-indicies-in-r-r-markdown-2025.html#part-3-index-work-on-your-own-10-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here are some new data.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
+<span id="cb48-2"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
+<span id="cb48-3"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb48-4"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
+<span id="cb48-5"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
+<span id="cb48-6"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb48-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
+<p>We did something cute, and added a third column that just says “montana”
+in literally every row. (Nice to keep the state associated with the data
+in the other columns.)</p>
+<p>Your tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>Write code to select the 2nd through 4th values in the <code>mt_wolves</code>
+vector.</p></li>
+<li><p>Write code to select the 1st, 2nd, and 6th entry in <code>mt_years</code>.</p></li>
+<li><p>Select just the <code>year</code> column in the <code>montana</code> data frame.</p></li>
+<li><p>Create a new <code>idaho</code> data frame that includes a population column, a
+year column, and a state column that just says “idaho” in every
+entry.</p></li>
+</ol>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="lab-2-indicies-in-r-r-markdown-2025.html#cb49-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
+</div>
+<div id="part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">B.4</span> Part 4: Messing around with R Markdown (15 minutes, on your own)<a href="lab-2-indicies-in-r-r-markdown-2025.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In RStudio, if you click on the Help tab at the top, you will see a
+selection labeled “Cheat Sheets”. Select “R Markdown Cheat Sheet”, which
+will download and open a pdf. This cheat sheet is also posted on Canvas
+in Files. I find it a little overwhelming, but here you really just need
+to focus on the right side of the first page “Write with Markdown”.</p>
+<p>This section has instructions about how to format text, create headers,
+make lists, etc. Let’s try things out.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Knit this document to an html file.</strong> To do this, click on the
+down arrow/triangle just to the right of the “Knit” button that is
+on the navigation bar below the name of the file. A dropdown menu
+will appear – click “Knit to HTML”.</li>
+</ol>
+<p>This should quickly create an html file (like the kinds that represent
+web pages) that you can view. It should include the text, code, and plots.
+Take a minute to see how different parts of the Rmd produced different kind of
+formatting.</p>
+<p>Just above your Rmd file, you should also see a little button that says
+“Visual”. If you select that, you can switch to a visual edit which
+allows for easy styling of an Rmd.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Create some headers using the # symbol.</strong> Which one is the
+biggest? The smallest? You can create headers of six different
+sizes, from # to ######.</li>
+</ol>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="lab-1-r-data-and-the-rstudio-panels-2025.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="put-something-here..html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -374,7 +516,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/%s",
+    "link": "https://github.com/refurrow/wfc70/edit/main/08-lab2_2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -382,7 +524,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/%s",
+    "link": "https://github.com/refurrow/wfc70/blob/main/08-lab2_2025.Rmd",
     "text": null
   },
   "download": null,

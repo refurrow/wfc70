@@ -1,5 +1,5 @@
 
-# Lab 3: Visualizing data in R (Part 1)
+# Lab 3: Visualizing data in R (Part 1) (2025)
 
 
 In this lab, we will get into one of the really fun parts of R programming --
@@ -20,9 +20,6 @@ This lab is loosely based on chapter 1 in the online textbook "R for Data
 Science" (second edition), which you can find online here:
 <https://r4ds.hadley.nz/data-visualize>
 
-## Part 0: Figure of the week (5-10 minutes, instructor leading)
-
---------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
 
@@ -37,7 +34,7 @@ standard way for easy installation and loading.
 
 *Installing an R package* is easy to do within RStudio. In the computer labs we
 have already installed most R packages that you will need for any coding in WFC
-98. However, when you are programming on your personal computer you will need to
+70. However, when you are programming on your personal computer you will need to
 install any packages that need to be loaded for a particular lab or HW. ***You
 only need to install an R package once.***
 
@@ -201,7 +198,7 @@ ggplot(data = penguins,
 ```
 
 Now for the fun part. We can quickly add informative complexity. Let's keep 
-track of all three species in our histogram. We can add the `fill` aesthetic 
+track of all three species in our histogram. We can add the `fill` aesthetic. 
 `fill` and the very similar `color` aesthetics allow you to color code different
 data points based on another variable/column in your data. Let's try `color` 
 first and see why it is NOT ideal here.
@@ -344,7 +341,6 @@ folder on Google Drive.
 
 ## Extra material
 
--   Start on HW 2.
 -   Look over the intro chapter on data visualization in the R for Data Science
     textbook <https://r4ds.hadley.nz/data-visualize>. Here are a few things to
     try out.

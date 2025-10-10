@@ -1,6 +1,6 @@
 # (APPENDIX) WFC 70 Labs {-}
 
-# Lab 1: R, data, and the RStudio panels
+# Lab 1: R, data, and the RStudio panels (2025)
 
 In this lab, we will learn a few foundations of programming and get acquainted with R and RStudio.
 
