@@ -24,12 +24,12 @@ If you have gone through the previous steps and the code is *still* not working,
 
 As a practice, see if you can identify what is wrong in this code and fix it! We will be using the Palmer penguins package.
 
-```{r, warning=FALSE, message=FALSE, echo=FALSE,results='hide'}
+```{r, warning=FALSE, message=FALSE, echo=FALSE,eval = FALSE}
 install.packages("palmerpenguins")
 library(palmerpenguins)
 ```
  
-```{r}
+```{r, eval = FALSE}
 penguins_raw 
 ```
 
