@@ -1,4 +1,4 @@
-# Lab 2: Indicies in R, R Markdown  (2025)
+# Lab 2: Indices in R, R Markdown  (2025)
 
 Goals
 
@@ -177,11 +177,11 @@ allows for easy styling of an Rmd.
     biggest? The smallest? You can create headers of six different
     sizes, from \# to ######.
 
-# Put something here.
+#### Put something here.
 
-### Put something else here.
+##### Put something else here.
 
-##### And some more.
+###### And some more.
 
 3.  **Style your text.**
 

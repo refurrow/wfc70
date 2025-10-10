@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>G Lab 6: Mark-recapture | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="G Lab 6: Mark-recapture | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="G Lab 6: Mark-recapture | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="G Lab 6: Mark-recapture | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lab-5-data-story-work-wrangling-warm-up.html"/>
-<link rel="next" href="lab-7-file-management-troubleshooting-data-story.html"/>
+<link rel="prev" href="lab-1-r-data-and-the-rstudio-panels-2025.html"/>
+<link rel="next" href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -327,190 +327,175 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lab-6-mark-recapture" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">G</span> Lab 6: Mark-recapture<a href="lab-6-mark-recapture.html#lab-6-mark-recapture" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Note: Had to remove code chunks so the coding looks slightly messy</p>
-<p>In this lab, we will use our wrangling skills to clean up a data frame
-in order to estimate population sizes using mark-recapture.</p>
+<div id="lab-2-indices-in-r-r-markdown-2025" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">B</span> Lab 2: Indices in R, R Markdown (2025)<a href="lab-2-indices-in-r-r-markdown-2025.html#lab-2-indices-in-r-r-markdown-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Goals</p>
+<p>In this lab, we will do a small amount of R programming, learn how to
+write reproducible analyses using R Markdown, and get started on skills
+to read primary literature. This week, rather than just reading the lab
+pdf, we want you to open the R Markdown file “WFC70_lab2.Rmd” and do your coding
+directly in the relevant places in the Rmd.</p>
 <p>By the end of this lab, you should be able to:</p>
 <ul>
-<li>calculate a population estimate from mark-recapture data,</li>
-<li>use one of the <code>_join()</code> functions to combine different data frames that
-have a shared “key” column,</li>
-<li>use <code>bind_rows()</code> to combine multiple data frames with
-identical columns.</li>
+<li>use indices and data frame column names to select particular pieces
+of data,</li>
+<li>edit an R Markdown file to integrate text and code and change the
+document style,</li>
+<li>knit an R Markdown file.</li>
 </ul>
-<div id="resources-3" class="section level3 hasAnchor" number="12.0.1">
-<h3><span class="header-section-number">G.0.1</span> Resources<a href="lab-6-mark-recapture.html#resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>We will use the data discussed during the mark-recapture lectures. These are
-data from a LTER (Long-term Ecological Research) site called the San Joaquin
-Experimental Range.<br />
-<a href="https://data.neonscience.org/data-products/DP1.10072.001">https://data.neonscience.org/data-products/DP1.10072.001</a></p>
 <hr />
+<div id="part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">B.1</span> Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="r-vs.-rstudio" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">B.1.1</span> R vs. RStudio<a href="lab-2-indices-in-r-r-markdown-2025.html#r-vs.-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This short section has some clarifications about the programs we are
+use. You are using the programming language R. That is the primary skill
+you are developing in these labs. But the program we open to write our R
+code is called RStudio. RStudio is known as an IDE (an <em>integrated
+development environment</em>), which is a fancy way to say that it is a
+useful program in which to write and run your R code. So, on a future
+CV, say that you are proficient in R (and, soon enough, R Markdown). You
+don’t have to explicitly mention RStudio.</p>
+<p>This raises another issue that throws people off at the start. <strong><em>Always
+begin your programming sessions by opening RStudio, not just the R
+program.</em></strong> The default R program is not a very user friendly
+environment for coding and does not work well with R Markdown (.Rmd)
+files.</p>
 </div>
-<div id="part-1-reminder-of-lecture-data-10-minutes-instructor-leading" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">G.1</span> Part 1: Reminder of lecture data (10 minutes, instructor leading)<a href="lab-6-mark-recapture.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This code should align with what we covered during lecture. Note, however,
-that you don’t even have to do the Schnabel calculation by hand. With the
-right vectors for M, T, and R, that final line does the multiplying, adding,
-and dividing, and should yield exactly what we found during lecture.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-6-mark-recapture.html#cb115-1" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
-<span id="cb115-2"><a href="lab-6-mark-recapture.html#cb115-2" tabindex="-1"></a></span>
-<span id="cb115-3"><a href="lab-6-mark-recapture.html#cb115-3" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lab-6-mark-recapture.html#cb116-1" tabindex="-1"></a><span class="co">#loading data</span></span>
-<span id="cb116-2"><a href="lab-6-mark-recapture.html#cb116-2" tabindex="-1"></a></span>
-<span id="cb116-3"><a href="lab-6-mark-recapture.html#cb116-3" tabindex="-1"></a>sjer_jan17 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/mam_pertrapnight_2017_01_basic.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="lab-6-mark-recapture.html#cb117-1" tabindex="-1"></a> <span class="co">#wrangling for a simpler data set with just one species</span></span>
-<span id="cb117-2"><a href="lab-6-mark-recapture.html#cb117-2" tabindex="-1"></a> </span>
-<span id="cb117-3"><a href="lab-6-mark-recapture.html#cb117-3" tabindex="-1"></a>pebo_jan17 <span class="ot">&lt;-</span> sjer_jan17 <span class="sc">|&gt;</span>  <span class="co">#start with the full data, THEN</span></span>
-<span id="cb117-4"><a href="lab-6-mark-recapture.html#cb117-4" tabindex="-1"></a>  <span class="fu">filter</span>(scientificName <span class="sc">==</span> <span class="st">&quot;Peromyscus boylii&quot;</span>) <span class="sc">|&gt;</span> <span class="co">#filter for P. boylii, THEN</span></span>
-<span id="cb117-5"><a href="lab-6-mark-recapture.html#cb117-5" tabindex="-1"></a>  <span class="fu">select</span>(collectDate, tagID, recapture, fate, plotID, nlcdClass) <span class="co"># selecting only these columns</span></span>
-<span id="cb117-6"><a href="lab-6-mark-recapture.html#cb117-6" tabindex="-1"></a></span>
-<span id="cb117-7"><a href="lab-6-mark-recapture.html#cb117-7" tabindex="-1"></a><span class="co"># creating a table from the date column and the recapture column</span></span>
-<span id="cb117-8"><a href="lab-6-mark-recapture.html#cb117-8" tabindex="-1"></a> </span>
-<span id="cb117-9"><a href="lab-6-mark-recapture.html#cb117-9" tabindex="-1"></a>pebo_table <span class="ot">&lt;-</span> <span class="fu">table</span>(pebo_jan17<span class="sc">$</span>collectDate,pebo_jan17<span class="sc">$</span>recapture)</span>
-<span id="cb117-10"><a href="lab-6-mark-recapture.html#cb117-10" tabindex="-1"></a>pebo_table</span>
-<span id="cb117-11"><a href="lab-6-mark-recapture.html#cb117-11" tabindex="-1"></a></span>
-<span id="cb117-12"><a href="lab-6-mark-recapture.html#cb117-12" tabindex="-1"></a> <span class="co">#entering our mark-recapture data</span></span>
-<span id="cb117-13"><a href="lab-6-mark-recapture.html#cb117-13" tabindex="-1"></a> </span>
-<span id="cb117-14"><a href="lab-6-mark-recapture.html#cb117-14" tabindex="-1"></a>pebo_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">14</span>)</span>
-<span id="cb117-15"><a href="lab-6-mark-recapture.html#cb117-15" tabindex="-1"></a>pebo_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">6</span>)</span>
-<span id="cb117-16"><a href="lab-6-mark-recapture.html#cb117-16" tabindex="-1"></a>pebo_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
-<span id="cb117-17"><a href="lab-6-mark-recapture.html#cb117-17" tabindex="-1"></a></span>
-<span id="cb117-18"><a href="lab-6-mark-recapture.html#cb117-18" tabindex="-1"></a> <span class="co">#adding up sum of M*T values, then dividing by sum of R values</span></span>
-<span id="cb117-19"><a href="lab-6-mark-recapture.html#cb117-19" tabindex="-1"></a> </span>
-<span id="cb117-20"><a href="lab-6-mark-recapture.html#cb117-20" tabindex="-1"></a><span class="fu">sum</span>(pebo_M<span class="sc">*</span>pebo_T)<span class="sc">/</span><span class="fu">sum</span>(pebo_R)</span></code></pre></div>
-<p>You estimate 22 individuals in this population, using the Schnabel estimator.
-Okay, in a moment we will set you loose to try things on your own, but
-first let’s do a quick <code>_join()</code>.</p>
-</div>
-<div id="adding-weather-data-joining-data-frames" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">G.2</span> Adding weather data (joining data frames)<a href="lab-6-mark-recapture.html#adding-weather-data-joining-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Small mammal activity at night may depend on nighttime temperature or
-precipitation, so it would be interesting to see whether our sample size
-varies depending on the weather conditions. (For example, if our mice
-are inactive in very cold weather, we will expect to catch fewer mice in
-our traps on cold nights.)</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lab-6-mark-recapture.html#cb118-1" tabindex="-1"></a><span class="co"># weather for the site</span></span>
-<span id="cb118-2"><a href="lab-6-mark-recapture.html#cb118-2" tabindex="-1"></a><span class="co"># the csv was having formatting issues, so we switched here to loading</span></span>
-<span id="cb118-3"><a href="lab-6-mark-recapture.html#cb118-3" tabindex="-1"></a><span class="co"># a txt file using read.delim()</span></span>
-<span id="cb118-4"><a href="lab-6-mark-recapture.html#cb118-4" tabindex="-1"></a>sjer_weather <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70/main/sjer_weather.txt&quot;</span>)</span></code></pre></div>
-<p>We have many fewer rows, because for each night we just have a single
-suite of measurements (rather than separate rows for each individual
-caught in our original data). <code>lowTemp</code> is the lowest temperature that night
-in degrees Fahrenheit, and <code>precip</code> is the overall rainfall in the previous
-24 hours, in inches.</p>
-<p>To think about overall activity, let’s not simply focus on <em>P. boylii</em>. Let’s
-instead use all of our data. We’ll want to remove all the rows with
-empty traps and only include rows with captures. There are many ways
-we could filter here. I noticed that the recapture column is always the empty
-string, ““, when the trap was empty and always has a value when an individual
-was caught, so we can filter by removing all the empty rows. The exclamation
-point, !, means NOT, so we will filter the rows that are NOT equal to”“.</p>
-<p>getting all catches (not just P. boylii)</p>
-<p>catches_jan17 &lt;- sjer_jan17 |&gt;
-filter(recapture != ““) only rows that are NOT equal to the empty string,”“.</p>
-<pre><code>
-Now, let&#39;s join. We don&#39;t care about the February or October weather, so let&#39;s 
-prioritize the rows in our catch data. 
-
-***Pause and think. What is our shared key? What kind of join should we use?***
-
-
-joining catch data and weather data
-
-catches_jan17_full &lt;- left_join(catches_jan17,sjer_weather, by = &quot;collectDate&quot;)
-
-
-***Pause and check. Do the data look like what we expected? Because the catch data***
-***has multiple rows for each night, what is in the weather data for the***
-***separate rows on the same night?***
-
-Finally, we&#39;ll want to convert our data to a simple count per night using 
-`group_by()` and `summarize()`.
-
-
-weather_catch_jan17 &lt;- catches_jan17_full |&gt;
-  group_by(collectDate) |&gt;
-  summarize(sample_size = n(), # counts number of rows (for each date)
-            low_temp = first(lowTemp), # picks the first temp value 
-            precip = first(precip)) # picks first precip value
-            
-Take a moment to view this much smaller data frame. We now have everything
-we need to look at sample size versus temperature (or versus precipitation).
-
-
-
-ggplot(weather_catch_jan17,
-       mapping = aes(x = low_temp, y = sample_size)) +
-  geom_point() +
-  theme_classic()
-
-
-Okay, we&#39;ve managed some mark-recapture, joining, summarizing and plotting.
-Now you can try out a second estimate on your own.
-
-## Western harvest mouse population size (on your own, 15 minutes)
-
-### Your data
-
-This code will help you load the February trapping data, and filter to
-just include the western harvest mouse, *Reithrodontomys megalotis*.
-
-
-sjer_feb17 &lt;- read.csv(&quot;https://raw.githubusercontent.com/refurrow/WFC70/refs/heads/main/mam_pertrapnight_2017_02_basic.csv&quot;)
-
-rema_feb17 &lt;- filter(sjer_feb17, scientificName== &quot;Reithrodontomys megalotis&quot;) |&gt;
-  select(collectDate, tagID, recapture, fate, plotID, nlcdClass)
-
-
-### Getting your mark-recapture table
-
-Follow the steps from our *P. boylii* estimate to create a table with
-recapture / new capture counts for each night (collectDate). (Hint: `table()` 
-function.)
-
-
-``` r
-# enter your code and comments here</code></pre>
-<p>Enter your data below, and uncomment and run the lines afterwards. You have
-four nights (three resamples), so you’ll have three values each for
-M, T, and R.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="lab-6-mark-recapture.html#cb120-1" tabindex="-1"></a><span class="co">#uncomment the lines below and fill in the right values for the</span></span>
-<span id="cb120-2"><a href="lab-6-mark-recapture.html#cb120-2" tabindex="-1"></a><span class="co">#M, T, and R vectors</span></span>
-<span id="cb120-3"><a href="lab-6-mark-recapture.html#cb120-3" tabindex="-1"></a></span>
-<span id="cb120-4"><a href="lab-6-mark-recapture.html#cb120-4" tabindex="-1"></a><span class="co">#rema_M &lt;- c()</span></span>
-<span id="cb120-5"><a href="lab-6-mark-recapture.html#cb120-5" tabindex="-1"></a><span class="co">#rema_T &lt;- c()</span></span>
-<span id="cb120-6"><a href="lab-6-mark-recapture.html#cb120-6" tabindex="-1"></a><span class="co">#rema_R &lt;- c()</span></span>
-<span id="cb120-7"><a href="lab-6-mark-recapture.html#cb120-7" tabindex="-1"></a></span>
-<span id="cb120-8"><a href="lab-6-mark-recapture.html#cb120-8" tabindex="-1"></a><span class="co">#sum(rema_M*rema_T)/sum(rema_R)</span></span></code></pre></div>
-<ul>
-<li><strong><em>What is your final estimate for the Feb 2017 population size?</em></strong></li>
-</ul>
-<div id="more-joining-time-permitting" class="section level3 hasAnchor" number="12.2.1">
-<h3><span class="header-section-number">G.2.1</span> More joining (time permitting)<a href="lab-6-mark-recapture.html#more-joining-time-permitting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Create a new data frame that includes all catches for Feb 2017,</li>
-<li>Join it with the weather data, <code>sjer_weather</code>,</li>
-<li>Create an identical summary of the data for February (the only
-difference in code will be the name of the initial data frame
-you are using),</li>
-<li>use <code>bind_rows()</code> to combine the summary from Jan and Feb,</li>
-<li>create a plot of temperature versus sample size for both month’s data.</li>
-</ul>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-6-mark-recapture.html#cb121-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
+<div id="r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">B.1.2</span> R scripts (.R files) vs. R Markdown files (.Rmd)<a href="lab-2-indices-in-r-r-markdown-2025.html#r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When people are performing substantial amounts of R programming, they
+tend to write their code in scripts. These are files that end in “.R”,
+and they are intended to include nothing but code (ideally with some
+comments as well).</p>
+<p>However, R scripts do not provide an easy way to combine regular text
+and code. Sure, you can (and should) add comments to your code to
+explain what each line is doing. But comments are not an easily readable
+way to include large amounts of text. R scripts also do not allow for
+images, plots, or displays of the results of code.</p>
+<p>That’s where R Markdown comes in. With a “.Rmd” file, the default is
+that you are writing text. However, you can also add code chunks with R
+code, and have that code run to generate interesting plots or other
+outputs.</p>
 </div>
 </div>
-<div id="wrapping-up-5-minutes-5" class="section level2 hasAnchor" number="12.3">
-<h2><span class="header-section-number">G.3</span> Wrapping up (5 minutes)<a href="lab-6-mark-recapture.html#wrapping-up-5-minutes-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Knit your file to HTML, and save the original Rmd, then add them to your WFC 98
-folder on Google Drive.</p>
+<div id="part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">B.2</span> Part 2: Indices and column names (5 minutes, instructor will lead)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s pull up last week’s data very quickly.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb35-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
+<span id="cb35-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb35-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb35-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb35-3" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb35-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
+<p>It is often the case that you want to select only a particular column in
+a data frame, or a particular value in a vector. Let’s see first, then
+discuss.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb36-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] 1337</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb38-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
+<pre><code>## [1] 2019 2020 2021 2022</code></pre>
+<p>You should note that <code>idaho_wolves[4]</code> outputs the 4th value in that
+vector (1337). And that <code>idaho$year</code> shows you the entire <code>year</code> column
+in the data frame <code>idaho</code>.</p>
+<p>Let’s look at some more complex code.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb40-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 1545 1556 1543</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb42-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<pre><code>## [1] 1545 1543</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb44-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2020</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb46-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 2019</code></pre>
+<p>A few things to unpack. First, we used a very odd function (the <code>:</code>
+operator), which is a quick way for R to create a vector that is a
+sequence of numbers. The code tells us to pull the 1st through 3rd entry in
+our vector. This function will often be useful. Try running <code>7:20</code>, then try
+running <code>10:5</code>. That’s right, it even works backwards.</p>
+<p>Next, if we want to specify several entries, we can’t just write 1,3. We
+need to make the relevant indices (1 and 3) into a vector as <code>c(1,3)</code>, with
+commas separating the values. Then we use that inside our square brackets to
+find the 1st and 3rd entry.</p>
+<p>Because <code>idaho$year</code> is just a vector (from that column’s values), we
+can pick particular entries in the same way. However, if we have a
+dataframe, there are both rows and columns. In that case, you would
+entry two values/vectors: one for the row(s) and one for the column(s).
+So <code>idaho[1,2]</code> gives you the value from the 1st row and second column.
+We won’t use this approach much – there are more sophisticated tools
+for selecting parts of our data for tidying or plotting.</p>
 </div>
-<div id="extra-material-2" class="section level2 hasAnchor" number="12.4">
-<h2><span class="header-section-number">G.4</span> Extra material<a href="lab-6-mark-recapture.html#extra-material-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Work on HW 5.</p>
-<p>Continue working on the Data Story.</p>
-
+<div id="part-3-index-work-on-your-own-10-minutes-on-your-own" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">B.3</span> Part 3: Index work on your own (10 minutes, on your own)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-3-index-work-on-your-own-10-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here are some new data.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
+<span id="cb48-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
+<span id="cb48-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb48-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
+<span id="cb48-5"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
+<span id="cb48-6"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
+<p>We did something cute, and added a third column that just says “montana”
+in literally every row. (Nice to keep the state associated with the data
+in the other columns.)</p>
+<p>Your tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>Write code to select the 2nd through 4th values in the <code>mt_wolves</code>
+vector.</p></li>
+<li><p>Write code to select the 1st, 2nd, and 6th entry in <code>mt_years</code>.</p></li>
+<li><p>Select just the <code>year</code> column in the <code>montana</code> data frame.</p></li>
+<li><p>Create a new <code>idaho</code> data frame that includes a population column, a
+year column, and a state column that just says “idaho” in every
+entry.</p></li>
+</ol>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb49-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
+</div>
+<div id="part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">B.4</span> Part 4: Messing around with R Markdown (15 minutes, on your own)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In RStudio, if you click on the Help tab at the top, you will see a
+selection labeled “Cheat Sheets”. Select “R Markdown Cheat Sheet”, which
+will download and open a pdf. This cheat sheet is also posted on Canvas
+in Files. I find it a little overwhelming, but here you really just need
+to focus on the right side of the first page “Write with Markdown”.</p>
+<p>This section has instructions about how to format text, create headers,
+make lists, etc. Let’s try things out.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Knit this document to an html file.</strong> To do this, click on the
+down arrow/triangle just to the right of the “Knit” button that is
+on the navigation bar below the name of the file. A dropdown menu
+will appear – click “Knit to HTML”.</li>
+</ol>
+<p>This should quickly create an html file (like the kinds that represent
+web pages) that you can view. It should include the text, code, and plots.
+Take a minute to see how different parts of the Rmd produced different kind of
+formatting.</p>
+<p>Just above your Rmd file, you should also see a little button that says
+“Visual”. If you select that, you can switch to a visual edit which
+allows for easy styling of an Rmd.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Create some headers using the # symbol.</strong> Which one is the
+biggest? The smallest? You can create headers of six different
+sizes, from # to ######.</li>
+</ol>
+<div id="put-something-here." class="section level4 hasAnchor" number="7.4.0.1">
+<h4><span class="header-section-number">B.4.0.1</span> Put something here.<a href="lab-2-indices-in-r-r-markdown-2025.html#put-something-here." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="put-something-else-here." class="section level5 hasAnchor" number="7.4.0.1.1">
+<h5><span class="header-section-number">B.4.0.1.1</span> Put something else here.<a href="lab-2-indices-in-r-r-markdown-2025.html#put-something-else-here." class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<div id="and-some-more." class="section level6 hasAnchor" number="7.4.0.1.1.1">
+<h6><span class="header-section-number">B.4.0.1.1.1</span> And some more.<a href="lab-2-indices-in-r-r-markdown-2025.html#and-some-more." class="anchor-section" aria-label="Anchor link to header"></a></h6>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Style your text.</strong></li>
+</ol>
+<p>Italicize this sentence.</p>
+<p>Bold this sentence.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p><strong>Create an unordered list</strong> (like bullet points in a powerpoint) of
+your five favorite foods. For one of the foods, add at least two
+sub-items (perhaps those could be specific variations of that food)</p></li>
+<li><p>At the end of the previous section, we manipulated some Montana wolf
+data. <strong>Use these numbers to create a table with two columns</strong>
+(first header “year”, second header “pop. size”).</p></li>
+<li><p>Adjust the formatting of the next line so that it’s not a header.</p></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -518,8 +503,8 @@ folder on Google Drive.</p>
           </div>
         </div>
       </div>
-<a href="lab-5-data-story-work-wrangling-warm-up.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lab-7-file-management-troubleshooting-data-story.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lab-1-r-data-and-the-rstudio-panels-2025.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -550,7 +535,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/12-lab6_2024.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/08-lab2_2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -558,7 +543,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/12-lab6_2024.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/08-lab2_2025.Rmd",
     "text": null
   },
   "download": null,

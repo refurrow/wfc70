@@ -39,7 +39,7 @@ class-discussion-5-minutes-instructor-will-lead
 part-4-data-frames-to-link-data-together-5-minutes-instructor-will-lead
 wrapping-up-5-minutes
 extra-material-for-interest-will-not-be-assessed-on-any-homework
-lab-2-indicies-in-r-r-markdown-2025
+lab-2-indices-in-r-r-markdown-2025
 part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading
 r-vs.-rstudio
 r-scripts-.r-files-vs.-r-markdown-files-.rmd
