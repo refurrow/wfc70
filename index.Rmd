@@ -1,5 +1,5 @@
 --- 
-title: "WFC 70: Data Literacy for Wildlife Biologist"
+title: "WFC 70: Data Literacy for Wildlife Biologists"
 author: "Rob Furrow"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,9 +7,9 @@ site: bookdown::bookdown_site
 
 # Welcome to WFC 70 {-}
 
-The purpose of WFC 70 is to introduce and strength your data literacy skills. In this course, you will working with data sets, R and R Studio and understanding what data literacy is. 
+The purpose of WFC 70 is to build your data literacy skills, with a focus on using R programming to wrangle, plot, and interpret data. 
 
-This website aims to be a place where we demonstrate solutions to common mistakes, provide more practice, and provide resources to improve your R and data literacy skills. 
+This website is a mini-textbook where you can browse the course labs and explore other mini-lessons. Some focus on troubleshooting common mistakes, other on shortcuts for maximum efficiency, and others on more advanced techniques that may enable you to take on additional challenges for  to be a place where we demonstrate solutions to common mistakes, provide more practice, and provide resources to improve your R and data literacy skills. 
 
 This website was created by Learning Assistants! We hope it is of use :)
 
