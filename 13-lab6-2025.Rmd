@@ -1,8 +1,5 @@
----
-title: "Lab 6: mark-recapture"
-author: "WFC 70, Fall 2025"
-output: html_document
----
+
+# Lab 6: mark-recapture (2025)
 
 ## Goals
 

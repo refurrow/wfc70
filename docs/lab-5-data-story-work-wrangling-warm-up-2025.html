@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>E Lab 5: data story work, wrangling warm-up (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="E Lab 5: data story work, wrangling warm-up (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="E Lab 5: data story work, wrangling warm-up (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="E Lab 5: data story work, wrangling warm-up (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="lab-4-visualizing-data-in-r-part-2-2025.html"/>
+<link rel="next" href="lab-6-mark-recapture-2025.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -356,27 +356,225 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">WFC 70: Data Literacy for Wildlife Biologists</h1>
-<p class="author"><em>Rob Furrow</em></p>
-<p class="date"><em>2025-11-06</em></p>
+<div id="lab-5-data-story-work-wrangling-warm-up-2025" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">E</span> Lab 5: data story work, wrangling warm-up (2025)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#lab-5-data-story-work-wrangling-warm-up-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="goals-1" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">E.1</span> Goals<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#goals-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this lab, we will do a tiny big of wrangling, but mostly focus on getting
+things started for the Data Story. More wrangling to come in the next two weeks.</p>
+<p>By the end of this lab, you should be able to:</p>
+<ul>
+<li>use <code>filter()</code> to select of subset of a data frame,</li>
+<li>add faceting to plots,</li>
+<li>describe the potential wrangling process for a data set for your Data Story.</li>
+</ul>
+<div id="resources-2" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">E.1.1</span> Resources<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#resources-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will work with a new data set today based on small mammal trapping to
+assess biodiversity in different types of plots. These data are explored
+in detail in the Data Carpentry course “Data Analysis and Visualisation in R for Ecologists”, <a href="https://datacarpentry.org/R-ecology-lesson/index.html">https://datacarpentry.org/R-ecology-lesson/index.html</a>.</p>
 </div>
-<div id="welcome-to-wfc-70" class="section level1 unnumbered hasAnchor">
-<h1>Welcome to WFC 70<a href="index.html#welcome-to-wfc-70" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of WFC 70 is to build your data literacy skills, with a focus on using R programming to wrangle, plot, and interpret data.</p>
-<p>This website is a mini-textbook where you can browse the course labs and explore other mini-lessons. Some lessons focus on troubleshooting common mistakes, other on shortcuts for maximum efficiency, and others on more advanced techniques to enable you to take on more complex data sets for your project.</p>
-<p>This website was created by WFC 70 Learning Assistants! We hope it is of use :)</p>
+</div>
+<div id="part-0-figure-of-the-week-5-minutes-instructor-leading" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">E.2</span> Part 0: Figure of the week (5 minutes, instructor leading)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <hr />
-<p>All videos in this website are created by Anthony Roberson. Sections are written by Rosaleen Hernandez, Zoe Smith, Seth Marshall, and Mingyuan Li, with some contributions from course instructor Rob Furrow.</p>
+<hr />
+</div>
+<div id="part-1-new-data-5-minutes-instructor-leading-1" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">E.3</span> Part 1: New data! (5 minutes, instructor leading)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-1-new-data-5-minutes-instructor-leading-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is mostly review about the data introduced at the end of Monday’s lecture.</p>
+<div id="loading-data-1" class="section level3 hasAnchor" number="11.3.1">
+<h3><span class="header-section-number">E.3.1</span> Loading data<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#loading-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-1" tabindex="-1"></a><span class="co"># loading a csv file from this URL. The header argument just tells R</span></span>
+<span id="cb107-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-2" tabindex="-1"></a><span class="co"># that the first row is not data, but is instead a header</span></span>
+<span id="cb107-3"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-3" tabindex="-1"></a><span class="co"># with column names</span></span>
+<span id="cb107-4"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-4" tabindex="-1"></a>mammals <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/main/portal_data_joined.csv&quot;</span>,</span>
+<span id="cb107-5"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-5" tabindex="-1"></a>                    <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb107-6"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-6" tabindex="-1"></a></span>
+<span id="cb107-7"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-7" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
+<span id="cb107-8"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb107-8" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+</div>
+<div id="about-these-data" class="section level3 hasAnchor" number="11.3.2">
+<h3><span class="header-section-number">E.3.2</span> About these data<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#about-these-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The data are part of the Portal Project Teaching Database <a href="https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10">https://figshare.com/articles/dataset/Portal_Project_Teaching_Database/1314459/10</a>.
+They come from a long-term mammal and plant monitoring study in the Chihuahuan
+Desert near Portal, Arizona.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb108-1" tabindex="-1"></a><span class="co"># getting a sense of our variables</span></span>
+<span id="cb108-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb108-2" tabindex="-1"></a><span class="fu">glimpse</span>(mammals)</span></code></pre></div>
+<pre><code>## Rows: 34,786
+## Columns: 13
+## $ record_id       &lt;int&gt; 1, 72, 224, 266, 349, 363, 435, 506, 588, 661, 748, 84…
+## $ month           &lt;int&gt; 7, 8, 9, 10, 11, 11, 12, 1, 2, 3, 4, 5, 6, 8, 9, 10, 1…
+## $ day             &lt;int&gt; 16, 19, 13, 16, 12, 12, 10, 8, 18, 11, 8, 6, 9, 5, 4, …
+## $ year            &lt;int&gt; 1977, 1977, 1977, 1977, 1977, 1977, 1977, 1978, 1978, …
+## $ plot_id         &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
+## $ species_id      &lt;chr&gt; &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, &quot;NL&quot;, …
+## $ sex             &lt;chr&gt; &quot;M&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;&quot;, &quot;&quot;, &quot;M&quot;, &quot;M…
+## $ hindfoot_length &lt;int&gt; 32, 31, NA, NA, NA, NA, NA, NA, NA, NA, NA, 32, NA, 34…
+## $ weight          &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, 218, NA, NA, 204, 200,…
+## $ genus           &lt;chr&gt; &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;, &quot;Neotoma&quot;,…
+## $ species         &lt;chr&gt; &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albigula&quot;, &quot;albig…
+## $ taxa            &lt;chr&gt; &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rodent&quot;, &quot;Rod…
+## $ plot_type       &lt;chr&gt; &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;, &quot;Control&quot;,…</code></pre>
+<p>You’ll notice that we have a lot of data. The columns tell us the day, month,
+and year that each observation was made, as well as the plot id, the genus and
+species of each observation, a <code>species_id</code> that is a shorthand version of
+the species name, the sex, weight, and hindfoot length, and whether the
+species is a rodent, bird, rabbit, or reptile.</p>
+<p>Finally, <code>plot_type</code> tells us whether it was a control plot (no manipulation),
+a plot where they excluded kangaroo rats for an extended period (long-term), a
+plot with short-term exclusion of kangaroo rats, a plot where all rodents
+were excluded, or a plot where only one species was excluded
+(<em>Dipodomys spectabilis</em>).</p>
+</div>
+</div>
+<div id="part-1-visualizing-size-relationships" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">E.4</span> Part 1: visualizing size relationships<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-1-visualizing-size-relationships" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Your first activity is to explore size relationships on a filtered subset
+of these data, looking at just a few species. We will get you started with
+some code to filter the data.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb110-1" tabindex="-1"></a><span class="co"># selecting only genus Dipodomys, and only for the control plots</span></span>
+<span id="cb110-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb110-2" tabindex="-1"></a><span class="co"># then removing any individuals who were not identified to species (the &quot;sp.&quot;)</span></span>
+<span id="cb110-3"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb110-3" tabindex="-1"></a>dipodomys <span class="ot">&lt;-</span> <span class="fu">filter</span>(mammals, genus <span class="sc">==</span> <span class="st">&quot;Dipodomys&quot;</span> <span class="sc">&amp;</span> plot_type <span class="sc">==</span> <span class="st">&quot;Control&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb110-4"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb110-4" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>)</span></code></pre></div>
+<p>We will learn more about the pipe, <code>|&gt;</code>, next week. It is basically saying
+“Then do this”, and passing your data frame on to the next line. It allows you
+to not have to re-enter the name of the data frame at every step of tidying
+data. Here, after we filtered to only genus <em>Dipodomys</em> and only control plots,
+we then did a second filter to remove any individuals who were just labeled
+as <em>Dipodomys sp.</em> rather than the name of a specific species. (When you see
+<em>sp.</em> for a species name that means that the individual was left unidentified.)</p>
+<p>We now have a simplified data frame for only the three kangaroo rat species.
+Here are two examples of visualizing the hindfoot and weight relationships for
+each species.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb111-1" tabindex="-1"></a><span class="co"># scatterplot with color</span></span>
+<span id="cb111-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb111-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
+<span id="cb111-3"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb111-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight, <span class="at">color =</span> species_id)) <span class="sc">+</span></span>
+<span id="cb111-4"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb111-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<pre><code>## Warning: Removed 832 rows containing missing
+## values or values outside the scale
+## range (`geom_point()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb113-1" tabindex="-1"></a><span class="co"># faceting by species</span></span>
+<span id="cb113-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb113-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dipodomys,</span>
+<span id="cb113-3"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb113-3" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> hindfoot_length, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
+<span id="cb113-4"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb113-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb113-5"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb113-5" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code></pre></div>
+<pre><code>## Warning: Removed 832 rows containing missing
+## values or values outside the scale
+## range (`geom_point()`).</code></pre>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
+<div id="your-task-10-minutes" class="section level3 hasAnchor" number="11.4.1">
+<h3><span class="header-section-number">E.4.1</span> Your task (10 minutes)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#your-task-10-minutes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Starting from the <code>mammals</code> data frame, use <code>filter()</code> to make a new data
+frame called <code>sigmodon</code> that includes only species in the genus Sigmodon. With
+these new data, create a violin plot of hindfoot length, colored by sex, and
+faceted by species. You should find the code above to be very helpful.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb115-1" tabindex="-1"></a><span class="co"># write your code and comments in this chunk</span></span></code></pre></div>
+</div>
+</div>
+<div id="part-2-a-wrangling-plan" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">E.5</span> Part 2: a wrangling plan<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-2-a-wrangling-plan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You proposed some potential data sets for your Data Story in your HW 3
+submission. Use the rest of today’s class to explore at least one of these
+data sets more deeply.</p>
+<p>In particular, focus today on what kind of data wrangling may need to be done
+in order to get your data ready for making your Data Story plots. Here are
+a few guiding questions.</p>
+<ul>
+<li><p>What are the columns of interest in my data? What type of data is each column
+(e.g., numeric, categorical, text)?</p></li>
+<li><p>Is the data structured in a “long” format for use with ggplot(), where
+each row is an observation?</p></li>
+<li><p>Do the data need cleaning? Are there rows that need to be filtered out?
+Are there columns that have a mix of numeric and text data (which will make
+R force the whole column to be character/text data)?</p></li>
+<li><p>Do the data need any enriching/transformation? Do I want to make a new
+column based on data in other columns? Do I need to combine two or more data
+frames (e.g., combining weather data with mammal trapping data for each night)?</p></li>
+<li><p>Do I need to summarize the data in any way, e.g., by calculating means and
+standard errors for certain ages or by sex?</p></li>
+<li><p>How can I validate the data to catch any errors with my coding, or errors
+with the raw data? (Make a plan of certain plots that you can use to
+double-check that the data generally make sense and show the expected patterns.)</p></li>
+</ul>
+<hr />
+<p>Write your notes/answers here for future reference. You may end up using some
+of this text when writing your Data Story.</p>
+<hr />
+</div>
+<div id="wrapping-up-5-minutes-4" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">E.6</span> Wrapping up (5 minutes)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#wrapping-up-5-minutes-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Knit your file to HTML, and save the original Rmd, then add them to your WFC 98
+folder on Google Drive.</p>
+<hr />
+</div>
+<div id="extra-material-1" class="section level2 hasAnchor" number="11.7">
+<h2><span class="header-section-number">E.7</span> Extra material<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#extra-material-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Work on HW 4.</p></li>
+<li><p>Try out the exploratory data analysis activity below.</p></li>
+</ol>
+<div id="transforming-the-data-scary-code-behind-the-scenes" class="section level3 hasAnchor" number="11.7.1">
+<h3><span class="header-section-number">E.7.1</span> Transforming the data (scary code behind the scenes)<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#transforming-the-data-scary-code-behind-the-scenes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Run the code below to create a new data frame that summarizes the diversity
+at each plot for each year.</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-1" tabindex="-1"></a><span class="co"># creating a function to calculate Shannon&#39;s diversity index</span></span>
+<span id="cb116-2"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-2" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="cf">function</span>(x)</span>
+<span id="cb116-3"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-3" tabindex="-1"></a>{</span>
+<span id="cb116-4"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-4" tabindex="-1"></a>  proportions <span class="ot">&lt;-</span> <span class="fu">table</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span>
+<span id="cb116-5"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-5" tabindex="-1"></a>  D <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">sum</span>(proportions<span class="sc">*</span><span class="fu">log</span>(proportions))</span>
+<span id="cb116-6"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-6" tabindex="-1"></a>  <span class="fu">return</span>(D)</span>
+<span id="cb116-7"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-7" tabindex="-1"></a>}</span>
+<span id="cb116-8"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-8" tabindex="-1"></a></span>
+<span id="cb116-9"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-9" tabindex="-1"></a><span class="co"># calculating the diversity of rodents in two ways, after filtering data</span></span>
+<span id="cb116-10"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-10" tabindex="-1"></a>mammals_diversity <span class="ot">&lt;-</span> mammals <span class="sc">|&gt;</span></span>
+<span id="cb116-11"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-11" tabindex="-1"></a>  <span class="fu">filter</span>(taxa <span class="sc">==</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> genus <span class="sc">!=</span> <span class="st">&quot;Dipodomys&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb116-12"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-12" tabindex="-1"></a>  <span class="fu">filter</span>(genus <span class="sc">!=</span> <span class="st">&quot;Rodent&quot;</span> <span class="sc">&amp;</span> species <span class="sc">!=</span> <span class="st">&quot;sp.&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb116-13"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-13" tabindex="-1"></a>  <span class="fu">group_by</span>(plot_id, year) <span class="sc">|&gt;</span></span>
+<span id="cb116-14"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-14" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">richness =</span> <span class="fu">length</span>(<span class="fu">unique</span>(species_id)),</span>
+<span id="cb116-15"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-15" tabindex="-1"></a>            <span class="at">shannon_d =</span> <span class="fu">shannon</span>(species_id)) <span class="sc">|&gt;</span></span>
+<span id="cb116-16"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">plot_type =</span> <span class="fu">case_match</span>(plot_id,</span>
+<span id="cb116-17"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-17" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">17</span>,<span class="dv">22</span>) <span class="sc">~</span> <span class="st">&quot;control&quot;</span>,</span>
+<span id="cb116-18"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-18" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">15</span>,<span class="dv">19</span>,<span class="dv">21</span>) <span class="sc">~</span> <span class="st">&quot;krat long-term exclosure&quot;</span>,</span>
+<span id="cb116-19"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-19" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">10</span>,<span class="dv">16</span>,<span class="dv">23</span>,<span class="dv">24</span>) <span class="sc">~</span> <span class="st">&quot;all rodent exclosure&quot;</span>,</span>
+<span id="cb116-20"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-20" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">13</span>,<span class="dv">18</span>,<span class="dv">20</span>) <span class="sc">~</span> <span class="st">&quot;krat short-term exclosure&quot;</span>,</span>
+<span id="cb116-21"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb116-21" tabindex="-1"></a>                                <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>) <span class="sc">~</span> <span class="st">&quot;spectab exclosure&quot;</span>))</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by
+## &#39;plot_id&#39;. You can override using
+## the `.groups` argument.</code></pre>
+<p>We have two different measurements of diversity. The <code>richness</code> column
+is just a count of exactly how many different rodent species were found
+in that plot in that year. The <code>shannon_d</code> column is a measure of
+Shannon’s diversity index. That value quantifies diversity in a way that
+includes species richness but also species evenness (whether there were
+many common species, or just a few common species and many rare species).<br />
+Ecologists generally consider a community to be more diverse if there are
+many common species, rather than just a few common species and lots of rare
+species.</p>
+</div>
+<div id="your-task" class="section level3 hasAnchor" number="11.7.2">
+<h3><span class="header-section-number">E.7.2</span> Your task<a href="lab-5-data-story-work-wrangling-warm-up-2025.html#your-task" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Using the mammals diversity data, try to identify if there are differences
+in diversity based on plot type, if there have been changes in diversity
+through time, or both. Try plotting the data in many ways, with different
+plot types and different combinations of which variables are shown using
+x-values, y-values, colors, facets, etc. Remember that we have two different
+measures of diversity. This kind of quick plotting in many ways is a key part
+of exploratory data analysis.</p>
+<p><strong><em>Create an effective figure to illustrate a pattern that you have found.</em></strong></p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#cb118-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lab-4-visualizing-data-in-r-part-2-2025.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-6-mark-recapture-2025.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -407,7 +605,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/index.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/12-lab5-2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -415,7 +613,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/index.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/12-lab5-2025.Rmd",
     "text": null
   },
   "download": null,

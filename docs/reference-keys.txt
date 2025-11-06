@@ -71,6 +71,7 @@ part-2-using-ggplot-for-plotting-in-r-15-minutes-self-led
 part-3-exploring-15-minutes-self-led
 wrapping-up-5-minutes-2
 extra-material
+lab-4-visualizing-data-in-r-part-2-2025
 goals
 resources-1
 part-0-figure-of-the-week-5-10-minutes-instructor-leading
@@ -88,6 +89,7 @@ interlude-finding-data-for-the-data-story-assignment
 task-4-nice-labels-time-permitting
 wrapping-up-5-minutes-3
 extra-material-for-interest-will-not-be-assessed-on-any-homework-1
+lab-5-data-story-work-wrangling-warm-up-2025
 goals-1
 resources-2
 part-0-figure-of-the-week-5-minutes-instructor-leading
@@ -101,6 +103,7 @@ wrapping-up-5-minutes-4
 extra-material-1
 transforming-the-data-scary-code-behind-the-scenes
 your-task
+lab-6-mark-recapture-2025
 goals-2
 resources-3
 part-0-figure-of-the-week-5-minutes-instructor-leading-1
@@ -112,6 +115,7 @@ getting-your-mark-recapture-table
 more-joining-time-permitting
 wrapping-up-5-minutes-5
 extra-material-2
+lab-7-file-management-troubleshooting-data-story-2025
 goals-3
 resources-4
 part-0-figure-of-the-week-5-minutes-instructor-leading-2

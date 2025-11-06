@@ -1,8 +1,5 @@
----
-title: 'Lab 7: file management, troubleshooting, data story'
-author: "WFC 70, Fall 2025"
-output: html_document
----
+
+# Lab 7: file management, troubleshooting, data story (2025)
 
 ## Goals
 

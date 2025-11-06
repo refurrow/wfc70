@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>F Lab 6: mark-recapture (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content="F Lab 6: mark-recapture (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="F Lab 6: mark-recapture (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="F Lab 6: mark-recapture (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="lab-5-data-story-work-wrangling-warm-up-2025.html"/>
+<link rel="next" href="lab-7-file-management-troubleshooting-data-story-2025.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -356,27 +356,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">WFC 70: Data Literacy for Wildlife Biologists</h1>
-<p class="author"><em>Rob Furrow</em></p>
-<p class="date"><em>2025-11-06</em></p>
+<div id="lab-6-mark-recapture-2025" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">F</span> Lab 6: mark-recapture (2025)<a href="lab-6-mark-recapture-2025.html#lab-6-mark-recapture-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="goals-2" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">F.1</span> Goals<a href="lab-6-mark-recapture-2025.html#goals-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this lab, we will use our wrangling skills to clean up a data frame
+in order to estimate population sizes using mark-recapture.</p>
+<p>By the end of this lab, you should be able to:</p>
+<ul>
+<li>calculate a population estimate from mark-recapture data,</li>
+<li>use one of the <code>_join()</code> functions to combine different data frames that
+have a shared “key” column,</li>
+<li>use <code>bind_rows()</code> to combine multiple data frames with
+identical columns.</li>
+</ul>
+<div id="resources-3" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">F.1.1</span> Resources<a href="lab-6-mark-recapture-2025.html#resources-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We will use the data discussed during the mark-recapture lectures. These are
+data from a LTER (Long-term Ecological Research) site called the San Joaquin
+Experimental Range.<br />
+<a href="https://data.neonscience.org/data-products/DP1.10072.001">https://data.neonscience.org/data-products/DP1.10072.001</a></p>
 </div>
-<div id="welcome-to-wfc-70" class="section level1 unnumbered hasAnchor">
-<h1>Welcome to WFC 70<a href="index.html#welcome-to-wfc-70" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The purpose of WFC 70 is to build your data literacy skills, with a focus on using R programming to wrangle, plot, and interpret data.</p>
-<p>This website is a mini-textbook where you can browse the course labs and explore other mini-lessons. Some lessons focus on troubleshooting common mistakes, other on shortcuts for maximum efficiency, and others on more advanced techniques to enable you to take on more complex data sets for your project.</p>
-<p>This website was created by WFC 70 Learning Assistants! We hope it is of use :)</p>
+</div>
+<div id="part-0-figure-of-the-week-5-minutes-instructor-leading-1" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">F.2</span> Part 0: Figure of the week (5 minutes, instructor leading)<a href="lab-6-mark-recapture-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <hr />
-<p>All videos in this website are created by Anthony Roberson. Sections are written by Rosaleen Hernandez, Zoe Smith, Seth Marshall, and Mingyuan Li, with some contributions from course instructor Rob Furrow.</p>
+<hr />
+</div>
+<div id="part-1-reminder-of-lecture-data-10-minutes-instructor-leading" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">F.3</span> Part 1: Reminder of lecture data (10 minutes, instructor leading)<a href="lab-6-mark-recapture-2025.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This code should align with what we covered during lecture. Note, however,
+that you don’t even have to do the Schnabel calculation by hand. With the
+right vectors for M, T, and R, that final line does the multiplying, adding,
+and dividing, and should yield exactly what we found during lecture.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="lab-6-mark-recapture-2025.html#cb119-1" tabindex="-1"></a><span class="co"># loading tidyverse for our plotting and data wrangling needs</span></span>
+<span id="cb119-2"><a href="lab-6-mark-recapture-2025.html#cb119-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb119-3"><a href="lab-6-mark-recapture-2025.html#cb119-3" tabindex="-1"></a></span>
+<span id="cb119-4"><a href="lab-6-mark-recapture-2025.html#cb119-4" tabindex="-1"></a><span class="co"># loading data</span></span>
+<span id="cb119-5"><a href="lab-6-mark-recapture-2025.html#cb119-5" tabindex="-1"></a>sjer_jan17 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/data/mam_pertrapnight_2017_01_basic.csv&quot;</span>)</span>
+<span id="cb119-6"><a href="lab-6-mark-recapture-2025.html#cb119-6" tabindex="-1"></a></span>
+<span id="cb119-7"><a href="lab-6-mark-recapture-2025.html#cb119-7" tabindex="-1"></a><span class="co"># wrangling for a simpler data set with just one species</span></span>
+<span id="cb119-8"><a href="lab-6-mark-recapture-2025.html#cb119-8" tabindex="-1"></a>pebo_jan17 <span class="ot">&lt;-</span> sjer_jan17 <span class="sc">|&gt;</span>  <span class="co">#start with the full data, THEN</span></span>
+<span id="cb119-9"><a href="lab-6-mark-recapture-2025.html#cb119-9" tabindex="-1"></a>  <span class="fu">filter</span>(scientificName <span class="sc">==</span> <span class="st">&quot;Peromyscus boylii&quot;</span>) <span class="sc">|&gt;</span> <span class="co">#filter for P. boylii, THEN</span></span>
+<span id="cb119-10"><a href="lab-6-mark-recapture-2025.html#cb119-10" tabindex="-1"></a>  <span class="fu">select</span>(collectDate, tagID, recapture, fate, plotID, nlcdClass) <span class="co"># selecting only these columns</span></span>
+<span id="cb119-11"><a href="lab-6-mark-recapture-2025.html#cb119-11" tabindex="-1"></a></span>
+<span id="cb119-12"><a href="lab-6-mark-recapture-2025.html#cb119-12" tabindex="-1"></a><span class="co"># creating a table from the date column and the recapture column</span></span>
+<span id="cb119-13"><a href="lab-6-mark-recapture-2025.html#cb119-13" tabindex="-1"></a>pebo_table <span class="ot">&lt;-</span> <span class="fu">table</span>(pebo_jan17<span class="sc">$</span>collectDate,pebo_jan17<span class="sc">$</span>recapture)</span>
+<span id="cb119-14"><a href="lab-6-mark-recapture-2025.html#cb119-14" tabindex="-1"></a>pebo_table</span></code></pre></div>
+<pre><code>##             
+##               N  Y
+##   2017-01-18  4  0
+##   2017-01-19 10  2
+##   2017-01-20  2  4</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="lab-6-mark-recapture-2025.html#cb121-1" tabindex="-1"></a><span class="co"># entering our mark-recapture data</span></span>
+<span id="cb121-2"><a href="lab-6-mark-recapture-2025.html#cb121-2" tabindex="-1"></a>pebo_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">14</span>)</span>
+<span id="cb121-3"><a href="lab-6-mark-recapture-2025.html#cb121-3" tabindex="-1"></a>pebo_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">6</span>)</span>
+<span id="cb121-4"><a href="lab-6-mark-recapture-2025.html#cb121-4" tabindex="-1"></a>pebo_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span>
+<span id="cb121-5"><a href="lab-6-mark-recapture-2025.html#cb121-5" tabindex="-1"></a></span>
+<span id="cb121-6"><a href="lab-6-mark-recapture-2025.html#cb121-6" tabindex="-1"></a><span class="co"># adding up sum of M*T values, then dividing by sum of R values</span></span>
+<span id="cb121-7"><a href="lab-6-mark-recapture-2025.html#cb121-7" tabindex="-1"></a><span class="fu">sum</span>(pebo_M<span class="sc">*</span>pebo_T)<span class="sc">/</span><span class="fu">sum</span>(pebo_R)</span></code></pre></div>
+<pre><code>## [1] 22</code></pre>
+<p>You estimate 22 individuals in this population, using the Schnabel estimator.
+Okay, in a moment we will set you loose to try things on your own, but
+first let’s do a quick <code>_join()</code>.</p>
+</div>
+<div id="adding-weather-data-joining-data-frames" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">F.4</span> Adding weather data (joining data frames)<a href="lab-6-mark-recapture-2025.html#adding-weather-data-joining-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Small mammal activity at night may depend on nighttime temperature or
+precipitation, so it would be interesting to see whether our sample size
+varies depending on the weather conditions. (For example, if our mice
+are inactive in very cold weather, we will expect to catch fewer mice in
+our traps on cold nights.)</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="lab-6-mark-recapture-2025.html#cb123-1" tabindex="-1"></a><span class="co"># weather for the site</span></span>
+<span id="cb123-2"><a href="lab-6-mark-recapture-2025.html#cb123-2" tabindex="-1"></a><span class="co"># the csv was having formatting issues, so we switched here to loading</span></span>
+<span id="cb123-3"><a href="lab-6-mark-recapture-2025.html#cb123-3" tabindex="-1"></a><span class="co"># a txt file using read.delim()</span></span>
+<span id="cb123-4"><a href="lab-6-mark-recapture-2025.html#cb123-4" tabindex="-1"></a>sjer_weather <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/sjer_weather.txt&quot;</span>)</span></code></pre></div>
+<p>We have many fewer rows, because for each night we just have a single
+suite of measurements (rather than separate rows for each individual
+caught in our original data). <code>lowTemp</code> is the lowest temperature that night
+in degrees Fahrenheit, and <code>precip</code> is the overall rainfall in the previous
+24 hours, in inches.</p>
+<p>To think about overall activity, let’s not simply focus on <em>P. boylii</em>. Let’s
+instead use all of our data. We’ll want to remove all the rows with
+empty traps and only include rows with captures. There are many ways
+we could filter here. I noticed that the when a trap is empty the recapture
+column is always the empty string, ““, while the column always has a value when
+an individual was caught, so we can filter by removing all the empty rows. The
+exclamation point, !, means NOT, so we will filter the rows that are NOT equal
+to”“.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="lab-6-mark-recapture-2025.html#cb124-1" tabindex="-1"></a><span class="co"># getting all catches (not just P. boylii)</span></span>
+<span id="cb124-2"><a href="lab-6-mark-recapture-2025.html#cb124-2" tabindex="-1"></a>catches_jan17 <span class="ot">&lt;-</span> sjer_jan17 <span class="sc">|&gt;</span></span>
+<span id="cb124-3"><a href="lab-6-mark-recapture-2025.html#cb124-3" tabindex="-1"></a>  <span class="fu">filter</span>(recapture <span class="sc">!=</span> <span class="st">&quot;&quot;</span>) <span class="co"># only rows that are NOT equal to the empty string, &quot;&quot;.</span></span></code></pre></div>
+<p>Now, let’s join. We don’t care about the February or October weather, so let’s
+prioritize the rows in our catch data.</p>
+<ul>
+<li><strong><em>Pause and think. What is our shared key? What kind of join should we use?</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="lab-6-mark-recapture-2025.html#cb125-1" tabindex="-1"></a><span class="co">#joining catch data and weather data</span></span>
+<span id="cb125-2"><a href="lab-6-mark-recapture-2025.html#cb125-2" tabindex="-1"></a>catches_jan17_full <span class="ot">&lt;-</span> <span class="fu">left_join</span>(catches_jan17,sjer_weather, <span class="at">by =</span> <span class="st">&quot;collectDate&quot;</span>)</span></code></pre></div>
+<ul>
+<li><strong><em>Pause and check. Do the data look like what we expected? Because the catch data</em></strong>
+<strong><em>has multiple rows for each night, what is in the weather data for the</em></strong>
+<strong><em>separate rows on the same night?</em></strong></li>
+</ul>
+<p>Finally, we’ll want to convert our data to a simple count per night using
+<code>group_by()</code> and <code>summarize()</code>.</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="lab-6-mark-recapture-2025.html#cb126-1" tabindex="-1"></a>weather_catch_jan17 <span class="ot">&lt;-</span> catches_jan17_full <span class="sc">|&gt;</span></span>
+<span id="cb126-2"><a href="lab-6-mark-recapture-2025.html#cb126-2" tabindex="-1"></a>  <span class="fu">group_by</span>(collectDate) <span class="sc">|&gt;</span></span>
+<span id="cb126-3"><a href="lab-6-mark-recapture-2025.html#cb126-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">sample_size =</span> <span class="fu">n</span>(), <span class="co"># counts number of rows (for each date)</span></span>
+<span id="cb126-4"><a href="lab-6-mark-recapture-2025.html#cb126-4" tabindex="-1"></a>            <span class="at">low_temp =</span> <span class="fu">first</span>(lowTemp), <span class="co"># picks the first temp value </span></span>
+<span id="cb126-5"><a href="lab-6-mark-recapture-2025.html#cb126-5" tabindex="-1"></a>            <span class="at">precip =</span> <span class="fu">first</span>(precip)) <span class="co"># picks first precip value</span></span></code></pre></div>
+<p>Take a moment to view this much smaller data frame. We now have everything
+we need to look at sample size versus temperature (or versus precipitation).</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="lab-6-mark-recapture-2025.html#cb127-1" tabindex="-1"></a><span class="fu">ggplot</span>(weather_catch_jan17,</span>
+<span id="cb127-2"><a href="lab-6-mark-recapture-2025.html#cb127-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> low_temp, <span class="at">y =</span> sample_size)) <span class="sc">+</span></span>
+<span id="cb127-3"><a href="lab-6-mark-recapture-2025.html#cb127-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb127-4"><a href="lab-6-mark-recapture-2025.html#cb127-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p>Okay, we’ve managed some mark-recapture, joining, summarizing and plotting.
+Now you can try out a second estimate on your own.</p>
+</div>
+<div id="western-harvest-mouse-population-size-on-your-own-15-minutes" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">F.5</span> Western harvest mouse population size (on your own, 15 minutes)<a href="lab-6-mark-recapture-2025.html#western-harvest-mouse-population-size-on-your-own-15-minutes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="your-data" class="section level3 hasAnchor" number="12.5.1">
+<h3><span class="header-section-number">F.5.1</span> Your data<a href="lab-6-mark-recapture-2025.html#your-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This code will help you load the February trapping data, and filter to
+just include the western harvest mouse, <em>Reithrodontomys megalotis</em>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="lab-6-mark-recapture-2025.html#cb128-1" tabindex="-1"></a>sjer_feb17 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/data/mam_pertrapnight_2017_02_basic.csv&quot;</span>)</span>
+<span id="cb128-2"><a href="lab-6-mark-recapture-2025.html#cb128-2" tabindex="-1"></a></span>
+<span id="cb128-3"><a href="lab-6-mark-recapture-2025.html#cb128-3" tabindex="-1"></a>rema_feb17 <span class="ot">&lt;-</span> <span class="fu">filter</span>(sjer_feb17, scientificName<span class="sc">==</span> <span class="st">&quot;Reithrodontomys megalotis&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb128-4"><a href="lab-6-mark-recapture-2025.html#cb128-4" tabindex="-1"></a>  <span class="fu">select</span>(collectDate, tagID, recapture, fate, plotID, nlcdClass)</span></code></pre></div>
+</div>
+<div id="getting-your-mark-recapture-table" class="section level3 hasAnchor" number="12.5.2">
+<h3><span class="header-section-number">F.5.2</span> Getting your mark-recapture table<a href="lab-6-mark-recapture-2025.html#getting-your-mark-recapture-table" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Follow the steps from our <em>P. boylii</em> estimate to create a table with
+recapture / new capture counts for each night (collectDate). (Hint: <code>table()</code>
+function.)</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="lab-6-mark-recapture-2025.html#cb129-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
+<p>Enter your data below, and uncomment and run the lines afterwards. You have
+four nights (three resamples), so you’ll have three values each for
+M, T, and R.</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="lab-6-mark-recapture-2025.html#cb130-1" tabindex="-1"></a><span class="co">#uncomment the lines below and fill in the right values for the</span></span>
+<span id="cb130-2"><a href="lab-6-mark-recapture-2025.html#cb130-2" tabindex="-1"></a><span class="co">#M, T, and R vectors</span></span>
+<span id="cb130-3"><a href="lab-6-mark-recapture-2025.html#cb130-3" tabindex="-1"></a></span>
+<span id="cb130-4"><a href="lab-6-mark-recapture-2025.html#cb130-4" tabindex="-1"></a><span class="co">#rema_M &lt;- c()</span></span>
+<span id="cb130-5"><a href="lab-6-mark-recapture-2025.html#cb130-5" tabindex="-1"></a><span class="co">#rema_T &lt;- c()</span></span>
+<span id="cb130-6"><a href="lab-6-mark-recapture-2025.html#cb130-6" tabindex="-1"></a><span class="co">#rema_R &lt;- c()</span></span>
+<span id="cb130-7"><a href="lab-6-mark-recapture-2025.html#cb130-7" tabindex="-1"></a></span>
+<span id="cb130-8"><a href="lab-6-mark-recapture-2025.html#cb130-8" tabindex="-1"></a><span class="co">#sum(rema_M*rema_T)/sum(rema_R)</span></span></code></pre></div>
+<ul>
+<li><strong><em>What is your final estimate for the Feb 2017 population size?</em></strong></li>
+</ul>
+</div>
+<div id="more-joining-time-permitting" class="section level3 hasAnchor" number="12.5.3">
+<h3><span class="header-section-number">F.5.3</span> More joining (time permitting)<a href="lab-6-mark-recapture-2025.html#more-joining-time-permitting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Create a new data frame that includes all catches for Feb 2017,</li>
+<li>Join it with the weather data, <code>sjer_weather</code>,</li>
+<li>Create an identical summary of the data for February (the only
+difference in code will be the name of the initial data frame
+you are using),</li>
+<li>use <code>bind_rows()</code> to combine the summary from Jan and Feb,</li>
+<li>create a plot of temperature versus sample size for both month’s data.</li>
+</ul>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="lab-6-mark-recapture-2025.html#cb131-1" tabindex="-1"></a><span class="co"># enter your code and comments here</span></span></code></pre></div>
+</div>
+</div>
+<div id="wrapping-up-5-minutes-5" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">F.6</span> Wrapping up (5 minutes)<a href="lab-6-mark-recapture-2025.html#wrapping-up-5-minutes-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Knit your file to HTML, and save the original Rmd, then add them to your WFC 70
+folder on Google Drive.</p>
+</div>
+<div id="extra-material-2" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">F.7</span> Extra material<a href="lab-6-mark-recapture-2025.html#extra-material-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Work on HW 5.</p>
+<p>Continue working on the Data Story.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lab-5-data-story-work-wrangling-warm-up-2025.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-7-file-management-troubleshooting-data-story-2025.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -407,7 +571,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/index.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/13-lab6-2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -415,7 +579,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/index.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/13-lab6-2025.Rmd",
     "text": null
   },
   "download": null,

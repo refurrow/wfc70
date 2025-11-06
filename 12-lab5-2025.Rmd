@@ -1,9 +1,5 @@
----
-title: "Lab 5: data story work, wrangling warm-up"
-author: "WFC 70, Fall 2025"
-output: html_document
----
 
+# Lab 5: data story work, wrangling warm-up (2025)
 
 ## Goals
 

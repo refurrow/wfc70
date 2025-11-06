@@ -1,8 +1,5 @@
----
-title: 'Lab 4: visualizing data in R (part 2)'
-author: "WFC 70, Fall 2025"
-output:  html_document
----
+
+# Lab 4: visualizing data in R (part 2) (2025)
 
 ## Goals
 
