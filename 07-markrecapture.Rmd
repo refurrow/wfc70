@@ -1,0 +1,138 @@
+# Mark-Recapture
+
+A concept that comes up not only in this class, but in Biology and future WFC classes, is mark-recapture. Mark-recapture is a great method of estimating the population of a species in an area. Obviously, it is difficult, well impossible, to count each individual and keep track of them. This is what makes mark-recapture very helpful.
+
+In mark-recapture, you catch individuals from the population and mark them (hence the name). After you mark the individual, you release them. You do this through a period of time, and obviously, during this period, you will be getting individuals that are already marked.
+
+The equation for mark-recapture is:
+
+$\frac{M}{\hat{N}}$ = $\frac{R}{T}$
+
+-   *M* is individuals marked initially
+-   $\hat{N}$ is estimated population size
+-   *R* is marked recaptured
+-   *T* is the total in the next sample
+
+The population size ($\hat{N}$) is typically unknown and what we want to find, and so the equation can be rewritten as:
+
+$\hat{N}$ = $\frac{M*T}{R}$
+
+## Example 
+
+In a sample of 60 mice, you catch and mark 12 mice. The second time you catch mice, you catch 11 mice with 2 being marked.
+
+From the equation we get that:
+
+-   *M* = 12
+-   *R* = 2
+-   *T* = 11
+
+We plug these into the equation $\frac{M}{\hat{N}}$ = $\frac{R}{T}$ to get:
+
+$\frac{12}{\hat{N}}$ = $\frac{2}{11}$
+
+This formula can be rearranged into:
+
+$\hat{N}$ = $\frac{12*11}{2}$ = 66 estimated population
+
+## Practice 1: Estimating population size
+
+You mark 25 individuals initially. In your second sample of 20, you find 5 marked. What is the estimated population size?
+
+## Mark-Recaptured in R
+
+Things get a bit more complicated in R Studio. It is difficult to take a large data set and count for each individual. In R, we take a data set and utilize table() function.
+
+```{r,eval=FALSE}
+my_table<- table(my_data$column_of_interest_1, my_data$column_of_interest_2)
+
+my_table
+```
+
+When we run the my_table function, the output will look something like this:
+
+![From Mark-Recapture Lecture](https://github.com/refurrow/wfc70/blob/main/markrecapturetable.png?raw=true)
+
+Where Y = Yes (recapture) and N = No (new individual)
+
+***This is an example. Different data sets will provide a different number of outputs.***
+
+With these outputs, we can enter our mark-recapture data as:
+
+```{r, eval=FALSE}
+my_table_M <- c( , ,...,) #marked initially
+my_table_T <- c( , ,...,) #total captured
+my_table_R <- c( , ,...,) #recaptured
+```
+
+Taking the example from the image above, the entered mark-recapture data will look like:
+
+```{r,eval=FALSE}
+my_table_M <- c(4, 14)
+my_table_T <- c(12, 6)
+my_table_R <- c(2, 4)
+```
+
+The value of my_table_M are obtained from the first date No column with the second date No column. We do not count the last date. The values of my_table_T are obtained from adding the second and third date being added across. So 10+2=12 and 2+4=6. The values of my_table_R are obtained from the Y column from the second and third date.
+
+After we enter our mark-recapture data, we can enter these into the equation $\hat{N}$ = $\frac{12*11}{2}$ to estimate the population size.
+
+```{r,eval=FALSE}
+sum(my_table_M*my_table_T)/sum(my_table_R)
+```
+
+## Practice 2
+
+|            | N   | Y   |
+|------------|-----|-----|
+| 2019-05-23 | 4   | 0   |
+| 2019-05-24 | 6   | 2   |
+| 2019-05-25 | 12  | 4   |
+| 2019-05-26 | 1   | 5   |
+
+Find:
+
+a)  my_table_M
+
+b)  my_table_T
+
+c)  my_table_R
+
+d)  Estimated population size
+
+## Practice 3
+
+|            | N   | Y   |
+|------------|-----|-----|
+| 2014-01-20 | 3   | 0   |
+| 2014-01-21 | 12  | 3   |
+| 2014-01-22 | 8   | 1   |
+
+Find:
+
+a)  my_table_M
+
+b)  my_table_T
+
+c)  my_table_R
+
+d)  Estimated population size
+
+## Answers
+
+Practice 1: 25*20/5 = 100
+Practice 2:
+```{r,eval=FALSE}
+my_table_M <- c(4,10,22)
+my_table_T <- c(8,16,6)
+my_table_R <- c(2,4,5)
+sum(my_table_M*my_table_T)/sum(my_table_R)
+```
+Practice 3:
+```{r,eval=FALSE}
+my_table_M <- c(3,15)
+my_table_T <- c(15,9)
+my_table_R <- c(3,1)
+sum(my_table_M*my_table_T)/sum(my_table_R)
+```
+

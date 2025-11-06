@@ -1,5 +1,10 @@
+---
+title: 'Lab 4: visualizing data in R (part 2)'
+author: "WFC 70, Fall 2025"
+output:  html_document
+---
 
-# Lab 4: Visualizing data in R (Part 2)
+## Goals
 
 In this lab, we will learn several more plotting skills.
 
@@ -213,14 +218,15 @@ cool topic.** So just explore for now.
 To prep for this next task, I will preview a data-tidying skill we will learn next week.
 
 ```{r}
-# creating a data frame with only side-blotched lizards
+# creating a data frame with only little striped lizards
 # make sure the tidyverse is loaded before using filter() in this way
 
-lizard_side_blotched <- filter(lizards, common_name == "side-blotched lizard")
+lizards_little_striped <- filter(lizards, 
+                                common_name == "little striped")
 
 ```
 
-Create a histogram of `total_length` for our new data frame, `lizard_side_blotched`.
+Create a histogram of `total_length` for our new data frame, `lizards_little_striped`.
 change the `fill` and/or `color` attributes to make it nice-looking, add a theme, 
 and add better labels. The y-axis label should be "frequency". You can decide 
 on the x-axis label and title, but make sure they are descriptive.
@@ -254,6 +260,6 @@ marks on a plot.
 
 ```{r}
 
-# write your code in this chunk
+# write your code in this chunk if you want to play around
 
 ```

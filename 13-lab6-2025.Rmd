@@ -1,6 +1,10 @@
-# Lab 6: Mark-recapture
+---
+title: "Lab 6: mark-recapture"
+author: "WFC 70, Fall 2025"
+output: html_document
+---
 
-Note: Had to remove code chunks so the coding looks slightly messy
+## Goals
 
 In this lab, we will use our wrangling skills to clean up a data frame
 in order to estimate population sizes using mark-recapture. 
@@ -21,6 +25,10 @@ Experimental Range.
 [https://data.neonscience.org/data-products/DP1.10072.001](https://data.neonscience.org/data-products/DP1.10072.001)
 
 
+## Part 0: Figure of the week (5 minutes, instructor leading)
+
+--------------------------------------------------------------------------------
+
 --------------------------------------------------------------------------------
 
 ## Part 1: Reminder of lecture data (10 minutes, instructor leading)
@@ -32,37 +40,26 @@ and dividing, and should yield exactly what we found during lecture.
 
 ```{r}
 # loading tidyverse for our plotting and data wrangling needs
-
 library(tidyverse)
-```
 
-```{r, eval=FALSE}
-#loading data
+# loading data
+sjer_jan17 <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/data/mam_pertrapnight_2017_01_basic.csv")
 
-sjer_jan17 <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70/main/mam_pertrapnight_2017_01_basic.csv")
-
-```
-
-```{r, eval=FALSE}
- #wrangling for a simpler data set with just one species
- 
+# wrangling for a simpler data set with just one species
 pebo_jan17 <- sjer_jan17 |>  #start with the full data, THEN
   filter(scientificName == "Peromyscus boylii") |> #filter for P. boylii, THEN
   select(collectDate, tagID, recapture, fate, plotID, nlcdClass) # selecting only these columns
 
 # creating a table from the date column and the recapture column
- 
 pebo_table <- table(pebo_jan17$collectDate,pebo_jan17$recapture)
 pebo_table
 
- #entering our mark-recapture data
- 
+# entering our mark-recapture data
 pebo_M <- c(4, 14)
 pebo_T <- c(12, 6)
 pebo_R <- c(2, 4)
 
- #adding up sum of M*T values, then dividing by sum of R values
- 
+# adding up sum of M*T values, then dividing by sum of R values
 sum(pebo_M*pebo_T)/sum(pebo_R)
 ```
 
@@ -79,12 +76,12 @@ are inactive in very cold weather, we will expect to catch fewer mice in
 our traps on cold nights.)
 
 
-```{r, eval=FALSE}
+```{r}
 
 # weather for the site
 # the csv was having formatting issues, so we switched here to loading
 # a txt file using read.delim()
-sjer_weather <- read.delim("https://raw.githubusercontent.com/refurrow/WFC70/main/sjer_weather.txt")
+sjer_weather <- read.delim("https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/sjer_weather.txt")
 ```
 
 We have many fewer rows, because for each night we just have a single
@@ -96,53 +93,56 @@ in degrees Fahrenheit, and `precip` is the overall rainfall in the previous
 To think about overall activity, let's not simply focus on *P. boylii*. Let's 
 instead use all of our data. We'll want to remove all the rows with
 empty traps and only include rows with captures. There are many ways
-we could filter here. I noticed that the recapture column is always the empty
-string, "", when the trap was empty and always has a value when an individual
-was caught, so we can filter by removing all the empty rows. The exclamation 
-point, !, means NOT, so we will filter the rows that are NOT equal to "".
+we could filter here. I noticed that the when a trap is empty the recapture 
+column is always the empty string, "", while the column always has a value when 
+an individual was caught, so we can filter by removing all the empty rows. The 
+exclamation point, !, means NOT, so we will filter the rows that are NOT equal 
+to "".
 
-getting all catches (not just P. boylii)
- 
+```{r}
+# getting all catches (not just P. boylii)
 catches_jan17 <- sjer_jan17 |>
-  filter(recapture != "")  only rows that are NOT equal to the empty string, "".
-
+  filter(recapture != "") # only rows that are NOT equal to the empty string, "".
 ```
 
 Now, let's join. We don't care about the February or October weather, so let's 
 prioritize the rows in our catch data. 
 
-***Pause and think. What is our shared key? What kind of join should we use?***
+* ***Pause and think. What is our shared key? What kind of join should we use?***
 
-
-joining catch data and weather data
-
+```{r}
+#joining catch data and weather data
 catches_jan17_full <- left_join(catches_jan17,sjer_weather, by = "collectDate")
 
+```
 
-***Pause and check. Do the data look like what we expected? Because the catch data***
+* ***Pause and check. Do the data look like what we expected? Because the catch data***
 ***has multiple rows for each night, what is in the weather data for the***
 ***separate rows on the same night?***
 
 Finally, we'll want to convert our data to a simple count per night using 
 `group_by()` and `summarize()`.
 
-
+```{r}
 weather_catch_jan17 <- catches_jan17_full |>
   group_by(collectDate) |>
   summarize(sample_size = n(), # counts number of rows (for each date)
             low_temp = first(lowTemp), # picks the first temp value 
             precip = first(precip)) # picks first precip value
-            
+
+```
+
 Take a moment to view this much smaller data frame. We now have everything
 we need to look at sample size versus temperature (or versus precipitation).
 
-
+```{r}
 
 ggplot(weather_catch_jan17,
        mapping = aes(x = low_temp, y = sample_size)) +
   geom_point() +
   theme_classic()
 
+```
 
 Okay, we've managed some mark-recapture, joining, summarizing and plotting.
 Now you can try out a second estimate on your own.
@@ -154,12 +154,12 @@ Now you can try out a second estimate on your own.
 This code will help you load the February trapping data, and filter to
 just include the western harvest mouse, *Reithrodontomys megalotis*.
 
-
-sjer_feb17 <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70/refs/heads/main/mam_pertrapnight_2017_02_basic.csv")
+```{r}
+sjer_feb17 <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/data/mam_pertrapnight_2017_02_basic.csv")
 
 rema_feb17 <- filter(sjer_feb17, scientificName== "Reithrodontomys megalotis") |>
   select(collectDate, tagID, recapture, fate, plotID, nlcdClass)
-
+```
 
 ### Getting your mark-recapture table
 
@@ -215,7 +215,7 @@ you are using),
 
 ## Wrapping up (5 minutes)
 
-Knit your file to HTML, and save the original Rmd, then add them to your WFC 98
+Knit your file to HTML, and save the original Rmd, then add them to your WFC 70
 folder on Google Drive.
 
 

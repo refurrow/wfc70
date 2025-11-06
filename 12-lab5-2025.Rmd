@@ -1,4 +1,11 @@
-# Lab 5: Data Story Work, Wrangling Warm-up
+---
+title: "Lab 5: data story work, wrangling warm-up"
+author: "WFC 70, Fall 2025"
+output: html_document
+---
+
+
+## Goals
 
 In this lab, we will do a tiny big of wrangling, but mostly focus on getting 
 things started for the Data Story. More wrangling to come in the next two weeks.
@@ -33,7 +40,7 @@ This is mostly review about the data introduced at the end of Monday's lecture.
 # loading a csv file from this URL. The header argument just tells R
 # that the first row is not data, but is instead a header
 # with column names
-mammals <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/portal_data_joined.csv",
+mammals <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70_old/main/portal_data_joined.csv",
                     header = TRUE)
 
 # loading tidyverse for our plotting and data wrangling needs

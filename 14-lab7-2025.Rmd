@@ -1,4 +1,10 @@
-# Lab 7: File Management, Troubleshooting, Data Story
+---
+title: 'Lab 7: file management, troubleshooting, data story'
+author: "WFC 70, Fall 2025"
+output: html_document
+---
+
+## Goals
 
 In this lab, we will learn the very basics of file management and 
 how to load data into Rmd files when it is stored locally.
@@ -16,6 +22,9 @@ how data are loaded,
 Please download from Canvas the file "Lab7_data.zip", and save it to a folder 
 on the computer. 
 
+## Part 0: Figure of the week (5 minutes, instructor leading)
+
+--------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
 
@@ -76,7 +85,7 @@ library(tidyverse)
 # to load the data frame from online, so that you can follow
 # along with the next section. Uncomment and run it if needed.
 
-#dispersal_fake <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70/main/dispersal_fake.csv")
+#dispersal_fake <- read.csv("https://raw.githubusercontent.com/refurrow/WFC70_old/refs/heads/main/data/dispersal_fake.csv")
 ```
 
 When you are working with new data for the Data Story, you should create
@@ -220,6 +229,6 @@ template Rmd. That way you have your work already in the appropriate place.
 ## Wrapping up (5 minutes)
 
 Knit any files to HTML, and save the original Rmd (and your Data story template
-Rmd, if you have started working in it). Then add these files to your WFC 98
+Rmd, if you have started working in it). Then add these files to your WFC 70
 folder on Google Drive.
 

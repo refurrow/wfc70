@@ -29,6 +29,10 @@ library(tidyverse)
 ```
 
 Below is a video to guide you through downloading packages!
+<video width="420" height="340" controls loop="">
+  <source src="https://github.com/refurrow/wfc70/raw/refs/heads/main/Installing%20a%20Package.mov 
+">
+</video>
 
 ### Finding Packages
 
@@ -49,7 +53,19 @@ Here some useful lists of essential R packages!
 
 The way RMarkdown (Rmd) files are saved is through a process called knitting. Knitting saves the files into an HTML, PDF or Word. In WFC 70, we mainly save our Rmd files into HTML files. Knitting, in the beginning, can be a bit difficult.
 
+## Knitting
+
+The way RMarkdown (Rmd) files are saved is through a process called knitting. Knitting saves the files into an HTML, PDF or Word. In WFC 70, we mainly save our Rmd files into HTML files. Knitting, in the beginning, can be a bit difficult.
+
 Below is a video to help guide you through the knitting process! Lab will also discuss how to knit. 
+```{r, echo=FALSE, results='hide',warning=FALSE,message=FALSE}
+#install.packages("vembedr")
+library(vembedr)
+```
 
 
+```{r, echo=FALSE}
+embed_url("https://www.youtube.com/watch?v=8eBBPVMwTLo")
+```
 
+Video source: EEHolmes-DataScience

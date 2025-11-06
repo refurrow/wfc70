@@ -111,3 +111,6 @@ issue-3-numbers-in-a-character-column.
 issue-4-factors-are-easier-to-plot-than-character-data
 data-story-work-any-remaining-time
 wrapping-up-5-minutes-6
+western-harvest-mouse-population-size-on-your-own-15-minutes
+your-data
+getting-your-mark-recapture-table

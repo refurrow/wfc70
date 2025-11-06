@@ -11,16 +11,22 @@ R is the language you are using to create the graphs. R Studio is where you inpu
 We will need both on your computer before your first lab. Even if you are not going to be bringing your personal computer to lab, having it can be helpful for homework and the Data Story.
 
 <video width="420" height="340" controls loop="">
-  <source src="https://github.com/rahhernandez/wfc70/raw/refs/heads/main/Draft%202.mov">
+  <source src="https://github.com/refurrow/wfc70/raw/refs/heads/main/Draft%202.mov">
 </video>
 
 Once you have successfully downloaded both, don't be afraid to open R Studio and play around!
 
-## Getting Started With Labs
+## Tips for Getting Started With Labs
 
-A main component of WFC70 are the labs. The labs will be where you get to really practice the skills of data literacy. Before your first lab, below is a video to help you started with how things may go on first lab! 
+A main component of WFC70 are the labs. The labs will be where you get to really practice the skills of data literacy. In lab, you will work within Rmarkdown files which allow you to insert code chunks while also simply writing. Lab rmds will be available to download in the files section of Canvas. 
 
-## Working From Home
 
-As expected, most homework assignments will be completed at home. At times, you will need to refer back to lab material to help accomplish the homework assignments, including the Data Story. Navigating things at home may be difficult, especially if you are utilizing your personal computer. Below is a video to help guide you through navigating R Studio from home! 
+## Tips for Working From Home
 
+As expected, most homework assignments will be completed at home also through Rmd files. At times, you will need to refer back to lab material to help accomplish the homework assignments, including the Data Story. Navigating things at home may be difficult, especially if you are utilizing your personal computer. This is why it is important to play around and get familiar with the R Studio workspace.
+
+## Shortcuts
+
+There are lots of helpful keyboard shortcuts available to increase your workflow, not only for coding, but in general. Below is a link to a guide of shortcuts and their use, created by fellow Learning Assistant Zoe Smith.
+
+https://zoesmithucd.github.io/ 

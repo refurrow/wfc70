@@ -199,7 +199,7 @@ Bold this sentence.
     
 6.  Adjust the formatting of the next line so that it's not a header.
 
-# Here I am writing a regular sentence, it should not be big and weird!
+### Here I am writing a regular sentence, it should not be big and weird!
 
 
 ## Wrapping up (5 minutes)
