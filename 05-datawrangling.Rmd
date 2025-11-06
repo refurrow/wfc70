@@ -70,7 +70,7 @@ Let us look at the penguin data once more.
 ```{r, warning=FALSE}
 #installing the packages and running it
 
-install.packages("palmerpenguins")
+#install.packages("palmerpenguins")
 library(palmerpenguins)
 ```
 

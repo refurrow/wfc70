@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title>B Lab 2: Indices in R, R Markdown (2025) | Lab 7: file management, troubleshooting, data story</title>
+  <meta name="description" content="B Lab 2: Indices in R, R Markdown (2025) | Lab 7: file management, troubleshooting, data story" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content="B Lab 2: Indices in R, R Markdown (2025) | Lab 7: file management, troubleshooting, data story" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="B Lab 2: Indices in R, R Markdown (2025) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content="B Lab 2: Indices in R, R Markdown (2025) | Lab 7: file management, troubleshooting, data story" />
   
   
   
 
-<meta name="author" content="Rob Furrow" />
+<meta name="author" content="WFC 70, Fall 2025" />
 
 
-<meta name="date" content="2025-10-10" />
+<meta name="date" content="2025-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -144,8 +145,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a>
 <ul>
 <li class="chapter" data-level="0.1" data-path="getting-started.html"><a href="getting-started.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>0.1</b> Installing R and R Studio</a></li>
-<li class="chapter" data-level="0.2" data-path="getting-started.html"><a href="getting-started.html#getting-started-with-labs"><i class="fa fa-check"></i><b>0.2</b> Getting Started With Labs</a></li>
-<li class="chapter" data-level="0.3" data-path="getting-started.html"><a href="getting-started.html#working-from-home"><i class="fa fa-check"></i><b>0.3</b> Working From Home</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started.html"><a href="getting-started.html#tips-for-getting-started-with-labs"><i class="fa fa-check"></i><b>0.2</b> Tips for Getting Started With Labs</a></li>
+<li class="chapter" data-level="0.3" data-path="getting-started.html"><a href="getting-started.html#tips-for-working-from-home"><i class="fa fa-check"></i><b>0.3</b> Tips for Working From Home</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started.html"><a href="getting-started.html#shortcuts"><i class="fa fa-check"></i><b>0.4</b> Shortcuts</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html"><i class="fa fa-check"></i><b>1</b> Intro to R and R Studio</a>
 <ul>
@@ -155,6 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#finding-packages"><i class="fa fa-check"></i><b>1.1.2</b> Finding Packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#knitting"><i class="fa fa-check"></i><b>1.2</b> Knitting</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#knitting-1"><i class="fa fa-check"></i><b>1.3</b> Knitting</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="code-not-working.html"><a href="code-not-working.html"><i class="fa fa-check"></i><b>2</b> Code not Working?</a>
 <ul>
@@ -162,34 +165,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="code-not-working.html"><a href="code-not-working.html#example-fix-the-code"><i class="fa fa-check"></i><b>2.1.1</b> Example: Fix the Code</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="code-not-working.html"><a href="code-not-working.html#finding-data"><i class="fa fa-check"></i><b>2.2</b> Finding Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>3</b> Data Wrangling</a>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>3.1</b> Review</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>3.1.1</b> Filter</a></li>
-<li class="chapter" data-level="3.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>3.1.2</b> Joins</a></li>
-<li class="chapter" data-level="3.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>3.1.3</b> Select</a></li>
-<li class="chapter" data-level="3.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>3.1.4</b> Mutate</a></li>
-<li class="chapter" data-level="3.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>3.1.5</b> Pivot</a></li>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#finding-data"><i class="fa fa-check"></i><b>3.1</b> Finding Data</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>3.2</b> Tying Everything Together</a>
+<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>3.2.1</b> Checklist</a></li>
-<li class="chapter" data-level="3.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>3.2.2</b> Example</a></li>
+<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>4.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>4.1.1</b> Filter</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>4.1.2</b> Joins</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>4.1.3</b> Select</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>4.1.4</b> Mutate</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>4.1.5</b> Pivot</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>4.2</b> Tying Everything Together</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>4.2.1</b> Checklist</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>4.2.2</b> Example</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-visualization.html"><a href="data-visualization.html#types-of-graphs"><i class="fa fa-check"></i><b>4.1</b> Types of Graphs</a>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#types-of-graphs"><i class="fa fa-check"></i><b>5.1</b> Types of Graphs</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>4.1.1</b> Histogram</a></li>
-<li class="chapter" data-level="4.1.2" data-path="data-visualization.html"><a href="data-visualization.html#violin-plot"><i class="fa fa-check"></i><b>4.1.2</b> Violin Plot</a></li>
-<li class="chapter" data-level="4.1.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>4.1.3</b> Box Plot</a></li>
-<li class="chapter" data-level="4.1.4" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>4.1.4</b> Scatter Plot</a></li>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization.html"><a href="data-visualization.html#violin-plot"><i class="fa fa-check"></i><b>5.1.2</b> Violin Plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.4</b> Scatter Plot</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>4.2</b> Extra Resources</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mark-recapture.html"><a href="mark-recapture.html"><i class="fa fa-check"></i><b>6</b> Mark-Recapture</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="mark-recapture.html"><a href="mark-recapture.html#example-1"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
+<li class="chapter" data-level="6.2" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-1-estimating-population-size"><i class="fa fa-check"></i><b>6.2</b> Practice 1: Estimating population size</a></li>
+<li class="chapter" data-level="6.3" data-path="mark-recapture.html"><a href="mark-recapture.html#mark-recaptured-in-r"><i class="fa fa-check"></i><b>6.3</b> Mark-Recaptured in R</a></li>
+<li class="chapter" data-level="6.4" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-2"><i class="fa fa-check"></i><b>6.4</b> Practice 2</a></li>
+<li class="chapter" data-level="6.5" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-3"><i class="fa fa-check"></i><b>6.5</b> Practice 3</a></li>
+<li class="chapter" data-level="6.6" data-path="mark-recapture.html"><a href="mark-recapture.html#answers"><i class="fa fa-check"></i><b>6.6</b> Answers</a></li>
 </ul></li>
 <li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels (2025)</a>
@@ -237,76 +252,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-3-exploring-15-minutes-self-led"><i class="fa fa-check"></i><b>C.3</b> Part 3: Exploring (15 minutes, self-led)</a></li>
 <li class="chapter" data-level="C.4" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-2"><i class="fa fa-check"></i><b>C.4</b> Wrapping up (5 minutes)</a></li>
 <li class="chapter" data-level="C.5" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material"><i class="fa fa-check"></i><b>C.5</b> Extra material</a></li>
-</ul></li>
-<li class="chapter" data-level="D" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html"><i class="fa fa-check"></i><b>D</b> Lab 4: Visualizing data in R (Part 2)</a>
+<li class="chapter" data-level="C.6" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#goals"><i class="fa fa-check"></i><b>C.6</b> Goals</a>
 <ul>
-<li class="chapter" data-level="D.0.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#resources-1"><i class="fa fa-check"></i><b>D.0.1</b> Resources</a></li>
-<li class="chapter" data-level="D.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#part-0-figure-of-the-week-5-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>D.1</b> Part 0: Figure of the week (5-10 minutes, instructor leading)</a></li>
-<li class="chapter" data-level="D.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#part-1-new-data-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>D.2</b> Part 1: New data! (5 minutes, instructor leading)</a>
-<ul>
-<li class="chapter" data-level="D.2.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#loading-data"><i class="fa fa-check"></i><b>D.2.1</b> Loading data</a></li>
-<li class="chapter" data-level="D.2.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#about-these-data-for-reference-not-for-discussion-during-lab"><i class="fa fa-check"></i><b>D.2.2</b> About these data (for reference, not for discussion during lab)</a></li>
+<li class="chapter" data-level="C.6.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources-1"><i class="fa fa-check"></i><b>C.6.1</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="D.3" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#independent-work-25-minutes"><i class="fa fa-check"></i><b>D.3</b> Independent work (25 minutes)</a>
+<li class="chapter" data-level="C.7" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-0-figure-of-the-week-5-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>C.7</b> Part 0: Figure of the week (5-10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="C.8" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-new-data-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>C.8</b> Part 1: New data! (5 minutes, instructor leading)</a>
 <ul>
-<li class="chapter" data-level="D.3.1" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-1-working-with-geom_jitter"><i class="fa fa-check"></i><b>D.3.1</b> Task 1: working with <code>geom_jitter()</code></a></li>
-<li class="chapter" data-level="D.3.2" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#making-consistent-changes-to-data-attributes"><i class="fa fa-check"></i><b>D.3.2</b> Making consistent changes to data attributes</a></li>
-<li class="chapter" data-level="D.3.3" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-2-changing-attributes-throughout-a-plot"><i class="fa fa-check"></i><b>D.3.3</b> Task 2: changing attributes throughout a plot</a></li>
-<li class="chapter" data-level="D.3.4" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#adding-a-theme"><i class="fa fa-check"></i><b>D.3.4</b> Adding a theme</a></li>
-<li class="chapter" data-level="D.3.5" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-3-themes"><i class="fa fa-check"></i><b>D.3.5</b> Task 3: themes</a></li>
-<li class="chapter" data-level="D.3.6" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#customizing-labels"><i class="fa fa-check"></i><b>D.3.6</b> Customizing labels</a></li>
-<li class="chapter" data-level="D.3.7" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#interlude-finding-data-for-the-data-story-assignment"><i class="fa fa-check"></i><b>D.3.7</b> Interlude: finding data for the Data Story assignment</a></li>
-<li class="chapter" data-level="D.3.8" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#task-4-nice-labels-time-permitting"><i class="fa fa-check"></i><b>D.3.8</b> Task 4: Nice labels (time permitting)</a></li>
+<li class="chapter" data-level="C.8.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-data"><i class="fa fa-check"></i><b>C.8.1</b> Loading data</a></li>
+<li class="chapter" data-level="C.8.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#about-these-data-for-reference-not-for-discussion-during-lab"><i class="fa fa-check"></i><b>C.8.2</b> About these data (for reference, not for discussion during lab)</a></li>
 </ul></li>
-<li class="chapter" data-level="D.4" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#wrapping-up-5-minutes-3"><i class="fa fa-check"></i><b>D.4</b> Wrapping up (5 minutes)</a></li>
-<li class="chapter" data-level="D.5" data-path="lab-4-visualizing-data-in-r-part-2.html"><a href="lab-4-visualizing-data-in-r-part-2.html#extra-material-for-interest-will-not-be-assessed-on-any-homework-1"><i class="fa fa-check"></i><b>D.5</b> Extra material for interest (will not be assessed on any homework)</a></li>
-</ul></li>
-<li class="chapter" data-level="E" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html"><i class="fa fa-check"></i><b>E</b> Lab 5: Data Story Work, Wrangling Warm-up</a>
+<li class="chapter" data-level="C.9" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#independent-work-25-minutes"><i class="fa fa-check"></i><b>C.9</b> Independent work (25 minutes)</a>
 <ul>
-<li class="chapter" data-level="E.0.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#resources-2"><i class="fa fa-check"></i><b>E.0.1</b> Resources</a></li>
-<li class="chapter" data-level="E.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-0-figure-of-the-week-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>E.1</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
-<li class="chapter" data-level="E.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-1-new-data-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>E.2</b> Part 1: New data! (5 minutes, instructor leading)</a>
-<ul>
-<li class="chapter" data-level="E.2.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#loading-data-1"><i class="fa fa-check"></i><b>E.2.1</b> Loading data</a></li>
-<li class="chapter" data-level="E.2.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#about-these-data"><i class="fa fa-check"></i><b>E.2.2</b> About these data</a></li>
+<li class="chapter" data-level="C.9.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#task-1-working-with-geom_jitter"><i class="fa fa-check"></i><b>C.9.1</b> Task 1: working with <code>geom_jitter()</code></a></li>
+<li class="chapter" data-level="C.9.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#making-consistent-changes-to-data-attributes"><i class="fa fa-check"></i><b>C.9.2</b> Making consistent changes to data attributes</a></li>
+<li class="chapter" data-level="C.9.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#task-2-changing-attributes-throughout-a-plot"><i class="fa fa-check"></i><b>C.9.3</b> Task 2: changing attributes throughout a plot</a></li>
+<li class="chapter" data-level="C.9.4" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#adding-a-theme"><i class="fa fa-check"></i><b>C.9.4</b> Adding a theme</a></li>
+<li class="chapter" data-level="C.9.5" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#task-3-themes"><i class="fa fa-check"></i><b>C.9.5</b> Task 3: themes</a></li>
+<li class="chapter" data-level="C.9.6" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#customizing-labels"><i class="fa fa-check"></i><b>C.9.6</b> Customizing labels</a></li>
+<li class="chapter" data-level="C.9.7" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#interlude-finding-data-for-the-data-story-assignment"><i class="fa fa-check"></i><b>C.9.7</b> Interlude: finding data for the Data Story assignment</a></li>
+<li class="chapter" data-level="C.9.8" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#task-4-nice-labels-time-permitting"><i class="fa fa-check"></i><b>C.9.8</b> Task 4: Nice labels (time permitting)</a></li>
 </ul></li>
-<li class="chapter" data-level="E.3" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-1-visualizing-size-relationships"><i class="fa fa-check"></i><b>E.3</b> Part 1: visualizing size relationships</a>
+<li class="chapter" data-level="C.10" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-3"><i class="fa fa-check"></i><b>C.10</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="C.11" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material-for-interest-will-not-be-assessed-on-any-homework-1"><i class="fa fa-check"></i><b>C.11</b> Extra material for interest (will not be assessed on any homework)</a></li>
+<li class="chapter" data-level="C.12" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#goals-1"><i class="fa fa-check"></i><b>C.12</b> Goals</a>
 <ul>
-<li class="chapter" data-level="E.3.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#your-task-10-minutes"><i class="fa fa-check"></i><b>E.3.1</b> Your task (10 minutes)</a></li>
+<li class="chapter" data-level="C.12.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources-2"><i class="fa fa-check"></i><b>C.12.1</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="E.4" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#part-2-a-wrangling-plan"><i class="fa fa-check"></i><b>E.4</b> Part 2: a wrangling plan</a></li>
-<li class="chapter" data-level="E.5" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#wrapping-up-5-minutes-4"><i class="fa fa-check"></i><b>E.5</b> Wrapping up (5 minutes)</a></li>
-<li class="chapter" data-level="E.6" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#extra-material-1"><i class="fa fa-check"></i><b>E.6</b> Extra material</a>
+<li class="chapter" data-level="C.13" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>C.13</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="C.14" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-new-data-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>C.14</b> Part 1: New data! (5 minutes, instructor leading)</a>
 <ul>
-<li class="chapter" data-level="E.6.1" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#transforming-the-data-scary-code-behind-the-scenes"><i class="fa fa-check"></i><b>E.6.1</b> Transforming the data (scary code behind the scenes)</a></li>
-<li class="chapter" data-level="E.6.2" data-path="lab-5-data-story-work-wrangling-warm-up.html"><a href="lab-5-data-story-work-wrangling-warm-up.html#your-task"><i class="fa fa-check"></i><b>E.6.2</b> Your task</a></li>
+<li class="chapter" data-level="C.14.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-data-1"><i class="fa fa-check"></i><b>C.14.1</b> Loading data</a></li>
+<li class="chapter" data-level="C.14.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#about-these-data"><i class="fa fa-check"></i><b>C.14.2</b> About these data</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="F" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html"><i class="fa fa-check"></i><b>F</b> Lab 6: Mark-recapture</a>
+<li class="chapter" data-level="C.15" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-visualizing-size-relationships"><i class="fa fa-check"></i><b>C.15</b> Part 1: visualizing size relationships</a>
 <ul>
-<li class="chapter" data-level="F.0.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#resources-3"><i class="fa fa-check"></i><b>F.0.1</b> Resources</a></li>
-<li class="chapter" data-level="F.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>F.1</b> Part 1: Reminder of lecture data (10 minutes, instructor leading)</a></li>
-<li class="chapter" data-level="F.2" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#adding-weather-data-joining-data-frames"><i class="fa fa-check"></i><b>F.2</b> Adding weather data (joining data frames)</a></li>
-<li class="chapter" data-level="F.3" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#western-harvest-mouse-population-size-on-your-own-15-minutes"><i class="fa fa-check"></i><b>F.3</b> Western harvest mouse population size (on your own, 15 minutes)</a>
-<ul>
-<li class="chapter" data-level="F.3.1" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#your-data"><i class="fa fa-check"></i><b>F.3.1</b> Your data</a></li>
-<li class="chapter" data-level="F.3.2" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#getting-your-mark-recapture-table"><i class="fa fa-check"></i><b>F.3.2</b> Getting your mark-recapture table</a></li>
-<li class="chapter" data-level="F.3.3" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#more-joining-time-permitting"><i class="fa fa-check"></i><b>F.3.3</b> More joining (time permitting)</a></li>
+<li class="chapter" data-level="C.15.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#your-task-10-minutes"><i class="fa fa-check"></i><b>C.15.1</b> Your task (10 minutes)</a></li>
 </ul></li>
-<li class="chapter" data-level="F.4" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#wrapping-up-5-minutes-5"><i class="fa fa-check"></i><b>F.4</b> Wrapping up (5 minutes)</a></li>
-<li class="chapter" data-level="F.5" data-path="lab-6-mark-recapture.html"><a href="lab-6-mark-recapture.html#extra-material-2"><i class="fa fa-check"></i><b>F.5</b> Extra material</a></li>
-</ul></li>
-<li class="chapter" data-level="G" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html"><i class="fa fa-check"></i><b>G</b> Lab 7: File Management, Troubleshooting, Data Story</a>
+<li class="chapter" data-level="C.16" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-2-a-wrangling-plan"><i class="fa fa-check"></i><b>C.16</b> Part 2: a wrangling plan</a></li>
+<li class="chapter" data-level="C.17" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-4"><i class="fa fa-check"></i><b>C.17</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="C.18" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material-1"><i class="fa fa-check"></i><b>C.18</b> Extra material</a>
 <ul>
-<li class="chapter" data-level="G.0.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#resources-4"><i class="fa fa-check"></i><b>G.0.1</b> Resources</a></li>
-<li class="chapter" data-level="G.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#part-1-navigating-file-structure-10-minutes-on-your-own"><i class="fa fa-check"></i><b>G.1</b> Part 1: Navigating file structure (10 minutes, on your own)</a>
-<ul>
-<li class="chapter" data-level="G.1.1" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#unzipping-lab7_data.zip"><i class="fa fa-check"></i><b>G.1.1</b> Unzipping “Lab7_data.zip”</a></li>
-<li class="chapter" data-level="G.1.2" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#loading-the-data"><i class="fa fa-check"></i><b>G.1.2</b> Loading the data</a></li>
+<li class="chapter" data-level="C.18.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#transforming-the-data-scary-code-behind-the-scenes"><i class="fa fa-check"></i><b>C.18.1</b> Transforming the data (scary code behind the scenes)</a></li>
+<li class="chapter" data-level="C.18.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#your-task"><i class="fa fa-check"></i><b>C.18.2</b> Your task</a></li>
 </ul></li>
-<li class="chapter" data-level="G.2" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#part-2-dealing-with-wonky-data-10-minutes-on-your-own"><i class="fa fa-check"></i><b>G.2</b> Part 2: Dealing with wonky data (10 minutes, on your own)</a></li>
-<li class="chapter" data-level="G.3" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#data-story-work-any-remaining-time"><i class="fa fa-check"></i><b>G.3</b> Data story work (any remaining time)</a></li>
-<li class="chapter" data-level="G.4" data-path="lab-7-file-management-troubleshooting-data-story.html"><a href="lab-7-file-management-troubleshooting-data-story.html#wrapping-up-5-minutes-6"><i class="fa fa-check"></i><b>G.4</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="C.19" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#goals-2"><i class="fa fa-check"></i><b>C.19</b> Goals</a>
+<ul>
+<li class="chapter" data-level="C.19.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources-3"><i class="fa fa-check"></i><b>C.19.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="C.20" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>C.20</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="C.21" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>C.21</b> Part 1: Reminder of lecture data (10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="C.22" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#adding-weather-data-joining-data-frames"><i class="fa fa-check"></i><b>C.22</b> Adding weather data (joining data frames)</a></li>
+<li class="chapter" data-level="C.23" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#western-harvest-mouse-population-size-on-your-own-15-minutes"><i class="fa fa-check"></i><b>C.23</b> Western harvest mouse population size (on your own, 15 minutes)</a>
+<ul>
+<li class="chapter" data-level="C.23.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#your-data"><i class="fa fa-check"></i><b>C.23.1</b> Your data</a></li>
+<li class="chapter" data-level="C.23.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#getting-your-mark-recapture-table"><i class="fa fa-check"></i><b>C.23.2</b> Getting your mark-recapture table</a></li>
+<li class="chapter" data-level="C.23.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#more-joining-time-permitting"><i class="fa fa-check"></i><b>C.23.3</b> More joining (time permitting)</a></li>
+</ul></li>
+<li class="chapter" data-level="C.24" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-5"><i class="fa fa-check"></i><b>C.24</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="C.25" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material-2"><i class="fa fa-check"></i><b>C.25</b> Extra material</a></li>
+<li class="chapter" data-level="C.26" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#goals-3"><i class="fa fa-check"></i><b>C.26</b> Goals</a>
+<ul>
+<li class="chapter" data-level="C.26.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources-4"><i class="fa fa-check"></i><b>C.26.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="C.27" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading-2"><i class="fa fa-check"></i><b>C.27</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="C.28" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-navigating-file-structure-10-minutes-on-your-own"><i class="fa fa-check"></i><b>C.28</b> Part 1: Navigating file structure (10 minutes, on your own)</a>
+<ul>
+<li class="chapter" data-level="C.28.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#unzipping-lab7_data.zip"><i class="fa fa-check"></i><b>C.28.1</b> Unzipping “Lab7_data.zip”</a></li>
+<li class="chapter" data-level="C.28.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-the-data"><i class="fa fa-check"></i><b>C.28.2</b> Loading the data</a></li>
+</ul></li>
+<li class="chapter" data-level="C.29" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-2-dealing-with-wonky-data-10-minutes-on-your-own"><i class="fa fa-check"></i><b>C.29</b> Part 2: Dealing with wonky data (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="C.30" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#data-story-work-any-remaining-time"><i class="fa fa-check"></i><b>C.30</b> Data story work (any remaining time)</a></li>
+<li class="chapter" data-level="C.31" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-6"><i class="fa fa-check"></i><b>C.31</b> Wrapping up (5 minutes)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -319,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab 7: file management, troubleshooting, data story</a>
           </h1>
         </div>
 
@@ -327,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lab-2-indices-in-r-r-markdown-2025" class="section level1 hasAnchor" number="6">
+<div id="lab-2-indices-in-r-r-markdown-2025" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">B</span> Lab 2: Indices in R, R Markdown (2025)<a href="lab-2-indices-in-r-r-markdown-2025.html#lab-2-indices-in-r-r-markdown-2025" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Goals</p>
 <p>In this lab, we will do a small amount of R programming, learn how to
@@ -344,9 +361,9 @@ document style,</li>
 <li>knit an R Markdown file.</li>
 </ul>
 <hr />
-<div id="part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="section level2 hasAnchor" number="6.1">
+<div id="part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">B.1</span> Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="r-vs.-rstudio" class="section level3 hasAnchor" number="6.1.1">
+<div id="r-vs.-rstudio" class="section level3 hasAnchor" number="8.1.1">
 <h3><span class="header-section-number">B.1.1</span> R vs. RStudio<a href="lab-2-indices-in-r-r-markdown-2025.html#r-vs.-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This short section has some clarifications about the programs we are
 use. You are using the programming language R. That is the primary skill
@@ -362,7 +379,7 @@ program.</em></strong> The default R program is not a very user friendly
 environment for coding and does not work well with R Markdown (.Rmd)
 files.</p>
 </div>
-<div id="r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="section level3 hasAnchor" number="6.1.2">
+<div id="r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="section level3 hasAnchor" number="8.1.2">
 <h3><span class="header-section-number">B.1.2</span> R scripts (.R files) vs. R Markdown files (.Rmd)<a href="lab-2-indices-in-r-r-markdown-2025.html#r-scripts-.r-files-vs.-r-markdown-files-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When people are performing substantial amounts of R programming, they
 tend to write their code in scripts. These are files that end in “.R”,
@@ -379,31 +396,31 @@ code, and have that code run to generate interesting plots or other
 outputs.</p>
 </div>
 </div>
-<div id="part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="6.2">
+<div id="part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">B.2</span> Part 2: Indices and column names (5 minutes, instructor will lead)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s pull up last week’s data very quickly.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb1-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
-<span id="cb1-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb1-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
-<span id="cb1-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb1-3" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb1-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb37-1" tabindex="-1"></a>idaho_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1545</span>, <span class="dv">1556</span>, <span class="dv">1543</span>, <span class="dv">1337</span>)</span>
+<span id="cb37-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb37-2" tabindex="-1"></a>idaho_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb37-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb37-3" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb37-4" tabindex="-1"></a>idaho <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> idaho_wolves, <span class="at">year =</span> idaho_years)</span></code></pre></div>
 <p>It is often the case that you want to select only a particular column in
 a data frame, or a particular value in a vector. Let’s see first, then
 discuss.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb2-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb38-1" tabindex="-1"></a>idaho_wolves[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] 1337</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb4-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb40-1" tabindex="-1"></a>idaho<span class="sc">$</span>year</span></code></pre></div>
 <pre><code>## [1] 2019 2020 2021 2022</code></pre>
 <p>You should note that <code>idaho_wolves[4]</code> outputs the 4th value in that
 vector (1337). And that <code>idaho$year</code> shows you the entire <code>year</code> column
 in the data frame <code>idaho</code>.</p>
 <p>Let’s look at some more complex code.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb6-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb42-1" tabindex="-1"></a>idaho_wolves[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## [1] 1545 1556 1543</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb8-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb44-1" tabindex="-1"></a>idaho_wolves[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>## [1] 1545 1543</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb10-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb46-1" tabindex="-1"></a>idaho<span class="sc">$</span>year[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 2020</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb12-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb48-1" tabindex="-1"></a>idaho[<span class="dv">1</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 2019</code></pre>
 <p>A few things to unpack. First, we used a very odd function (the <code>:</code>
 operator), which is a quick way for R to create a vector that is a
@@ -422,15 +439,15 @@ So <code>idaho[1,2]</code> gives you the value from the 1st row and second colum
 We won’t use this approach much – there are more sophisticated tools
 for selecting parts of our data for tidying or plotting.</p>
 </div>
-<div id="part-3-index-work-on-your-own-10-minutes-on-your-own" class="section level2 hasAnchor" number="6.3">
+<div id="part-3-index-work-on-your-own-10-minutes-on-your-own" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">B.3</span> Part 3: Index work on your own (10 minutes, on your own)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-3-index-work-on-your-own-10-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are some new data.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
-<span id="cb14-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
-<span id="cb14-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
-<span id="cb14-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
-<span id="cb14-5"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
-<span id="cb14-6"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb14-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-1" tabindex="-1"></a><span class="co">#creating a data frame for montana populations through time</span></span>
+<span id="cb50-2"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-2" tabindex="-1"></a>mt_wolves <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1119</span>, <span class="dv">1107</span>, <span class="dv">1147</span>, <span class="dv">1153</span>, <span class="dv">1181</span>, <span class="dv">1143</span>, <span class="dv">1087</span>)</span>
+<span id="cb50-3"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-3" tabindex="-1"></a>mt_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2016</span>, <span class="dv">2017</span>, <span class="dv">2018</span>, <span class="dv">2019</span>, <span class="dv">2020</span>, <span class="dv">2021</span>, <span class="dv">2022</span>)</span>
+<span id="cb50-4"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-4" tabindex="-1"></a>montana <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">population =</span> mt_wolves,</span>
+<span id="cb50-5"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-5" tabindex="-1"></a>                      <span class="at">year =</span> mt_years,</span>
+<span id="cb50-6"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb50-6" tabindex="-1"></a>                      <span class="at">state =</span> <span class="fu">c</span>(<span class="st">&quot;montana&quot;</span>))</span></code></pre></div>
 <p>We did something cute, and added a third column that just says “montana”
 in literally every row. (Nice to keep the state associated with the data
 in the other columns.)</p>
@@ -444,9 +461,9 @@ vector.</p></li>
 year column, and a state column that just says “idaho” in every
 entry.</p></li>
 </ol>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb15-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="lab-2-indices-in-r-r-markdown-2025.html#cb51-1" tabindex="-1"></a><span class="co"># all code goes in here</span></span></code></pre></div>
 </div>
-<div id="part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="section level2 hasAnchor" number="6.4">
+<div id="part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">B.4</span> Part 4: Messing around with R Markdown (15 minutes, on your own)<a href="lab-2-indices-in-r-r-markdown-2025.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In RStudio, if you click on the Help tab at the top, you will see a
 selection labeled “Cheat Sheets”. Select “R Markdown Cheat Sheet”, which
@@ -473,11 +490,11 @@ allows for easy styling of an Rmd.</p>
 biggest? The smallest? You can create headers of six different
 sizes, from # to ######.</li>
 </ol>
-<div id="put-something-here." class="section level4 hasAnchor" number="6.4.0.1">
+<div id="put-something-here." class="section level4 hasAnchor" number="8.4.0.1">
 <h4><span class="header-section-number">B.4.0.1</span> Put something here.<a href="lab-2-indices-in-r-r-markdown-2025.html#put-something-here." class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="put-something-else-here." class="section level5 hasAnchor" number="6.4.0.1.1">
+<div id="put-something-else-here." class="section level5 hasAnchor" number="8.4.0.1.1">
 <h5><span class="header-section-number">B.4.0.1.1</span> Put something else here.<a href="lab-2-indices-in-r-r-markdown-2025.html#put-something-else-here." class="anchor-section" aria-label="Anchor link to header"></a></h5>
-<div id="and-some-more." class="section level6 hasAnchor" number="6.4.0.1.1.1">
+<div id="and-some-more." class="section level6 hasAnchor" number="8.4.0.1.1.1">
 <h6><span class="header-section-number">B.4.0.1.1.1</span> And some more.<a href="lab-2-indices-in-r-r-markdown-2025.html#and-some-more." class="anchor-section" aria-label="Anchor link to header"></a></h6>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Style your text.</strong></li>
@@ -496,18 +513,18 @@ data. <strong>Use these numbers to create a table with two columns</strong>
 </div>
 </div>
 </div>
-<div id="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird" class="section level3 hasAnchor" number="6.4.1">
+<div id="here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird" class="section level3 hasAnchor" number="8.4.1">
 <h3><span class="header-section-number">B.4.1</span> Here I am writing a regular sentence, it should not be big and weird!<a href="lab-2-indices-in-r-r-markdown-2025.html#here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="wrapping-up-5-minutes-1" class="section level2 hasAnchor" number="6.5">
+<div id="wrapping-up-5-minutes-1" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">B.5</span> Wrapping up (5 minutes)<a href="lab-2-indices-in-r-r-markdown-2025.html#wrapping-up-5-minutes-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Knit your file to HTML, and save the original Rmd, then add them to your
 WFC 70 folder on Google Drive.</p>
 <hr />
 <hr />
 </div>
-<div id="extra-material-for-interest" class="section level2 hasAnchor" number="6.6">
+<div id="extra-material-for-interest" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">B.6</span> Extra material for interest<a href="lab-2-indices-in-r-r-markdown-2025.html#extra-material-for-interest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Browse <a href="https://rmarkdown.rstudio.com/articles_intro.html">this article on R
@@ -558,7 +575,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/08-lab2_2025.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/09-lab2_2025.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -566,7 +583,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/08-lab2_2025.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/09-lab2_2025.Rmd",
     "text": null
   },
   "download": null,
@@ -581,6 +598,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

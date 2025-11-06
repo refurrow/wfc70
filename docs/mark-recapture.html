@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Getting Started | Lab 7: file management, troubleshooting, data story</title>
-  <meta name="description" content="Getting Started | Lab 7: file management, troubleshooting, data story" />
+  <title> 6 Mark-Recapture | Lab 7: file management, troubleshooting, data story</title>
+  <meta name="description" content=" 6 Mark-Recapture | Lab 7: file management, troubleshooting, data story" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Getting Started | Lab 7: file management, troubleshooting, data story" />
+  <meta property="og:title" content=" 6 Mark-Recapture | Lab 7: file management, troubleshooting, data story" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Getting Started | Lab 7: file management, troubleshooting, data story" />
+  <meta name="twitter:title" content=" 6 Mark-Recapture | Lab 7: file management, troubleshooting, data story" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="intro-to-r-and-r-studio.html"/>
+<link rel="prev" href="data-visualization.html"/>
+<link rel="next" href="lab-1-r-data-and-the-rstudio-panels-2025.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -344,41 +344,166 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1 unnumbered hasAnchor">
-<h1>Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Before we begin, it is recommended that you make a folder in your Google Drive and/or desktop on your personal computer, to keep your files. You may find Google Drive to be more effective due to it being able to be connected to multiple devices.</p>
-<div id="installing-r-and-r-studio" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Installing R and R Studio<a href="getting-started.html#installing-r-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A program you will hopefully become familiar with is R and R Studio. Lecture and lab discusses the differences between these two.</p>
-<p>R is the language you are using to create the graphs. R Studio is where you input the code. One way to think about it is that R Studio is the kitchen and R represents all your ingredients.</p>
-<p>We will need both on your computer before your first lab. Even if you are not going to be bringing your personal computer to lab, having it can be helpful for homework and the Data Story.</p>
-<video width="420" height="340" controls loop="">
-<source src="https://github.com/refurrow/wfc70/raw/refs/heads/main/Draft%202.mov">
-</video>
-<p>Once you have successfully downloaded both, don’t be afraid to open R Studio and play around!</p>
+<div id="mark-recapture" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number"> 6</span> Mark-Recapture<a href="mark-recapture.html#mark-recapture" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A concept that comes up not only in this class, but in Biology and future WFC classes, is mark-recapture. Mark-recapture is a great method of estimating the population of a species in an area. Obviously, it is difficult, well impossible, to count each individual and keep track of them. This is what makes mark-recapture very helpful.</p>
+<p>In mark-recapture, you catch individuals from the population and mark them (hence the name). After you mark the individual, you release them. You do this through a period of time, and obviously, during this period, you will be getting individuals that are already marked.</p>
+<p>The equation for mark-recapture is:</p>
+<p><span class="math inline">\(\frac{M}{\hat{N}}\)</span> = <span class="math inline">\(\frac{R}{T}\)</span></p>
+<ul>
+<li><em>M</em> is individuals marked initially</li>
+<li><span class="math inline">\(\hat{N}\)</span> is estimated population size</li>
+<li><em>R</em> is marked recaptured</li>
+<li><em>T</em> is the total in the next sample</li>
+</ul>
+<p>The population size (<span class="math inline">\(\hat{N}\)</span>) is typically unknown and what we want to find, and so the equation can be rewritten as:</p>
+<p><span class="math inline">\(\hat{N}\)</span> = <span class="math inline">\(\frac{M*T}{R}\)</span></p>
+<div id="example-1" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Example<a href="mark-recapture.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In a sample of 60 mice, you catch and mark 12 mice. The second time you catch mice, you catch 11 mice with 2 being marked.</p>
+<p>From the equation we get that:</p>
+<ul>
+<li><em>M</em> = 12</li>
+<li><em>R</em> = 2</li>
+<li><em>T</em> = 11</li>
+</ul>
+<p>We plug these into the equation <span class="math inline">\(\frac{M}{\hat{N}}\)</span> = <span class="math inline">\(\frac{R}{T}\)</span> to get:</p>
+<p><span class="math inline">\(\frac{12}{\hat{N}}\)</span> = <span class="math inline">\(\frac{2}{11}\)</span></p>
+<p>This formula can be rearranged into:</p>
+<p><span class="math inline">\(\hat{N}\)</span> = <span class="math inline">\(\frac{12*11}{2}\)</span> = 66 estimated population</p>
 </div>
-<div id="tips-for-getting-started-with-labs" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Tips for Getting Started With Labs<a href="getting-started.html#tips-for-getting-started-with-labs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A main component of WFC70 are the labs. The labs will be where you get to really practice the skills of data literacy. In lab, you will work within Rmarkdown files which allow you to insert code chunks while also simply writing. Lab rmds will be available to download in the files section of Canvas.</p>
+<div id="practice-1-estimating-population-size" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Practice 1: Estimating population size<a href="mark-recapture.html#practice-1-estimating-population-size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You mark 25 individuals initially. In your second sample of 20, you find 5 marked. What is the estimated population size?</p>
 </div>
-<div id="tips-for-working-from-home" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Tips for Working From Home<a href="getting-started.html#tips-for-working-from-home" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As expected, most homework assignments will be completed at home also through Rmd files. At times, you will need to refer back to lab material to help accomplish the homework assignments, including the Data Story. Navigating things at home may be difficult, especially if you are utilizing your personal computer. This is why it is important to play around and get familiar with the R Studio workspace.</p>
+<div id="mark-recaptured-in-r" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Mark-Recaptured in R<a href="mark-recapture.html#mark-recaptured-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Things get a bit more complicated in R Studio. It is difficult to take a large data set and count for each individual. In R, we take a data set and utilize table() function.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="mark-recapture.html#cb12-1" tabindex="-1"></a>my_table<span class="ot">&lt;-</span> <span class="fu">table</span>(my_data<span class="sc">$</span>column_of_interest_1, my_data<span class="sc">$</span>column_of_interest_2)</span>
+<span id="cb12-2"><a href="mark-recapture.html#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="mark-recapture.html#cb12-3" tabindex="-1"></a>my_table</span></code></pre></div>
+<p>When we run the my_table function, the output will look something like this:</p>
+<div class="float">
+<img src="https://github.com/refurrow/wfc70/blob/main/markrecapturetable.png?raw=true" alt="From Mark-Recapture Lecture" />
+<div class="figcaption">From Mark-Recapture Lecture</div>
 </div>
-<div id="shortcuts" class="section level2 hasAnchor" number="0.4">
-<h2><span class="header-section-number">0.4</span> Shortcuts<a href="getting-started.html#shortcuts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are lots of helpful keyboard shortcuts available to increase your workflow, not only for coding, but in general. Below is a link to a guide of shortcuts and their use, created by fellow Learning Assistant Zoe Smith.</p>
-<p><a href="https://zoesmithucd.github.io/" class="uri">https://zoesmithucd.github.io/</a></p>
+<p>Where Y = Yes (recapture) and N = No (new individual)</p>
+<p><strong><em>This is an example. Different data sets will provide a different number of outputs.</em></strong></p>
+<p>With these outputs, we can enter our mark-recapture data as:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="mark-recapture.html#cb13-1" tabindex="-1"></a>my_table_M <span class="ot">&lt;-</span> <span class="fu">c</span>( , ,...,) <span class="co">#marked initially</span></span>
+<span id="cb13-2"><a href="mark-recapture.html#cb13-2" tabindex="-1"></a>my_table_T <span class="ot">&lt;-</span> <span class="fu">c</span>( , ,...,) <span class="co">#total captured</span></span>
+<span id="cb13-3"><a href="mark-recapture.html#cb13-3" tabindex="-1"></a>my_table_R <span class="ot">&lt;-</span> <span class="fu">c</span>( , ,...,) <span class="co">#recaptured</span></span></code></pre></div>
+<p>Taking the example from the image above, the entered mark-recapture data will look like:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="mark-recapture.html#cb14-1" tabindex="-1"></a>my_table_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">14</span>)</span>
+<span id="cb14-2"><a href="mark-recapture.html#cb14-2" tabindex="-1"></a>my_table_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">6</span>)</span>
+<span id="cb14-3"><a href="mark-recapture.html#cb14-3" tabindex="-1"></a>my_table_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div>
+<p>The value of my_table_M are obtained from the first date No column with the second date No column. We do not count the last date. The values of my_table_T are obtained from adding the second and third date being added across. So 10+2=12 and 2+4=6. The values of my_table_R are obtained from the Y column from the second and third date.</p>
+<p>After we enter our mark-recapture data, we can enter these into the equation <span class="math inline">\(\hat{N}\)</span> = <span class="math inline">\(\frac{12*11}{2}\)</span> to estimate the population size.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="mark-recapture.html#cb15-1" tabindex="-1"></a><span class="fu">sum</span>(my_table_M<span class="sc">*</span>my_table_T)<span class="sc">/</span><span class="fu">sum</span>(my_table_R)</span></code></pre></div>
+</div>
+<div id="practice-2" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Practice 2<a href="mark-recapture.html#practice-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>N</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2019-05-23</td>
+<td>4</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2019-05-24</td>
+<td>6</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2019-05-25</td>
+<td>12</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2019-05-26</td>
+<td>1</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Find:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>my_table_M</p></li>
+<li><p>my_table_T</p></li>
+<li><p>my_table_R</p></li>
+<li><p>Estimated population size</p></li>
+</ol>
+</div>
+<div id="practice-3" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Practice 3<a href="mark-recapture.html#practice-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>N</th>
+<th>Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2014-01-20</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2014-01-21</td>
+<td>12</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>2014-01-22</td>
+<td>8</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Find:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>my_table_M</p></li>
+<li><p>my_table_T</p></li>
+<li><p>my_table_R</p></li>
+<li><p>Estimated population size</p></li>
+</ol>
+</div>
+<div id="answers" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Answers<a href="mark-recapture.html#answers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Practice 1: 25*20/5 = 100
+Practice 2:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="mark-recapture.html#cb16-1" tabindex="-1"></a>my_table_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">10</span>,<span class="dv">22</span>)</span>
+<span id="cb16-2"><a href="mark-recapture.html#cb16-2" tabindex="-1"></a>my_table_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">6</span>)</span>
+<span id="cb16-3"><a href="mark-recapture.html#cb16-3" tabindex="-1"></a>my_table_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb16-4"><a href="mark-recapture.html#cb16-4" tabindex="-1"></a><span class="fu">sum</span>(my_table_M<span class="sc">*</span>my_table_T)<span class="sc">/</span><span class="fu">sum</span>(my_table_R)</span></code></pre></div>
+<p>Practice 3:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="mark-recapture.html#cb17-1" tabindex="-1"></a>my_table_M <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">15</span>)</span>
+<span id="cb17-2"><a href="mark-recapture.html#cb17-2" tabindex="-1"></a>my_table_T <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">9</span>)</span>
+<span id="cb17-3"><a href="mark-recapture.html#cb17-3" tabindex="-1"></a>my_table_R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>)</span>
+<span id="cb17-4"><a href="mark-recapture.html#cb17-4" tabindex="-1"></a><span class="fu">sum</span>(my_table_M<span class="sc">*</span>my_table_T)<span class="sc">/</span><span class="fu">sum</span>(my_table_R)</span></code></pre></div>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro-to-r-and-r-studio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-visualization.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-1-r-data-and-the-rstudio-panels-2025.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -409,7 +534,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/07-markrecapture.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -417,7 +542,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/07-markrecapture.Rmd",
     "text": null
   },
   "download": null,
