@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Getting Started | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title> 9 Working with Spatial Data | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 9 Working with Spatial Data | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content=" 9 Working with Spatial Data | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content=" 9 Working with Spatial Data | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="intro-to-r-and-r-studio.html"/>
+<link rel="prev" href="modeling-conditionals-loops-functions.html"/>
+<link rel="next" href="lab-1-r-data-and-the-rstudio-panels-2025.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -373,41 +373,235 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1 unnumbered hasAnchor">
-<h1>Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Before we begin, it is recommended that you make a folder in your Google Drive and/or desktop on your personal computer, to keep your files. You may find Google Drive to be more effective due to it being able to be connected to multiple devices.</p>
-<div id="installing-r-and-r-studio" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Installing R and R Studio<a href="getting-started.html#installing-r-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A program you will hopefully become familiar with is R and R Studio. Lecture and lab discusses the differences between these two.</p>
-<p>R is the language you are using to create the graphs. R Studio is where you input the code. One way to think about it is that R Studio is the kitchen and R represents all your ingredients.</p>
-<p>We will need both on your computer before your first lab. Even if you are not going to be bringing your personal computer to lab, having it can be helpful for homework and the Data Story.</p>
-<video width="420" height="340" controls loop="">
-<source src="https://github.com/refurrow/wfc70/raw/refs/heads/main/Draft%202.mov">
-</video>
-<p>Once you have successfully downloaded both, don’t be afraid to open R Studio and play around!</p>
-</div>
-<div id="tips-for-getting-started-with-labs" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Tips for Getting Started With Labs<a href="getting-started.html#tips-for-getting-started-with-labs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A main component of WFC70 are the labs. The labs will be where you get to really practice the skills of data literacy. In lab, you will work within Rmarkdown files which allow you to insert code chunks while also simply writing. Lab rmds will be available to download in the files section of Canvas.</p>
-</div>
-<div id="tips-for-working-from-home" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Tips for Working From Home<a href="getting-started.html#tips-for-working-from-home" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As expected, most homework assignments will be completed at home also through Rmd files. At times, you will need to refer back to lab material to help accomplish the homework assignments, including the Data Story. Navigating things at home may be difficult, especially if you are utilizing your personal computer. This is why it is important to play around and get familiar with the R Studio workspace.</p>
-</div>
-<div id="shortcuts" class="section level2 hasAnchor" number="0.4">
-<h2><span class="header-section-number">0.4</span> Shortcuts<a href="getting-started.html#shortcuts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are lots of helpful keyboard shortcuts available to increase your workflow, not only for coding, but in general. Below is a link to a guide of shortcuts and their use, created by fellow Learning Assistant Zoe Smith.</p>
-<p><a href="https://zoesmithucd.github.io/" class="uri">https://zoesmithucd.github.io/</a></p>
+<div id="working-with-spatial-data" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number"> 9</span> Working with Spatial Data<a href="working-with-spatial-data.html#working-with-spatial-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Author: Mingyuan Li</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="working-with-spatial-data.html#cb35-1" tabindex="-1"></a><span class="co"># We are using multiple new packages, install and load them if you haven&#39;t done it so:</span></span>
+<span id="cb35-2"><a href="working-with-spatial-data.html#cb35-2" tabindex="-1"></a><span class="co"># install.packages(c(&quot;move&quot;, &quot;move2&quot;, &quot;sf&quot;, &quot;raster&quot;, &quot;terra&quot;, &quot;sp&quot;, &quot;adehabitatHR&quot;, &quot;amt&quot;, &quot;mapview&quot;))</span></span>
+<span id="cb35-3"><a href="working-with-spatial-data.html#cb35-3" tabindex="-1"></a><span class="fu">library</span>(move)</span>
+<span id="cb35-4"><a href="working-with-spatial-data.html#cb35-4" tabindex="-1"></a><span class="fu">library</span>(move2)</span>
+<span id="cb35-5"><a href="working-with-spatial-data.html#cb35-5" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb35-6"><a href="working-with-spatial-data.html#cb35-6" tabindex="-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb35-7"><a href="working-with-spatial-data.html#cb35-7" tabindex="-1"></a><span class="fu">library</span>(adehabitatHR)</span>
+<span id="cb35-8"><a href="working-with-spatial-data.html#cb35-8" tabindex="-1"></a><span class="fu">library</span>(amt)</span>
+<span id="cb35-9"><a href="working-with-spatial-data.html#cb35-9" tabindex="-1"></a><span class="fu">library</span>(mapview)</span>
+<span id="cb35-10"><a href="working-with-spatial-data.html#cb35-10" tabindex="-1"></a><span class="fu">library</span>(raster)</span>
+<span id="cb35-11"><a href="working-with-spatial-data.html#cb35-11" tabindex="-1"></a><span class="fu">library</span>(terra)</span>
+<span id="cb35-12"><a href="working-with-spatial-data.html#cb35-12" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>Before we start, let’s talk about GIS!
+GIS stands for geographic information system, it help us analyze and visualize data that
+are spatial in nature.</p>
+<p>What is the different between spatial data and other data types? Ultimately, not much!
+Just like other data types, spatial locations can be depicted on x and y axes.
+But if we were to include things like elevation, then we can use 3-dimensional
+data analysis and visualization techniques.</p>
+<p>Two things that sets spatial data apart from other data types:
+1. In non-spatial data, we care about statistical relationships(How variable X influence variable Y)
+In spatial data, we care more about location-based relationships(How points/locations are related in space)
+2. Spatial data are often organized in multiple layers, so for example we can have a location with
+layers elevation, temperature, vegetation coverage… and they stack together.</p>
+<p>Today, we will start by directly download a dataset from Movebank:</p>
+<p>In R, by using “move” and “move2”package, we can directly download data sets from MoveBank.
+But first, you need a Movebank account to login. So open and past this link into your browser:
+<a href="https://www.movebank.org/cms/movebank-main" class="uri">https://www.movebank.org/cms/movebank-main</a>
+Use “Login/Register” at top right to login.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="working-with-spatial-data.html#cb36-1" tabindex="-1"></a><span class="co"># Now you can login directly through RStudio:</span></span>
+<span id="cb36-2"><a href="working-with-spatial-data.html#cb36-2" tabindex="-1"></a>loginStored <span class="ot">&lt;-</span> <span class="fu">movebankLogin</span>(<span class="at">username=</span><span class="st">&quot;Your_username&quot;</span>, <span class="at">password=</span><span class="st">&quot;Your_password&quot;</span>)</span></code></pre></div>
+<p>Next, we need to find a study that we want to explore in R,
+For our purpose of the lab, we are using cheetah data for demonstration
+To do that, go back to Movebank page, in “Data” section, go to “Explore map”, and on the left you should see a search bar, check the box “Only studies where I can see data” and enter “Cheetah Pilanesberg National Park”
+Next, click the box with “i” that’s next to the study name and select “Open in studies page”
+Here is all the information you need to load the dataset!</p>
+<p>Before moving to R, you need to check the terms and conditions, in Movebank study page, click “Download data”, and agree to the
+terms and conditions. Once agreed, you are all set to continue!</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="working-with-spatial-data.html#cb37-1" tabindex="-1"></a><span class="co"># Now in the study page, find the &quot;Movebank ID&quot; and enter it in the code below next to &quot;study = &quot;</span></span>
+<span id="cb37-2"><a href="working-with-spatial-data.html#cb37-2" tabindex="-1"></a>cheetah_move <span class="ot">&lt;-</span> <span class="fu">getMovebankData</span>(<span class="at">study =</span> , <span class="at">login =</span> loginStored)</span>
+<span id="cb37-3"><a href="working-with-spatial-data.html#cb37-3" tabindex="-1"></a><span class="do">### The study number should be 1260886163</span></span>
+<span id="cb37-4"><a href="working-with-spatial-data.html#cb37-4" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="working-with-spatial-data.html#cb37-5" tabindex="-1"></a><span class="co">#It&#39;s always a good idea to check the data structure before we began</span></span>
+<span id="cb37-6"><a href="working-with-spatial-data.html#cb37-6" tabindex="-1"></a><span class="fu">view</span>(cheetah_dat)</span>
+<span id="cb37-7"><a href="working-with-spatial-data.html#cb37-7" tabindex="-1"></a><span class="fu">str</span>(cheetah_move)</span>
+<span id="cb37-8"><a href="working-with-spatial-data.html#cb37-8" tabindex="-1"></a><span class="co"># What is the class of the data?</span></span>
+<span id="cb37-9"><a href="working-with-spatial-data.html#cb37-9" tabindex="-1"></a></span>
+<span id="cb37-10"><a href="working-with-spatial-data.html#cb37-10" tabindex="-1"></a><span class="co"># Let&#39;s transform the data from a MoveStack object into a dataframe</span></span>
+<span id="cb37-11"><a href="working-with-spatial-data.html#cb37-11" tabindex="-1"></a>cheetah_dat <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(cheetah_move)</span>
+<span id="cb37-12"><a href="working-with-spatial-data.html#cb37-12" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="working-with-spatial-data.html#cb37-13" tabindex="-1"></a><span class="fu">head</span>(cheetah_move)</span>
+<span id="cb37-14"><a href="working-with-spatial-data.html#cb37-14" tabindex="-1"></a><span class="co"># What kind of information do we have?</span></span>
+<span id="cb37-15"><a href="working-with-spatial-data.html#cb37-15" tabindex="-1"></a></span>
+<span id="cb37-16"><a href="working-with-spatial-data.html#cb37-16" tabindex="-1"></a><span class="co"># Your turn! Now use select() or dplyr::select() function to create a new data frame called &quot;cheetah_clean&quot; that includes columns of longitude, latitude, tag local identifier, timestamps, and sex.</span></span>
+<span id="cb37-17"><a href="working-with-spatial-data.html#cb37-17" tabindex="-1"></a><span class="co"># Remember you can always use view()/head() function to obtain the column names</span></span>
+<span id="cb37-18"><a href="working-with-spatial-data.html#cb37-18" tabindex="-1"></a></span>
+<span id="cb37-19"><a href="working-with-spatial-data.html#cb37-19" tabindex="-1"></a><span class="do">### it should be something like this:</span></span>
+<span id="cb37-20"><a href="working-with-spatial-data.html#cb37-20" tabindex="-1"></a><span class="co"># cheetah_clean &lt;- cheetah_dat %&gt;%</span></span>
+<span id="cb37-21"><a href="working-with-spatial-data.html#cb37-21" tabindex="-1"></a><span class="co">#   dplyr::select(</span></span>
+<span id="cb37-22"><a href="working-with-spatial-data.html#cb37-22" tabindex="-1"></a><span class="co">#     tag_local_identifier,</span></span>
+<span id="cb37-23"><a href="working-with-spatial-data.html#cb37-23" tabindex="-1"></a><span class="co">#     location_lat.1,</span></span>
+<span id="cb37-24"><a href="working-with-spatial-data.html#cb37-24" tabindex="-1"></a><span class="co">#     location_long.1,</span></span>
+<span id="cb37-25"><a href="working-with-spatial-data.html#cb37-25" tabindex="-1"></a><span class="co">#     timestamps,</span></span>
+<span id="cb37-26"><a href="working-with-spatial-data.html#cb37-26" tabindex="-1"></a><span class="co">#     sex)</span></span></code></pre></div>
+<div id="understanding-coordinate-reference-systemscrs" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Understanding coordinate reference systems(CRS)<a href="working-with-spatial-data.html#understanding-coordinate-reference-systemscrs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In spatial R, we use different coordinate reference systems(CRS) to define where and how the data is on Earth.
+The two most common CRS In R is WGS84 and UTM system, but what is the difference?
+Well, WGS84 (World Geodetic System 1984) system are stored as latitude/longitude (lat/lon) in units of degrees, while UTM projects everything on a flat surface in units of meters (x/y) and divided Earth into 60 grids we refereed as UTM Zones.
+This difference make WGS84 work well with global datasets/GPS on a larger scale, but it will create distortion near polar regions and on smaller scales.
+Remember unlike WGS84, UTM data are stored in meters and uses a grid system, this minimized distortion and make it great for precise local analysis.
+Here is a table for better comparison:
+| Feature | WGS84 | UTM Zones |
+|—————-|—————————|———————————|
+| Units | Degrees (°) | Meters (m) |
+| Best For | Global | Local analysis |
+| Distortion | High near poles | Minimal within zone |
+| Data Structure | Lat/Lon | X/Y grid |
+Also, be sure to always check your CRS in R with st_crs() or crs()!!! Mixing systems can lead to errors!!</p>
+<p>Now going back to our cheetah example, to visualize our data on a map, we need to tell R which CRS we want to use.
+To do so, we can use “sf” or “sp” package, both package create spatial layers from vector data.
+However,“sf” is relatively new, much newer than “sp”. Which “sp” is the older way of dealing with
+spatial vector data in R. That means, some older packages only work with “sp” data, not
+“sf” data. This includes home range package(adehabitatHR) we are going to use later today, but ggplot only works with “sf” data! So we need to switch back and forth.</p>
+<p>Let’s try it with “sf” package first!</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="working-with-spatial-data.html#cb38-1" tabindex="-1"></a><span class="co"># We can convert our cleaned data to an &quot;sf&quot; object using st_as_sf()</span></span>
+<span id="cb38-2"><a href="working-with-spatial-data.html#cb38-2" tabindex="-1"></a><span class="co"># For coordinates, be sure to put longitude first!</span></span>
+<span id="cb38-3"><a href="working-with-spatial-data.html#cb38-3" tabindex="-1"></a>cheetah_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(cheetah_clean, </span>
+<span id="cb38-4"><a href="working-with-spatial-data.html#cb38-4" tabindex="-1"></a>                     <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">&quot;location_long.1&quot;</span>, <span class="st">&quot;location_lat.1&quot;</span>), </span>
+<span id="cb38-5"><a href="working-with-spatial-data.html#cb38-5" tabindex="-1"></a>                     <span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb38-6"><a href="working-with-spatial-data.html#cb38-6" tabindex="-1"></a><span class="co"># Note the number &quot;4326&quot; is the EPSG code for WGS84, which tells R how to interpret the coordinates.</span></span>
+<span id="cb38-7"><a href="working-with-spatial-data.html#cb38-7" tabindex="-1"></a></span>
+<span id="cb38-8"><a href="working-with-spatial-data.html#cb38-8" tabindex="-1"></a><span class="co"># Let&#39;s check the class of the new dataframe, it should say &quot;sf&quot; &quot;data.frame&quot;</span></span>
+<span id="cb38-9"><a href="working-with-spatial-data.html#cb38-9" tabindex="-1"></a><span class="fu">class</span>(cheetah_sf)</span>
+<span id="cb38-10"><a href="working-with-spatial-data.html#cb38-10" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="working-with-spatial-data.html#cb38-11" tabindex="-1"></a><span class="co"># Now we can use the sf object we created and visualize with ggplot!</span></span>
+<span id="cb38-12"><a href="working-with-spatial-data.html#cb38-12" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb38-13"><a href="working-with-spatial-data.html#cb38-13" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> cheetah_sf, <span class="at">color =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb38-14"><a href="working-with-spatial-data.html#cb38-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cheetah Locations (WGS84)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb38-15"><a href="working-with-spatial-data.html#cb38-15" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb38-16"><a href="working-with-spatial-data.html#cb38-16" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="working-with-spatial-data.html#cb38-17" tabindex="-1"></a><span class="co"># sf object also supports fancy interactive maps liken mapview package, try zoom in/out and change map layers!</span></span>
+<span id="cb38-18"><a href="working-with-spatial-data.html#cb38-18" tabindex="-1"></a><span class="fu">mapview</span>(cheetah_sf)</span></code></pre></div>
+<p>“sp” package and home range</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="working-with-spatial-data.html#cb39-1" tabindex="-1"></a><span class="co"># Let&#39;s first create a copy from our clean data</span></span>
+<span id="cb39-2"><a href="working-with-spatial-data.html#cb39-2" tabindex="-1"></a>cheetah_sp <span class="ot">&lt;-</span> cheetah_clean</span></code></pre></div>
+<p>For home range estimation (which home range is the area that’s regularly used by animal), requires units in meter, so we will use UTM system for CRS.</p>
+<p>Unlike with the package “sf” that we just used, in “sp” package, we need to assign the
+coordinates using “coordinates()” and the crs using “proj4string()”.
+Unfortunately, “sp” doesn’t work nearly as well with the tidyverse as “sf”, so we have to run the code one at a time instead of writing a pipe.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="working-with-spatial-data.html#cb40-1" tabindex="-1"></a><span class="co"># First, set the coordinates, and Longitude always go before latitude!</span></span>
+<span id="cb40-2"><a href="working-with-spatial-data.html#cb40-2" tabindex="-1"></a><span class="fu">coordinates</span>(cheetah_sp) <span class="ot">&lt;-</span> <span class="er">~</span> location_long<span class="fl">.1</span> <span class="sc">+</span> location_lat<span class="fl">.1</span></span>
+<span id="cb40-3"><a href="working-with-spatial-data.html#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="working-with-spatial-data.html#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="working-with-spatial-data.html#cb40-5" tabindex="-1"></a><span class="co"># Remember, for UTMs, we need to specify the zone. From the project summery we know that Pilanesberg National Park is in Zone 35 S (South), and now we can manually assigned the coordinates using proj4string().</span></span>
+<span id="cb40-6"><a href="working-with-spatial-data.html#cb40-6" tabindex="-1"></a><span class="fu">proj4string</span>(cheetah_sp) <span class="ot">&lt;-</span> <span class="fu">CRS</span>(<span class="st">&quot;+proj=longlat +datum=WGS84&quot;</span>)</span>
+<span id="cb40-7"><a href="working-with-spatial-data.html#cb40-7" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="working-with-spatial-data.html#cb40-8" tabindex="-1"></a><span class="co"># Note this is still in WGS84, so we need to transform to UTM Zone 35S to avoid errors</span></span>
+<span id="cb40-9"><a href="working-with-spatial-data.html#cb40-9" tabindex="-1"></a>cheetah_sp_utm <span class="ot">&lt;-</span> <span class="fu">spTransform</span>(cheetah_sp, </span>
+<span id="cb40-10"><a href="working-with-spatial-data.html#cb40-10" tabindex="-1"></a>                            <span class="fu">CRS</span>(<span class="st">&quot;+proj=utm +zone=35 +south +datum=WGS84 +units=m +no_defs&quot;</span>))</span>
+<span id="cb40-11"><a href="working-with-spatial-data.html#cb40-11" tabindex="-1"></a></span>
+<span id="cb40-12"><a href="working-with-spatial-data.html#cb40-12" tabindex="-1"></a><span class="co"># Check the class of the new dataframe</span></span>
+<span id="cb40-13"><a href="working-with-spatial-data.html#cb40-13" tabindex="-1"></a><span class="fu">class</span>(cheetah_sp_utm)</span>
+<span id="cb40-14"><a href="working-with-spatial-data.html#cb40-14" tabindex="-1"></a><span class="co"># Now the data should be in SpatialPointsDataFrame</span></span></code></pre></div>
+<p>Let’s now find the home range for our cheetah using minim!m convex polygon (MCP)!
+MCP basically the smallest convex polygon that contains the percentage of area used by animals, it’s a tool that everyone like to use in ecology, and it’s fun to visulize!
+(You don’t really have to understand this, but it help picturing the application of spatial R!)</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="working-with-spatial-data.html#cb41-1" tabindex="-1"></a><span class="co"># Here we can use the mcp.area() function to calculate the home range from 0 to 100%</span></span>
+<span id="cb41-2"><a href="working-with-spatial-data.html#cb41-2" tabindex="-1"></a>cheetah_mcp_areas_sp <span class="ot">&lt;-</span> <span class="fu">mcp.area</span>(cheetah_sp_utm[<span class="dv">1</span>], <span class="at">unin =</span> <span class="st">&quot;m&quot;</span>, <span class="at">unout =</span> <span class="st">&quot;km2&quot;</span>)</span>
+<span id="cb41-3"><a href="working-with-spatial-data.html#cb41-3" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="working-with-spatial-data.html#cb41-4" tabindex="-1"></a><span class="co"># Which then we can take a quick look and plot them out</span></span>
+<span id="cb41-5"><a href="working-with-spatial-data.html#cb41-5" tabindex="-1"></a><span class="fu">plot</span>(cheetah_mcp_areas_sp)</span></code></pre></div>
+<p>Want to visulize the the MCPs with ggplot?
+Remember spatial points(sp) cannot be directly plotted using ggplot, so we need to convert them to sf objects before plotting</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="working-with-spatial-data.html#cb42-1" tabindex="-1"></a><span class="co"># We can also visualize the 95% and 50% mcp by calculate the home range individually</span></span>
+<span id="cb42-2"><a href="working-with-spatial-data.html#cb42-2" tabindex="-1"></a>cheetah_mcp_95_sp <span class="ot">&lt;-</span> <span class="fu">mcp</span>(cheetah_sp_utm[<span class="dv">1</span>], <span class="at">percent =</span> <span class="dv">95</span>)</span>
+<span id="cb42-3"><a href="working-with-spatial-data.html#cb42-3" tabindex="-1"></a>cheetah_mcp_50_sp <span class="ot">&lt;-</span> <span class="fu">mcp</span>(cheetah_sp_utm[<span class="dv">1</span>], <span class="at">percent =</span> <span class="dv">50</span>)</span>
+<span id="cb42-4"><a href="working-with-spatial-data.html#cb42-4" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="working-with-spatial-data.html#cb42-5" tabindex="-1"></a><span class="co"># Yes you can convert the data to sf objects before plotting, but here we will convert them inside the ggplot to save space</span></span>
+<span id="cb42-6"><a href="working-with-spatial-data.html#cb42-6" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb42-7"><a href="working-with-spatial-data.html#cb42-7" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">st_as_sf</span>(cheetah_mcp_95_sp), <span class="at">fill =</span> <span class="st">&quot;purple&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb42-8"><a href="working-with-spatial-data.html#cb42-8" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">st_as_sf</span>(cheetah_mcp_50_sp), <span class="at">fill =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb42-9"><a href="working-with-spatial-data.html#cb42-9" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> <span class="fu">st_as_sf</span>(cheetah_sp_utm), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb42-10"><a href="working-with-spatial-data.html#cb42-10" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;95% and 50% MCP Home Ranges for Cheetah CF01&quot;</span>) <span class="sc">+</span></span>
+<span id="cb42-11"><a href="working-with-spatial-data.html#cb42-11" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb42-12"><a href="working-with-spatial-data.html#cb42-12" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="working-with-spatial-data.html#cb42-13" tabindex="-1"></a><span class="co"># Also try using the fancy mapview to take a closer look</span></span>
+<span id="cb42-14"><a href="working-with-spatial-data.html#cb42-14" tabindex="-1"></a><span class="fu">mapview</span>(<span class="fu">st_as_sf</span>(cheetah_mcp_95_sp), <span class="at">col.regions =</span> <span class="st">&quot;purple&quot;</span>, <span class="at">alpha.regions =</span> <span class="fl">0.5</span>, <span class="at">layer.name =</span> <span class="st">&quot;95% MCP&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb42-15"><a href="working-with-spatial-data.html#cb42-15" tabindex="-1"></a>  <span class="fu">mapview</span>(<span class="fu">st_as_sf</span>(cheetah_mcp_50_sp), <span class="at">col.regions =</span> <span class="st">&quot;orange&quot;</span>, <span class="at">alpha.regions =</span> <span class="fl">0.5</span>, <span class="at">layer.name =</span> <span class="st">&quot;50% MCP&quot;</span>) <span class="sc">+</span></span>
+<span id="cb42-16"><a href="working-with-spatial-data.html#cb42-16" tabindex="-1"></a>  <span class="fu">mapview</span>(<span class="fu">st_as_sf</span>(cheetah_sp_utm), <span class="at">col.regions =</span> <span class="st">&quot;black&quot;</span>, <span class="at">cex =</span> <span class="dv">3</span>, <span class="at">layer.name =</span> <span class="st">&quot;GPS Locations&quot;</span>)</span></code></pre></div>
+<p>Your turn!
+Now we are going to work on another data set from a puma project in Utah
+Try using the code we already used!</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="working-with-spatial-data.html#cb43-1" tabindex="-1"></a><span class="co"># First, download the puma data from Movebank, I already had the study number for you this time</span></span>
+<span id="cb43-2"><a href="working-with-spatial-data.html#cb43-2" tabindex="-1"></a>puma_move <span class="ot">&lt;-</span> <span class="fu">getMovebankData</span>(<span class="at">study =</span> <span class="dv">1720694224</span>, <span class="at">login =</span> loginStored)</span>
+<span id="cb43-3"><a href="working-with-spatial-data.html#cb43-3" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="working-with-spatial-data.html#cb43-4" tabindex="-1"></a><span class="co">#1. Now convert the our puma_move object to a dataframe called &quot;puma_dat&quot; using as.data.frame() function</span></span>
+<span id="cb43-5"><a href="working-with-spatial-data.html#cb43-5" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="working-with-spatial-data.html#cb43-6" tabindex="-1"></a><span class="do">## puma_dat &lt;- as.data.frame(puma_move)</span></span>
+<span id="cb43-7"><a href="working-with-spatial-data.html#cb43-7" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="working-with-spatial-data.html#cb43-8" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="working-with-spatial-data.html#cb43-9" tabindex="-1"></a><span class="co">#2. Use dplyr::select() function to create a new data frame called &quot;puma_clean&quot; that includes columns of longitude, latitude, tag local identifier, timestamps, also use dplyr::filter() to filter out only puma in the taxonomy species.</span></span>
+<span id="cb43-10"><a href="working-with-spatial-data.html#cb43-10" tabindex="-1"></a><span class="co"># Hint: you can use view()/head() to see the column names</span></span>
+<span id="cb43-11"><a href="working-with-spatial-data.html#cb43-11" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="working-with-spatial-data.html#cb43-12" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="working-with-spatial-data.html#cb43-13" tabindex="-1"></a><span class="co"># puma_clean &lt;- puma_dat %&gt;%</span></span>
+<span id="cb43-14"><a href="working-with-spatial-data.html#cb43-14" tabindex="-1"></a><span class="co">#   dplyr::filter(taxon_canonical_name == &quot;Puma concolor&quot;) %&gt;%</span></span>
+<span id="cb43-15"><a href="working-with-spatial-data.html#cb43-15" tabindex="-1"></a><span class="co">#   dplyr::select(</span></span>
+<span id="cb43-16"><a href="working-with-spatial-data.html#cb43-16" tabindex="-1"></a><span class="co">#     local_identifier,</span></span>
+<span id="cb43-17"><a href="working-with-spatial-data.html#cb43-17" tabindex="-1"></a><span class="co">#     location_lat,</span></span>
+<span id="cb43-18"><a href="working-with-spatial-data.html#cb43-18" tabindex="-1"></a><span class="co">#     location_long,</span></span>
+<span id="cb43-19"><a href="working-with-spatial-data.html#cb43-19" tabindex="-1"></a><span class="co">#     timestamps)</span></span>
+<span id="cb43-20"><a href="working-with-spatial-data.html#cb43-20" tabindex="-1"></a></span>
+<span id="cb43-21"><a href="working-with-spatial-data.html#cb43-21" tabindex="-1"></a></span>
+<span id="cb43-22"><a href="working-with-spatial-data.html#cb43-22" tabindex="-1"></a><span class="co">#3. Next, use st_as_sf() to convert our cleaned data to sfobject called &quot;puma_sf&quot;, and set crs to 4326</span></span>
+<span id="cb43-23"><a href="working-with-spatial-data.html#cb43-23" tabindex="-1"></a><span class="co"># puma_sf &lt;- st_as_sf(puma_clean, </span></span>
+<span id="cb43-24"><a href="working-with-spatial-data.html#cb43-24" tabindex="-1"></a><span class="co">#                    coords = c(&quot;location_long&quot;, &quot;location_lat&quot;), </span></span>
+<span id="cb43-25"><a href="working-with-spatial-data.html#cb43-25" tabindex="-1"></a><span class="co">#                    crs = 4326)</span></span>
+<span id="cb43-26"><a href="working-with-spatial-data.html#cb43-26" tabindex="-1"></a></span>
+<span id="cb43-27"><a href="working-with-spatial-data.html#cb43-27" tabindex="-1"></a><span class="co">#4. Now creat a ggplot to visualize the data initially, for sf data, you should use geom_sf(), you can also try mapview() for a better look</span></span>
+<span id="cb43-28"><a href="working-with-spatial-data.html#cb43-28" tabindex="-1"></a><span class="co"># ggplot() +</span></span>
+<span id="cb43-29"><a href="working-with-spatial-data.html#cb43-29" tabindex="-1"></a><span class="co">#   geom_sf(data = puma_sf) +</span></span>
+<span id="cb43-30"><a href="working-with-spatial-data.html#cb43-30" tabindex="-1"></a><span class="co">#   theme_bw()</span></span>
+<span id="cb43-31"><a href="working-with-spatial-data.html#cb43-31" tabindex="-1"></a></span>
+<span id="cb43-32"><a href="working-with-spatial-data.html#cb43-32" tabindex="-1"></a></span>
+<span id="cb43-33"><a href="working-with-spatial-data.html#cb43-33" tabindex="-1"></a><span class="co">#5. Let&#39;s convert to sp object for home range analysis</span></span>
+<span id="cb43-34"><a href="working-with-spatial-data.html#cb43-34" tabindex="-1"></a><span class="co"># a) Create a copy of puma_clean called &quot;puma_sp&quot;</span></span>
+<span id="cb43-35"><a href="working-with-spatial-data.html#cb43-35" tabindex="-1"></a><span class="co"># b) Use coordinates() to set spatial coordinates</span></span>
+<span id="cb43-36"><a href="working-with-spatial-data.html#cb43-36" tabindex="-1"></a><span class="co"># c) Use proj4string() to set WGS84 CRS</span></span>
+<span id="cb43-37"><a href="working-with-spatial-data.html#cb43-37" tabindex="-1"></a><span class="co"># puma_sp &lt;- puma_clean</span></span>
+<span id="cb43-38"><a href="working-with-spatial-data.html#cb43-38" tabindex="-1"></a><span class="co"># coordinates(puma_sp) &lt;- ~ location_long + location_lat</span></span>
+<span id="cb43-39"><a href="working-with-spatial-data.html#cb43-39" tabindex="-1"></a><span class="co"># proj4string(puma_sp) &lt;- CRS(&quot;+proj=longlat +datum=WGS84&quot;)</span></span>
+<span id="cb43-40"><a href="working-with-spatial-data.html#cb43-40" tabindex="-1"></a></span>
+<span id="cb43-41"><a href="working-with-spatial-data.html#cb43-41" tabindex="-1"></a><span class="co"># Next, we will transform to UTMs and create MCP polygons, since Utah is in UTM Zone 12N, we will use that instead.</span></span>
+<span id="cb43-42"><a href="working-with-spatial-data.html#cb43-42" tabindex="-1"></a><span class="co"># Here I had the code for you, so no worries.</span></span>
+<span id="cb43-43"><a href="working-with-spatial-data.html#cb43-43" tabindex="-1"></a>puma_sp_utm <span class="ot">&lt;-</span> <span class="fu">spTransform</span>(puma_sp, </span>
+<span id="cb43-44"><a href="working-with-spatial-data.html#cb43-44" tabindex="-1"></a>                         <span class="fu">CRS</span>(<span class="st">&quot;+proj=utm +zone=12 +datum=WGS84 +units=m +no_defs&quot;</span>))</span>
+<span id="cb43-45"><a href="working-with-spatial-data.html#cb43-45" tabindex="-1"></a>puma_mcp_95_sp <span class="ot">&lt;-</span> <span class="fu">mcp</span>(puma_sp_utm[<span class="dv">1</span>], <span class="at">percent =</span> <span class="dv">95</span>)</span>
+<span id="cb43-46"><a href="working-with-spatial-data.html#cb43-46" tabindex="-1"></a>puma_mcp_50_sp <span class="ot">&lt;-</span> <span class="fu">mcp</span>(puma_sp_utm[<span class="dv">1</span>], <span class="at">percent =</span> <span class="dv">50</span>)</span>
+<span id="cb43-47"><a href="working-with-spatial-data.html#cb43-47" tabindex="-1"></a></span>
+<span id="cb43-48"><a href="working-with-spatial-data.html#cb43-48" tabindex="-1"></a><span class="co">#6. Now, make a ggplot and/or mapview to visulize the MCPs, remember you need to convert the data to sf objects first!</span></span>
+<span id="cb43-49"><a href="working-with-spatial-data.html#cb43-49" tabindex="-1"></a><span class="co"># ggplot() +</span></span>
+<span id="cb43-50"><a href="working-with-spatial-data.html#cb43-50" tabindex="-1"></a><span class="co">#   geom_sf(data = st_as_sf(puma_mcp_95_sp), fill = &quot;blue&quot;, alpha = 0.5) +</span></span>
+<span id="cb43-51"><a href="working-with-spatial-data.html#cb43-51" tabindex="-1"></a><span class="co">#   geom_sf(data = st_as_sf(puma_mcp_50_sp), fill = &quot;lightblue&quot;, alpha = 0.5) +</span></span>
+<span id="cb43-52"><a href="working-with-spatial-data.html#cb43-52" tabindex="-1"></a><span class="co">#   geom_sf(data = st_as_sf(puma_sp_utm), color = &quot;red&quot;, size = 0.5, alpha = 0.5) +</span></span>
+<span id="cb43-53"><a href="working-with-spatial-data.html#cb43-53" tabindex="-1"></a><span class="co">#   theme_bw()</span></span>
+<span id="cb43-54"><a href="working-with-spatial-data.html#cb43-54" tabindex="-1"></a></span>
+<span id="cb43-55"><a href="working-with-spatial-data.html#cb43-55" tabindex="-1"></a><span class="co"># mapview(st_as_sf(puma_mcp_95_sp), col.regions = &quot;blue&quot;, layer.name = &quot;95% MCP&quot;) + </span></span>
+<span id="cb43-56"><a href="working-with-spatial-data.html#cb43-56" tabindex="-1"></a><span class="co">#   mapview(st_as_sf(puma_mcp_50_sp), col.regions = &quot;lightblue&quot;, layer.name = &quot;50% MCP&quot;) +</span></span>
+<span id="cb43-57"><a href="working-with-spatial-data.html#cb43-57" tabindex="-1"></a><span class="co">#   mapview(st_as_sf(puma_sp_utm), col.regions = &quot;red&quot;,layer.name = &quot;GPS Locations&quot;)</span></span></code></pre></div>
+<p>Credits for this lab:
+1. University of California, Davis, course WFC 155 lab 5 and 8
+2. Intro to spatial R by Claudia A Engel: <a href="https://cengel.github.io/R-spatial/intro.html" class="uri">https://cengel.github.io/R-spatial/intro.html</a></p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro-to-r-and-r-studio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modeling-conditionals-loops-functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab-1-r-data-and-the-rstudio-panels-2025.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -438,7 +632,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/10-spatial_data.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -446,7 +640,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/10-spatial_data.Rmd",
     "text": null
   },
   "download": null,

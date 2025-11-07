@@ -1,0 +1,272 @@
+
+# Working with Spatial Data
+
+Author: Mingyuan Li
+
+```{r, eval = FALSE}
+# We are using multiple new packages, install and load them if you haven't done it so:
+# install.packages(c("move", "move2", "sf", "raster", "terra", "sp", "adehabitatHR", "amt", "mapview"))
+library(move)
+library(move2)
+library(sf)
+library(sp)
+library(adehabitatHR)
+library(amt)
+library(mapview)
+library(raster)
+library(terra)
+library(tidyverse)
+```
+
+Before we start, let's talk about GIS!
+GIS stands for geographic information system, it help us analyze and visualize data that
+are spatial in nature.
+
+What is the different between spatial data and other data types? Ultimately, not much!
+Just like other data types, spatial locations can be depicted on x and y axes.
+But if we were to include things like elevation, then we can use 3-dimensional
+data analysis and visualization techniques.
+
+Two things that sets spatial data apart from other data types:
+ 1. In non-spatial data, we care about statistical relationships(How variable X influence variable Y)
+    In spatial data, we care more about location-based relationships(How points/locations are related in space)
+ 2. Spatial data are often organized in multiple layers, so for example we can have a location with
+    layers elevation, temperature, vegetation coverage... and they stack together.
+
+Today, we will start by directly download a dataset from Movebank:
+
+In R, by using "move" and "move2"package, we can directly download data sets from MoveBank.
+But first, you need a Movebank account to login. So open and past this link into your browser:
+https://www.movebank.org/cms/movebank-main
+Use "Login/Register" at top right to login.
+
+```{r, eval = FALSE}
+# Now you can login directly through RStudio:
+loginStored <- movebankLogin(username="Your_username", password="Your_password")
+```
+
+
+Next, we need to find a study that we want to explore in R,
+For our purpose of the lab, we are using cheetah data for demonstration
+To do that, go back to Movebank page, in "Data" section, go to "Explore map", and on the left you should see a search bar, check the box "Only studies where I can see data" and enter "Cheetah Pilanesberg National Park"
+Next, click the box with "i" that's next to the study name and select "Open in studies page"
+Here is all the information you need to load the dataset!
+
+Before moving to R, you need to check the terms and conditions, in Movebank study page, click "Download data", and agree to the
+terms and conditions. Once agreed, you are all set to continue!
+
+```{r, eval = FALSE}
+# Now in the study page, find the "Movebank ID" and enter it in the code below next to "study = "
+cheetah_move <- getMovebankData(study = , login = loginStored)
+### The study number should be 1260886163
+
+#It's always a good idea to check the data structure before we began
+view(cheetah_dat)
+str(cheetah_move)
+# What is the class of the data?
+
+# Let's transform the data from a MoveStack object into a dataframe
+cheetah_dat <- as.data.frame(cheetah_move)
+
+head(cheetah_move)
+# What kind of information do we have?
+
+# Your turn! Now use select() or dplyr::select() function to create a new data frame called "cheetah_clean" that includes columns of longitude, latitude, tag local identifier, timestamps, and sex.
+# Remember you can always use view()/head() function to obtain the column names
+
+### it should be something like this:
+# cheetah_clean <- cheetah_dat %>%
+#   dplyr::select(
+#     tag_local_identifier,
+#     location_lat.1,
+#     location_long.1,
+#     timestamps,
+#     sex)
+
+
+```
+
+## Understanding coordinate reference systems(CRS)
+
+In spatial R, we use different coordinate reference systems(CRS) to define where and how the data is on Earth.
+The two most common CRS In R is WGS84 and UTM system, but what is the difference?
+Well, WGS84 (World Geodetic System 1984) system are stored as latitude/longitude (lat/lon) in units of degrees, while UTM projects everything on a flat surface in units of meters (x/y) and divided Earth into 60 grids we refereed as UTM Zones.
+This difference make WGS84 work well with global datasets/GPS on a larger scale, but it will create distortion near polar regions and on smaller scales.
+Remember unlike WGS84, UTM data are stored in meters and uses a grid system, this minimized distortion and make it great for precise local analysis.
+Here is a table for better comparison:
+| Feature        | WGS84                     | UTM Zones                       |
+|----------------|---------------------------|---------------------------------|
+| Units          | Degrees (°)               | Meters (m)                      |
+| Best For       | Global                    | Local analysis                  |
+| Distortion     | High near poles           | Minimal within zone             |
+| Data Structure | Lat/Lon                   | X/Y grid                        |
+Also, be sure to always check your CRS in R with st_crs() or crs()!!! Mixing systems can lead to errors!!
+
+Now going back to our cheetah example, to visualize our data on a map, we need to tell R which CRS we want to use.
+To do so, we can use "sf" or "sp" package, both package create spatial layers from vector data.
+However,"sf" is relatively new, much newer than "sp". Which "sp" is the older way of dealing with
+spatial vector data in R. That means, some older packages only work with "sp" data, not
+"sf" data. This includes home range package(adehabitatHR) we are going to use later today, but ggplot only works with "sf" data! So we need to switch back and forth.
+
+
+Let's try it with "sf" package first!
+```{r, eval = FALSE}
+# We can convert our cleaned data to an "sf" object using st_as_sf()
+# For coordinates, be sure to put longitude first!
+cheetah_sf <- st_as_sf(cheetah_clean, 
+                     coords = c("location_long.1", "location_lat.1"), 
+                     crs = 4326)
+# Note the number "4326" is the EPSG code for WGS84, which tells R how to interpret the coordinates.
+
+# Let's check the class of the new dataframe, it should say "sf" "data.frame"
+class(cheetah_sf)
+
+# Now we can use the sf object we created and visualize with ggplot!
+ggplot() +
+  geom_sf(data = cheetah_sf, color = "orange", alpha = 0.5, size = 1.5) +
+  labs(title = "Cheetah Locations (WGS84)") +
+  theme_bw()
+
+# sf object also supports fancy interactive maps liken mapview package, try zoom in/out and change map layers!
+mapview(cheetah_sf)
+
+```
+
+"sp" package and home range
+
+```{r, eval = FALSE}
+# Let's first create a copy from our clean data
+cheetah_sp <- cheetah_clean
+```
+
+For home range estimation (which home range is the area that's regularly used by animal), requires units in meter, so we will use UTM system for CRS.
+
+Unlike with the package "sf" that we just used, in "sp" package, we need to assign the 
+coordinates using "coordinates()" and the crs using "proj4string()".
+Unfortunately, "sp" doesn't work nearly as well with the tidyverse as "sf", so we have to run the code one at a time instead of writing a pipe.
+
+```{r, eval = FALSE}
+# First, set the coordinates, and Longitude always go before latitude!
+coordinates(cheetah_sp) <- ~ location_long.1 + location_lat.1
+
+
+# Remember, for UTMs, we need to specify the zone. From the project summery we know that Pilanesberg National Park is in Zone 35 S (South), and now we can manually assigned the coordinates using proj4string().
+proj4string(cheetah_sp) <- CRS("+proj=longlat +datum=WGS84")
+
+# Note this is still in WGS84, so we need to transform to UTM Zone 35S to avoid errors
+cheetah_sp_utm <- spTransform(cheetah_sp, 
+                            CRS("+proj=utm +zone=35 +south +datum=WGS84 +units=m +no_defs"))
+
+# Check the class of the new dataframe
+class(cheetah_sp_utm)
+# Now the data should be in SpatialPointsDataFrame
+```
+
+Let's now find the home range for our cheetah using minim!m convex polygon (MCP)!
+MCP basically the smallest convex polygon that contains the percentage of area used by animals, it's a tool that everyone like to use in ecology, and it's fun to visulize!
+(You don't really have to understand this, but it help picturing the application of spatial R!)
+
+```{r, eval = FALSE}
+# Here we can use the mcp.area() function to calculate the home range from 0 to 100%
+cheetah_mcp_areas_sp <- mcp.area(cheetah_sp_utm[1], unin = "m", unout = "km2")
+
+# Which then we can take a quick look and plot them out
+plot(cheetah_mcp_areas_sp)
+```
+
+Want to visulize the the MCPs with ggplot?
+Remember spatial points(sp) cannot be directly plotted using ggplot, so we need to convert them to sf objects before plotting
+
+```{r, eval = FALSE}
+# We can also visualize the 95% and 50% mcp by calculate the home range individually
+cheetah_mcp_95_sp <- mcp(cheetah_sp_utm[1], percent = 95)
+cheetah_mcp_50_sp <- mcp(cheetah_sp_utm[1], percent = 50)
+
+# Yes you can convert the data to sf objects before plotting, but here we will convert them inside the ggplot to save space
+ggplot() +
+  geom_sf(data = st_as_sf(cheetah_mcp_95_sp), fill = "purple", alpha = 0.5) +
+  geom_sf(data = st_as_sf(cheetah_mcp_50_sp), fill = "orange", alpha = 0.5) +
+  geom_sf(data = st_as_sf(cheetah_sp_utm), color = "black", size = 1) +
+  labs(title = "95% and 50% MCP Home Ranges for Cheetah CF01") +
+  theme_bw()
+
+# Also try using the fancy mapview to take a closer look
+mapview(st_as_sf(cheetah_mcp_95_sp), col.regions = "purple", alpha.regions = 0.5, layer.name = "95% MCP") + 
+  mapview(st_as_sf(cheetah_mcp_50_sp), col.regions = "orange", alpha.regions = 0.5, layer.name = "50% MCP") +
+  mapview(st_as_sf(cheetah_sp_utm), col.regions = "black", cex = 3, layer.name = "GPS Locations")
+
+```
+
+Your turn!
+Now we are going to work on another data set from a puma project in Utah
+Try using the code we already used!
+
+
+```{r, eval = FALSE}
+
+# First, download the puma data from Movebank, I already had the study number for you this time
+puma_move <- getMovebankData(study = 1720694224, login = loginStored)
+
+#1. Now convert the our puma_move object to a dataframe called "puma_dat" using as.data.frame() function
+
+## puma_dat <- as.data.frame(puma_move)
+
+
+#2. Use dplyr::select() function to create a new data frame called "puma_clean" that includes columns of longitude, latitude, tag local identifier, timestamps, also use dplyr::filter() to filter out only puma in the taxonomy species.
+# Hint: you can use view()/head() to see the column names
+
+
+# puma_clean <- puma_dat %>%
+#   dplyr::filter(taxon_canonical_name == "Puma concolor") %>%
+#   dplyr::select(
+#     local_identifier,
+#     location_lat,
+#     location_long,
+#     timestamps)
+
+
+#3. Next, use st_as_sf() to convert our cleaned data to sfobject called "puma_sf", and set crs to 4326
+# puma_sf <- st_as_sf(puma_clean, 
+#                    coords = c("location_long", "location_lat"), 
+#                    crs = 4326)
+
+#4. Now creat a ggplot to visualize the data initially, for sf data, you should use geom_sf(), you can also try mapview() for a better look
+# ggplot() +
+#   geom_sf(data = puma_sf) +
+#   theme_bw()
+
+
+#5. Let's convert to sp object for home range analysis
+# a) Create a copy of puma_clean called "puma_sp"
+# b) Use coordinates() to set spatial coordinates
+# c) Use proj4string() to set WGS84 CRS
+# puma_sp <- puma_clean
+# coordinates(puma_sp) <- ~ location_long + location_lat
+# proj4string(puma_sp) <- CRS("+proj=longlat +datum=WGS84")
+
+# Next, we will transform to UTMs and create MCP polygons, since Utah is in UTM Zone 12N, we will use that instead.
+# Here I had the code for you, so no worries.
+puma_sp_utm <- spTransform(puma_sp, 
+                         CRS("+proj=utm +zone=12 +datum=WGS84 +units=m +no_defs"))
+puma_mcp_95_sp <- mcp(puma_sp_utm[1], percent = 95)
+puma_mcp_50_sp <- mcp(puma_sp_utm[1], percent = 50)
+
+#6. Now, make a ggplot and/or mapview to visulize the MCPs, remember you need to convert the data to sf objects first!
+# ggplot() +
+#   geom_sf(data = st_as_sf(puma_mcp_95_sp), fill = "blue", alpha = 0.5) +
+#   geom_sf(data = st_as_sf(puma_mcp_50_sp), fill = "lightblue", alpha = 0.5) +
+#   geom_sf(data = st_as_sf(puma_sp_utm), color = "red", size = 0.5, alpha = 0.5) +
+#   theme_bw()
+
+# mapview(st_as_sf(puma_mcp_95_sp), col.regions = "blue", layer.name = "95% MCP") + 
+#   mapview(st_as_sf(puma_mcp_50_sp), col.regions = "lightblue", layer.name = "50% MCP") +
+#   mapview(st_as_sf(puma_sp_utm), col.regions = "red",layer.name = "GPS Locations")
+```
+
+
+
+
+Credits for this lab:
+1. University of California, Davis, course WFC 155 lab 5 and 8 
+2. Intro to spatial R by Claudia A Engel: https://cengel.github.io/R-spatial/intro.html
+

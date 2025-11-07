@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 8 Modeling (conditionals, loops, functions) | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 8 Modeling (conditionals, loops, functions) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 8 Modeling (conditionals, loops, functions) | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 8 Modeling (conditionals, loops, functions) | WFC 70: Data Literacy for Wildlife Biologists" />
+  
+  
+  
+
+<meta name="author" content="Rob Furrow" />
+
+
+<meta name="date" content="2025-11-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mark-recapture.html"/>
+<link rel="next" href="working-with-spatial-data.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/vembedr-0.1.5/css/vembedr.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">WFC70</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to WFC 70</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="getting-started.html"><a href="getting-started.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>0.1</b> Installing R and R Studio</a></li>
+<li class="chapter" data-level="0.2" data-path="getting-started.html"><a href="getting-started.html#tips-for-getting-started-with-labs"><i class="fa fa-check"></i><b>0.2</b> Tips for Getting Started With Labs</a></li>
+<li class="chapter" data-level="0.3" data-path="getting-started.html"><a href="getting-started.html#tips-for-working-from-home"><i class="fa fa-check"></i><b>0.3</b> Tips for Working From Home</a></li>
+<li class="chapter" data-level="0.4" data-path="getting-started.html"><a href="getting-started.html#shortcuts"><i class="fa fa-check"></i><b>0.4</b> Shortcuts</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html"><i class="fa fa-check"></i><b>1</b> Intro to R and R Studio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#packages"><i class="fa fa-check"></i><b>1.1</b> Packages</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#installing-packages"><i class="fa fa-check"></i><b>1.1.1</b> Installing Packages</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#finding-packages"><i class="fa fa-check"></i><b>1.1.2</b> Finding Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#knitting"><i class="fa fa-check"></i><b>1.2</b> Knitting</a></li>
+<li class="chapter" data-level="1.3" data-path="intro-to-r-and-r-studio.html"><a href="intro-to-r-and-r-studio.html#knitting-1"><i class="fa fa-check"></i><b>1.3</b> Knitting</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="code-not-working.html"><a href="code-not-working.html"><i class="fa fa-check"></i><b>2</b> Code not Working?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="code-not-working.html"><a href="code-not-working.html#checklist"><i class="fa fa-check"></i><b>2.1</b> Checklist</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="code-not-working.html"><a href="code-not-working.html#example-fix-the-code"><i class="fa fa-check"></i><b>2.1.1</b> Example: Fix the Code</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#finding-data"><i class="fa fa-check"></i><b>3.1</b> Finding Data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="omitting-code.html"><a href="omitting-code.html"><i class="fa fa-check"></i><b>4</b> Omitting code</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="omitting-code.html"><a href="omitting-code.html#default-fields"><i class="fa fa-check"></i><b>4.1</b> Default fields</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization.html"><a href="data-visualization.html#types-of-graphs"><i class="fa fa-check"></i><b>5.1</b> Types of Graphs</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="data-visualization.html"><a href="data-visualization.html#histogram"><i class="fa fa-check"></i><b>5.1.1</b> Histogram</a></li>
+<li class="chapter" data-level="5.1.2" data-path="data-visualization.html"><a href="data-visualization.html#violin-plot"><i class="fa fa-check"></i><b>5.1.2</b> Violin Plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="data-visualization.html"><a href="data-visualization.html#box-plot"><i class="fa fa-check"></i><b>5.1.3</b> Box Plot</a></li>
+<li class="chapter" data-level="5.1.4" data-path="data-visualization.html"><a href="data-visualization.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.4</b> Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>6.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>6.1.1</b> Filter</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>6.1.2</b> Joins</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>6.1.3</b> Select</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>6.1.4</b> Mutate</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>6.1.5</b> Pivot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>6.2</b> Tying Everything Together</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>6.2.1</b> Checklist</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>6.2.2</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mark-recapture.html"><a href="mark-recapture.html"><i class="fa fa-check"></i><b>7</b> Mark-Recapture</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mark-recapture.html"><a href="mark-recapture.html#example-1"><i class="fa fa-check"></i><b>7.1</b> Example</a></li>
+<li class="chapter" data-level="7.2" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-1-estimating-population-size"><i class="fa fa-check"></i><b>7.2</b> Practice 1: Estimating population size</a></li>
+<li class="chapter" data-level="7.3" data-path="mark-recapture.html"><a href="mark-recapture.html#mark-recaptured-in-r"><i class="fa fa-check"></i><b>7.3</b> Mark-Recaptured in R</a></li>
+<li class="chapter" data-level="7.4" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-2"><i class="fa fa-check"></i><b>7.4</b> Practice 2</a></li>
+<li class="chapter" data-level="7.5" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-3"><i class="fa fa-check"></i><b>7.5</b> Practice 3</a></li>
+<li class="chapter" data-level="7.6" data-path="mark-recapture.html"><a href="mark-recapture.html#answers"><i class="fa fa-check"></i><b>7.6</b> Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html"><i class="fa fa-check"></i><b>8</b> Modeling (conditionals, loops, functions)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#motivation-why-learn-loops-and-conditional-statements"><i class="fa fa-check"></i><b>8.1</b> Motivation: why learn loops and conditional statements?</a></li>
+<li class="chapter" data-level="8.2" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#loops-in-r-for-statements"><i class="fa fa-check"></i><b>8.2</b> Loops in <code>R</code> (<code>for</code> statements)</a></li>
+<li class="chapter" data-level="8.3" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#conditional-statements-in-r-if-else"><i class="fa fa-check"></i><b>8.3</b> Conditional Statements in <code>R</code> (<code>if</code>, <code>else</code>)</a></li>
+<li class="chapter" data-level="8.4" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#connection-to-data-visualization"><i class="fa fa-check"></i><b>8.4</b> Connection to Data Visualization</a></li>
+<li class="chapter" data-level="8.5" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#functions-in-r"><i class="fa fa-check"></i><b>8.5</b> Functions in <code>R</code></a></li>
+<li class="chapter" data-level="8.6" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#conclusion"><i class="fa fa-check"></i><b>8.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-with-spatial-data.html"><a href="working-with-spatial-data.html"><i class="fa fa-check"></i><b>9</b> Working with Spatial Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="working-with-spatial-data.html"><a href="working-with-spatial-data.html#understanding-coordinate-reference-systemscrs"><i class="fa fa-check"></i><b>9.1</b> Understanding coordinate reference systems(CRS)</a></li>
+</ul></li>
+<li class="appendix"><span><b>WFC 70 Labs</b></span></li>
+<li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels (2025)</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-1-orienting-ourselves-to-rstudio-10-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.1</b> Part 1: Orienting ourselves to RStudio (10 minutes, instructor will lead)</a>
+<ul>
+<li class="chapter" data-level="A.1.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#the-command-line-console-versus-a-r-script"><i class="fa fa-check"></i><b>A.1.1</b> The command line / “Console” versus a R script</a></li>
+<li class="chapter" data-level="A.1.2" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#r-data-is-often-stored-in-vectors"><i class="fa fa-check"></i><b>A.1.2</b> R data is often stored in “vectors”</a></li>
+</ul></li>
+<li class="chapter" data-level="A.2" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-2-trying-things-out-yourselves-10-minutes-on-your-own"><i class="fa fa-check"></i><b>A.2</b> Part 2: Trying things out yourselves (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="A.3" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-3-making-toast-10-minutes-total"><i class="fa fa-check"></i><b>A.3</b> Part 3: Making toast (10 minutes total)</a>
+<ul>
+<li class="chapter" data-level="A.3.1" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#class-discussion-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.3.1</b> Class discussion (5 minutes, instructor will lead)</a></li>
+</ul></li>
+<li class="chapter" data-level="A.4" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#part-4-data-frames-to-link-data-together-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>A.4</b> Part 4: Data frames to link data together (5 minutes, instructor will lead)</a></li>
+<li class="chapter" data-level="A.5" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#wrapping-up-5-minutes"><i class="fa fa-check"></i><b>A.5</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="A.6" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html#extra-material-for-interest-will-not-be-assessed-on-any-homework"><i class="fa fa-check"></i><b>A.6</b> Extra material for interest (will not be assessed on any homework)</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html"><i class="fa fa-check"></i><b>B</b> Lab 2: Indices in R, R Markdown (2025)</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#part-1-r-vs.-rstudio-.r-vs.-.rmd-files-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>B.1</b> Part 1: R vs. RStudio, .R vs. .Rmd files (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#r-vs.-rstudio"><i class="fa fa-check"></i><b>B.1.1</b> R vs. RStudio</a></li>
+<li class="chapter" data-level="B.1.2" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#r-scripts-.r-files-vs.-r-markdown-files-.rmd"><i class="fa fa-check"></i><b>B.1.2</b> R scripts (.R files) vs. R Markdown files (.Rmd)</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#part-2-indices-and-column-names-5-minutes-instructor-will-lead"><i class="fa fa-check"></i><b>B.2</b> Part 2: Indices and column names (5 minutes, instructor will lead)</a></li>
+<li class="chapter" data-level="B.3" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#part-3-index-work-on-your-own-10-minutes-on-your-own"><i class="fa fa-check"></i><b>B.3</b> Part 3: Index work on your own (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="B.4" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#part-4-messing-around-with-r-markdown-15-minutes-on-your-own"><i class="fa fa-check"></i><b>B.4</b> Part 4: Messing around with R Markdown (15 minutes, on your own)</a>
+<ul>
+<li class="chapter" data-level="B.4.1" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#here-i-am-writing-a-regular-sentence-it-should-not-be-big-and-weird"><i class="fa fa-check"></i><b>B.4.1</b> Here I am writing a regular sentence, it should not be big and weird!</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#wrapping-up-5-minutes-1"><i class="fa fa-check"></i><b>B.5</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="B.6" data-path="lab-2-indices-in-r-r-markdown-2025.html"><a href="lab-2-indices-in-r-r-markdown-2025.html#extra-material-for-interest"><i class="fa fa-check"></i><b>B.6</b> Extra material for interest</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html"><i class="fa fa-check"></i><b>C</b> Lab 3: Visualizing data in R (Part 1) (2025)</a>
+<ul>
+<li class="chapter" data-level="C.0.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#resources"><i class="fa fa-check"></i><b>C.0.1</b> Resources</a></li>
+<li class="chapter" data-level="C.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1-packages-in-r-covered-in-lecture-so-only-here-for-reference"><i class="fa fa-check"></i><b>C.1</b> Part 1: Packages in R (covered in lecture, so only here for reference)</a>
+<ul>
+<li class="chapter" data-level="C.1.1" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#installing-an-r-package"><i class="fa fa-check"></i><b>C.1.1</b> Installing an R package</a></li>
+<li class="chapter" data-level="C.1.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#loading-an-r-package"><i class="fa fa-check"></i><b>C.1.2</b> Loading an R package</a></li>
+<li class="chapter" data-level="C.1.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-1b-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>C.1.3</b> Part 1b (5 minutes, instructor leading)</a></li>
+</ul></li>
+<li class="chapter" data-level="C.2" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-2-using-ggplot-for-plotting-in-r-15-minutes-self-led"><i class="fa fa-check"></i><b>C.2</b> Part 2: Using ggplot() for plotting in R (15 minutes, self-led)</a></li>
+<li class="chapter" data-level="C.3" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#part-3-exploring-15-minutes-self-led"><i class="fa fa-check"></i><b>C.3</b> Part 3: Exploring (15 minutes, self-led)</a></li>
+<li class="chapter" data-level="C.4" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#wrapping-up-5-minutes-2"><i class="fa fa-check"></i><b>C.4</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="C.5" data-path="lab-3-visualizing-data-in-r-part-1-2025.html"><a href="lab-3-visualizing-data-in-r-part-1-2025.html#extra-material"><i class="fa fa-check"></i><b>C.5</b> Extra material</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html"><i class="fa fa-check"></i><b>D</b> Lab 4: visualizing data in R (part 2) (2025)</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#goals"><i class="fa fa-check"></i><b>D.1</b> Goals</a>
+<ul>
+<li class="chapter" data-level="D.1.1" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#resources-1"><i class="fa fa-check"></i><b>D.1.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#part-0-figure-of-the-week-5-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>D.2</b> Part 0: Figure of the week (5-10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="D.3" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#part-1-new-data-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>D.3</b> Part 1: New data! (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="D.3.1" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#loading-data"><i class="fa fa-check"></i><b>D.3.1</b> Loading data</a></li>
+<li class="chapter" data-level="D.3.2" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#about-these-data-for-reference-not-for-discussion-during-lab"><i class="fa fa-check"></i><b>D.3.2</b> About these data (for reference, not for discussion during lab)</a></li>
+</ul></li>
+<li class="chapter" data-level="D.4" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#independent-work-25-minutes"><i class="fa fa-check"></i><b>D.4</b> Independent work (25 minutes)</a>
+<ul>
+<li class="chapter" data-level="D.4.1" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#task-1-working-with-geom_jitter"><i class="fa fa-check"></i><b>D.4.1</b> Task 1: working with <code>geom_jitter()</code></a></li>
+<li class="chapter" data-level="D.4.2" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#making-consistent-changes-to-data-attributes"><i class="fa fa-check"></i><b>D.4.2</b> Making consistent changes to data attributes</a></li>
+<li class="chapter" data-level="D.4.3" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#task-2-changing-attributes-throughout-a-plot"><i class="fa fa-check"></i><b>D.4.3</b> Task 2: changing attributes throughout a plot</a></li>
+<li class="chapter" data-level="D.4.4" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#adding-a-theme"><i class="fa fa-check"></i><b>D.4.4</b> Adding a theme</a></li>
+<li class="chapter" data-level="D.4.5" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#task-3-themes"><i class="fa fa-check"></i><b>D.4.5</b> Task 3: themes</a></li>
+<li class="chapter" data-level="D.4.6" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#customizing-labels"><i class="fa fa-check"></i><b>D.4.6</b> Customizing labels</a></li>
+<li class="chapter" data-level="D.4.7" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#interlude-finding-data-for-the-data-story-assignment"><i class="fa fa-check"></i><b>D.4.7</b> Interlude: finding data for the Data Story assignment</a></li>
+<li class="chapter" data-level="D.4.8" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#task-4-nice-labels-time-permitting"><i class="fa fa-check"></i><b>D.4.8</b> Task 4: Nice labels (time permitting)</a></li>
+</ul></li>
+<li class="chapter" data-level="D.5" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#wrapping-up-5-minutes-3"><i class="fa fa-check"></i><b>D.5</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="D.6" data-path="lab-4-visualizing-data-in-r-part-2-2025.html"><a href="lab-4-visualizing-data-in-r-part-2-2025.html#extra-material-for-interest-will-not-be-assessed-on-any-homework-1"><i class="fa fa-check"></i><b>D.6</b> Extra material for interest (will not be assessed on any homework)</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html"><i class="fa fa-check"></i><b>E</b> Lab 5: data story work, wrangling warm-up (2025)</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#goals-1"><i class="fa fa-check"></i><b>E.1</b> Goals</a>
+<ul>
+<li class="chapter" data-level="E.1.1" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#resources-2"><i class="fa fa-check"></i><b>E.1.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="E.2" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading"><i class="fa fa-check"></i><b>E.2</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="E.3" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-1-new-data-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>E.3</b> Part 1: New data! (5 minutes, instructor leading)</a>
+<ul>
+<li class="chapter" data-level="E.3.1" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#loading-data-1"><i class="fa fa-check"></i><b>E.3.1</b> Loading data</a></li>
+<li class="chapter" data-level="E.3.2" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#about-these-data"><i class="fa fa-check"></i><b>E.3.2</b> About these data</a></li>
+</ul></li>
+<li class="chapter" data-level="E.4" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-1-visualizing-size-relationships"><i class="fa fa-check"></i><b>E.4</b> Part 1: visualizing size relationships</a>
+<ul>
+<li class="chapter" data-level="E.4.1" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#your-task-10-minutes"><i class="fa fa-check"></i><b>E.4.1</b> Your task (10 minutes)</a></li>
+</ul></li>
+<li class="chapter" data-level="E.5" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#part-2-a-wrangling-plan"><i class="fa fa-check"></i><b>E.5</b> Part 2: a wrangling plan</a></li>
+<li class="chapter" data-level="E.6" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#wrapping-up-5-minutes-4"><i class="fa fa-check"></i><b>E.6</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="E.7" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#extra-material-1"><i class="fa fa-check"></i><b>E.7</b> Extra material</a>
+<ul>
+<li class="chapter" data-level="E.7.1" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#transforming-the-data-scary-code-behind-the-scenes"><i class="fa fa-check"></i><b>E.7.1</b> Transforming the data (scary code behind the scenes)</a></li>
+<li class="chapter" data-level="E.7.2" data-path="lab-5-data-story-work-wrangling-warm-up-2025.html"><a href="lab-5-data-story-work-wrangling-warm-up-2025.html#your-task"><i class="fa fa-check"></i><b>E.7.2</b> Your task</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html"><i class="fa fa-check"></i><b>F</b> Lab 6: mark-recapture (2025)</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#goals-2"><i class="fa fa-check"></i><b>F.1</b> Goals</a>
+<ul>
+<li class="chapter" data-level="F.1.1" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#resources-3"><i class="fa fa-check"></i><b>F.1.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading-1"><i class="fa fa-check"></i><b>F.2</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="F.3" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#part-1-reminder-of-lecture-data-10-minutes-instructor-leading"><i class="fa fa-check"></i><b>F.3</b> Part 1: Reminder of lecture data (10 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="F.4" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#adding-weather-data-joining-data-frames"><i class="fa fa-check"></i><b>F.4</b> Adding weather data (joining data frames)</a></li>
+<li class="chapter" data-level="F.5" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#western-harvest-mouse-population-size-on-your-own-15-minutes"><i class="fa fa-check"></i><b>F.5</b> Western harvest mouse population size (on your own, 15 minutes)</a>
+<ul>
+<li class="chapter" data-level="F.5.1" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#your-data"><i class="fa fa-check"></i><b>F.5.1</b> Your data</a></li>
+<li class="chapter" data-level="F.5.2" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#getting-your-mark-recapture-table"><i class="fa fa-check"></i><b>F.5.2</b> Getting your mark-recapture table</a></li>
+<li class="chapter" data-level="F.5.3" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#more-joining-time-permitting"><i class="fa fa-check"></i><b>F.5.3</b> More joining (time permitting)</a></li>
+</ul></li>
+<li class="chapter" data-level="F.6" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#wrapping-up-5-minutes-5"><i class="fa fa-check"></i><b>F.6</b> Wrapping up (5 minutes)</a></li>
+<li class="chapter" data-level="F.7" data-path="lab-6-mark-recapture-2025.html"><a href="lab-6-mark-recapture-2025.html#extra-material-2"><i class="fa fa-check"></i><b>F.7</b> Extra material</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html"><i class="fa fa-check"></i><b>G</b> Lab 7: file management, troubleshooting, data story (2025)</a>
+<ul>
+<li class="chapter" data-level="G.1" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#goals-3"><i class="fa fa-check"></i><b>G.1</b> Goals</a>
+<ul>
+<li class="chapter" data-level="G.1.1" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#resources-4"><i class="fa fa-check"></i><b>G.1.1</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="G.2" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#part-0-figure-of-the-week-5-minutes-instructor-leading-2"><i class="fa fa-check"></i><b>G.2</b> Part 0: Figure of the week (5 minutes, instructor leading)</a></li>
+<li class="chapter" data-level="G.3" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#part-1-navigating-file-structure-10-minutes-on-your-own"><i class="fa fa-check"></i><b>G.3</b> Part 1: Navigating file structure (10 minutes, on your own)</a>
+<ul>
+<li class="chapter" data-level="G.3.1" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#unzipping-lab7_data.zip"><i class="fa fa-check"></i><b>G.3.1</b> Unzipping “Lab7_data.zip”</a></li>
+<li class="chapter" data-level="G.3.2" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#loading-the-data"><i class="fa fa-check"></i><b>G.3.2</b> Loading the data</a></li>
+</ul></li>
+<li class="chapter" data-level="G.4" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#part-2-dealing-with-wonky-data-10-minutes-on-your-own"><i class="fa fa-check"></i><b>G.4</b> Part 2: Dealing with wonky data (10 minutes, on your own)</a></li>
+<li class="chapter" data-level="G.5" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#data-story-work-any-remaining-time"><i class="fa fa-check"></i><b>G.5</b> Data story work (any remaining time)</a></li>
+<li class="chapter" data-level="G.6" data-path="lab-7-file-management-troubleshooting-data-story-2025.html"><a href="lab-7-file-management-troubleshooting-data-story-2025.html#wrapping-up-5-minutes-6"><i class="fa fa-check"></i><b>G.6</b> Wrapping up (5 minutes)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WFC 70: Data Literacy for Wildlife Biologists</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="modeling-conditionals-loops-functions" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number"> 8</span> Modeling (conditionals, loops, functions)<a href="modeling-conditionals-loops-functions.html#modeling-conditionals-loops-functions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="modeling-conditionals-loops-functions.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb21-2"><a href="modeling-conditionals-loops-functions.html#cb21-2" tabindex="-1"></a><span class="fu">library</span>(crayon)</span></code></pre></div>
+<div id="motivation-why-learn-loops-and-conditional-statements" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Motivation: why learn loops and conditional statements?<a href="modeling-conditionals-loops-functions.html#motivation-why-learn-loops-and-conditional-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Loops (<code>for</code> statements), conditional statements (<code>if</code> and <code>else</code> statements), and writing functions are some of the most utilized purposes of <code>R</code> for ecologists. On their own, loops and conditional statements are great for speeding up tasks like processing data. When combined, they lay the groundwork for ecological modeling, an immensely powerful tool that is used in the real world to create stunning visuals, inform policy, and guide management decisions. Loops and conditional statements can get lengthy, so writing your own function can help streamline coding by not needing to copy and paste large code chunks, while also helping you understand the arguments and parameters of the systems you’re studying.</p>
+</div>
+<div id="loops-in-r-for-statements" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Loops in <code>R</code> (<code>for</code> statements)<a href="modeling-conditionals-loops-functions.html#loops-in-r-for-statements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Loops, conditionals, and writing functions all include using curly brackets (braces): <code>{}</code>. They indicate where a function starts and ends, and they require specific syntax. For example, suppose I am conducting Mallard point count surveys in the UC Davis Arboretum.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="modeling-conditionals-loops-functions.html#cb22-1" tabindex="-1"></a><span class="co"># point count surveys of Mallards in the Arboretum</span></span>
+<span id="cb22-2"><a href="modeling-conditionals-loops-functions.html#cb22-2" tabindex="-1"></a>duck_count <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">10</span>)</span></code></pre></div>
+<p>After gathering this data, I learn that the project I am gathering data for is interested in the duckling data, and not the adults. I observed 2 adult ducks every day, and a variable number of ducklings. I could manually edit the counts myself, or I could employ a loop to do that for me.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="modeling-conditionals-loops-functions.html#cb23-1" tabindex="-1"></a><span class="co"># manual fix: I can manually change </span></span>
+<span id="cb23-2"><a href="modeling-conditionals-loops-functions.html#cb23-2" tabindex="-1"></a>duckling_count_manual <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">6</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span></code></pre></div>
+<p>Manual edits like this work with small data sets, but become tedious if not impossible when working with larger data sets.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="modeling-conditionals-loops-functions.html#cb24-1" tabindex="-1"></a><span class="co"># OR, I could use a `for` loop</span></span>
+<span id="cb24-2"><a href="modeling-conditionals-loops-functions.html#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="modeling-conditionals-loops-functions.html#cb24-3" tabindex="-1"></a>duckling_count_loop <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(duck_count)) <span class="co"># initialize vector</span></span>
+<span id="cb24-4"><a href="modeling-conditionals-loops-functions.html#cb24-4" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="modeling-conditionals-loops-functions.html#cb24-5" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(duck_count)) { <span class="co"># for each value in duck_count, subtract 2</span></span>
+<span id="cb24-6"><a href="modeling-conditionals-loops-functions.html#cb24-6" tabindex="-1"></a>  </span>
+<span id="cb24-7"><a href="modeling-conditionals-loops-functions.html#cb24-7" tabindex="-1"></a>  duckling_count_loop[i] <span class="ot">&lt;-</span> duck_count[i] <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb24-8"><a href="modeling-conditionals-loops-functions.html#cb24-8" tabindex="-1"></a>  </span>
+<span id="cb24-9"><a href="modeling-conditionals-loops-functions.html#cb24-9" tabindex="-1"></a>  <span class="fu">print</span>(duckling_count_loop[i])</span>
+<span id="cb24-10"><a href="modeling-conditionals-loops-functions.html#cb24-10" tabindex="-1"></a>  </span>
+<span id="cb24-11"><a href="modeling-conditionals-loops-functions.html#cb24-11" tabindex="-1"></a>}</span></code></pre></div>
+<p>Syntax breakdown, line by line:</p>
+<ul>
+<li><p><code>duckling_count_loop &lt;- numeric(length(duck_count))</code></p>
+<ul>
+<li>This line makes (or “initializes”) an empty vector, <code>duckling_count_loop</code>, the length of <code>duck_count</code>. Objects (generally) cannot be made within a loop, so we need to assign it beforehand.</li>
+</ul></li>
+<li><p><code>for(i in 1:length(duck_count)) {</code></p>
+<ul>
+<li><p><code>for</code> is a <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html">reserved word</a> - a special statement with a hard-coded function. This means it cannot be assigned to values, lists, etc</p>
+<ul>
+<li>Your turn: try running <code>for &lt;- 1</code>. What happens?</li>
+</ul></li>
+<li><p><code>i</code> is the variable you want to iterate through with the loop. Your variable does not need to be <code>i</code>, but <code>i</code> is common for loops concerning counted numbers. Another common iterating variable is <code>t</code> when dealing with time data.</p></li>
+<li><p>Verbally, this line reads “for (<code>for(</code>) each entry in <code>duck_count</code> (<code>i in 1:length(duck_count)) {</code>)…”</p></li>
+</ul></li>
+<li><p><code>duckling_count_loop[i] &lt;- duck_count[i] - 2</code></p>
+<ul>
+<li>This line tells <code>R</code> to update the <code>i</code>-th value of <code>duckling_count_loop</code> with the value of that position in <code>duck_count</code>, minus 2.
+<ul>
+<li>For example, the first value of <code>duck_count</code> was 13 (<code>duck_count[1] == 13</code>), so the first value of <code>duckling_count_loop</code> becomes 11 (<code>duckling_count_loop[1] == 11</code>).</li>
+</ul></li>
+</ul></li>
+<li><p><code>}</code></p>
+<ul>
+<li>Importantly, the <code>for</code> loop is enclosed in curly brackets <code>{}</code> (sometimes called braces). Their placement tells <code>R</code> when the loop starts and ends.</li>
+</ul></li>
+<li><p>Detailed information can be found in the <code>R</code> documentation <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/Control.html">here</a></p></li>
+</ul>
+<p>As a brief aside, there is a third approach that can be employed to arrive at the same outcome:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="modeling-conditionals-loops-functions.html#cb25-1" tabindex="-1"></a><span class="co"># simple subtraction</span></span>
+<span id="cb25-2"><a href="modeling-conditionals-loops-functions.html#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="modeling-conditionals-loops-functions.html#cb25-3" tabindex="-1"></a>duckling_count_simple <span class="ot">&lt;-</span> duck_count <span class="sc">-</span> <span class="dv">2</span></span></code></pre></div>
+<p>This solution works, but it would fail to accomplish more complicated tasks. The real utility of <code>for</code> loops comes when you want to make changes to different values based on conditions, which shall be examined next.</p>
+</div>
+<div id="conditional-statements-in-r-if-else" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Conditional Statements in <code>R</code> (<code>if</code>, <code>else</code>)<a href="modeling-conditionals-loops-functions.html#conditional-statements-in-r-if-else" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Conditional statements, using the reserved words <code>if</code> and <code>else</code>, are just as important as <code>for</code> in terms of programming power. For example, suppose I am testing the pH of the water in the arboretum and obtain the following result:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="modeling-conditionals-loops-functions.html#cb26-1" tabindex="-1"></a>arb_pH <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">3.6</span>)</span></code></pre></div>
+<p>I notice that this is an unusually low recording, and I later discover the machine I was testing pH with was miscalibrated, so the anomalous reading should each be 3 pH higher. Once again, I have the option to correct this mistake manually, but I will choose to use conditional statements instead.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="modeling-conditionals-loops-functions.html#cb27-1" tabindex="-1"></a><span class="co"># fixing pH measurements with conditional statements</span></span>
+<span id="cb27-2"><a href="modeling-conditionals-loops-functions.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="modeling-conditionals-loops-functions.html#cb27-3" tabindex="-1"></a><span class="cf">if</span>(arb_pH <span class="sc">&lt;</span> <span class="dv">5</span>) { <span class="co"># if pH is less than 5, add 3</span></span>
+<span id="cb27-4"><a href="modeling-conditionals-loops-functions.html#cb27-4" tabindex="-1"></a>  </span>
+<span id="cb27-5"><a href="modeling-conditionals-loops-functions.html#cb27-5" tabindex="-1"></a>  corrected_pH <span class="ot">&lt;-</span> arb_pH <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb27-6"><a href="modeling-conditionals-loops-functions.html#cb27-6" tabindex="-1"></a>  </span>
+<span id="cb27-7"><a href="modeling-conditionals-loops-functions.html#cb27-7" tabindex="-1"></a>}</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p><code>if(arb_pH &lt; 5) {</code></p>
+<ul>
+<li><p>This line provides the condition of the conditional statement, namely to change any values of <code>arb_pH</code> that are less than a value we choose, in this case 5.</p></li>
+<li><p>Verbally, this line reads “if the pH is less than 5, do the following:”</p></li>
+</ul></li>
+<li><p><code>corrected_pH &lt;- arb_pH + 3</code></p>
+<ul>
+<li>This line assigns our corrected pH value to be the current value stored in <code>arb_pH</code> and add 3.</li>
+</ul></li>
+<li><p><code>}</code></p>
+<ul>
+<li>Just like <code>for</code> loops, conditional statements are enclosed in curly brackets <code>{}</code>.</li>
+</ul></li>
+</ul>
+<p>Carrying on, suppose I took an additional sample which was anomalously low and high. Instead of writing a whole new conditional setup, I can modify the existing one:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="modeling-conditionals-loops-functions.html#cb28-1" tabindex="-1"></a><span class="co"># fixing pH measurements with multiple conditions (else)</span></span>
+<span id="cb28-2"><a href="modeling-conditionals-loops-functions.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="modeling-conditionals-loops-functions.html#cb28-3" tabindex="-1"></a>arb_pH_new <span class="ot">&lt;-</span> <span class="fl">10.4</span></span>
+<span id="cb28-4"><a href="modeling-conditionals-loops-functions.html#cb28-4" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="modeling-conditionals-loops-functions.html#cb28-5" tabindex="-1"></a><span class="cf">if</span>(arb_pH_new <span class="sc">&lt;</span> <span class="dv">5</span>) { <span class="co"># if pH is less than 5, add 3</span></span>
+<span id="cb28-6"><a href="modeling-conditionals-loops-functions.html#cb28-6" tabindex="-1"></a>  </span>
+<span id="cb28-7"><a href="modeling-conditionals-loops-functions.html#cb28-7" tabindex="-1"></a>  corrected_pH_new <span class="ot">&lt;-</span> arb_pH_new <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb28-8"><a href="modeling-conditionals-loops-functions.html#cb28-8" tabindex="-1"></a>  </span>
+<span id="cb28-9"><a href="modeling-conditionals-loops-functions.html#cb28-9" tabindex="-1"></a>} <span class="cf">else</span> { <span class="co"># otherwise, subtract 4</span></span>
+<span id="cb28-10"><a href="modeling-conditionals-loops-functions.html#cb28-10" tabindex="-1"></a>  </span>
+<span id="cb28-11"><a href="modeling-conditionals-loops-functions.html#cb28-11" tabindex="-1"></a>  corrected_pH_new <span class="ot">&lt;-</span> arb_pH_new <span class="sc">-</span> <span class="dv">4</span></span>
+<span id="cb28-12"><a href="modeling-conditionals-loops-functions.html#cb28-12" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="modeling-conditionals-loops-functions.html#cb28-13" tabindex="-1"></a>}</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p><code>} else {</code></p>
+<ul>
+<li>The beginning is the same, but now there is an <code>else</code> condition following our <code>if</code> condition. <code>else</code> is another reserved word, and works alongside <code>if</code> to enable more complicated logic.</li>
+</ul></li>
+<li><p>In all, this set of conditional statements tells <code>R</code> to correct our pH reading if it was too high <em>or</em> too low.</p>
+<ul>
+<li>Your turn: try assigning new values to <code>arb_pH_new</code>. What happens when you assign it a value <span class="math inline">\(&lt;5\)</span>?</li>
+</ul></li>
+</ul>
+<p>That worked well since <em>all</em> my data was inaccurate, but what if some values are anomalous, but other values are logical? We can combine <code>if</code> and <code>else</code> statements!</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="modeling-conditionals-loops-functions.html#cb29-1" tabindex="-1"></a><span class="co"># using else if</span></span>
+<span id="cb29-2"><a href="modeling-conditionals-loops-functions.html#cb29-2" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="modeling-conditionals-loops-functions.html#cb29-3" tabindex="-1"></a>arb_pH_new <span class="ot">&lt;-</span> <span class="fl">6.1</span></span>
+<span id="cb29-4"><a href="modeling-conditionals-loops-functions.html#cb29-4" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="modeling-conditionals-loops-functions.html#cb29-5" tabindex="-1"></a><span class="cf">if</span>(arb_pH_new <span class="sc">&lt;</span> <span class="dv">5</span>) { <span class="co"># if pH is less than 5, add 3</span></span>
+<span id="cb29-6"><a href="modeling-conditionals-loops-functions.html#cb29-6" tabindex="-1"></a>  </span>
+<span id="cb29-7"><a href="modeling-conditionals-loops-functions.html#cb29-7" tabindex="-1"></a>  corrected_pH_new <span class="ot">&lt;-</span> arb_pH_new <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb29-8"><a href="modeling-conditionals-loops-functions.html#cb29-8" tabindex="-1"></a>  </span>
+<span id="cb29-9"><a href="modeling-conditionals-loops-functions.html#cb29-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(arb_pH_new <span class="sc">&gt;</span> <span class="dv">8</span>) { <span class="co"># if pH is greater than 8, subtract 3</span></span>
+<span id="cb29-10"><a href="modeling-conditionals-loops-functions.html#cb29-10" tabindex="-1"></a>  </span>
+<span id="cb29-11"><a href="modeling-conditionals-loops-functions.html#cb29-11" tabindex="-1"></a>  corrected_pH_new <span class="ot">&lt;-</span> arb_pH_new <span class="sc">-</span> <span class="dv">3</span></span>
+<span id="cb29-12"><a href="modeling-conditionals-loops-functions.html#cb29-12" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="modeling-conditionals-loops-functions.html#cb29-13" tabindex="-1"></a>} <span class="cf">else</span> { <span class="co"># if pH is between 5 and 8, don&#39;t correct it</span></span>
+<span id="cb29-14"><a href="modeling-conditionals-loops-functions.html#cb29-14" tabindex="-1"></a>  </span>
+<span id="cb29-15"><a href="modeling-conditionals-loops-functions.html#cb29-15" tabindex="-1"></a>  corrected_pH_new <span class="ot">&lt;-</span> arb_pH_new</span>
+<span id="cb29-16"><a href="modeling-conditionals-loops-functions.html#cb29-16" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="modeling-conditionals-loops-functions.html#cb29-17" tabindex="-1"></a>}</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p><code>} else if(arb_pH_new &gt; 8) {</code></p>
+<ul>
+<li><p><code>else if</code> statements like this allow for multiple conditions to be tested.</p></li>
+<li><p>As opposed to our previous set of statements, which updated <em>all</em> values that were above 5, these conditions check if that value is also above 8 before updating.</p></li>
+</ul></li>
+<li><p><code>corrected_pH_new &lt;- arb_pH_new</code></p>
+<ul>
+<li><p>This line, as our final <code>else</code> statement, catches all values that were neither below 5 or above 8.</p></li>
+<li><p>Now, pH values between 5 and 8 (<span class="math inline">\(5 &lt; x &lt; 8\)</span>) will pass through these conditions unmodified.</p>
+<ul>
+<li>Your turn: try assigning different values to <code>arb_pH_new</code> to observe how the conditional statements handle it.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>These statements work well, but they currently only handle one value at at time. If we want to correct multiple values at once, we must combine loops (<code>for</code> statements) with conditionals (<code>if</code> and <code>else</code> conditions).</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="modeling-conditionals-loops-functions.html#cb30-1" tabindex="-1"></a><span class="co"># assignments</span></span>
+<span id="cb30-2"><a href="modeling-conditionals-loops-functions.html#cb30-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb30-3"><a href="modeling-conditionals-loops-functions.html#cb30-3" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="modeling-conditionals-loops-functions.html#cb30-4" tabindex="-1"></a>arb_pH_loop <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">6</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb30-5"><a href="modeling-conditionals-loops-functions.html#cb30-5" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="modeling-conditionals-loops-functions.html#cb30-6" tabindex="-1"></a>arb_pH_loop_corrected <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(arb_pH_loop))</span>
+<span id="cb30-7"><a href="modeling-conditionals-loops-functions.html#cb30-7" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="modeling-conditionals-loops-functions.html#cb30-8" tabindex="-1"></a><span class="co"># conditional loop</span></span>
+<span id="cb30-9"><a href="modeling-conditionals-loops-functions.html#cb30-9" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(arb_pH_loop)) { <span class="co"># for each pH value,</span></span>
+<span id="cb30-10"><a href="modeling-conditionals-loops-functions.html#cb30-10" tabindex="-1"></a>  </span>
+<span id="cb30-11"><a href="modeling-conditionals-loops-functions.html#cb30-11" tabindex="-1"></a>  <span class="cf">if</span>(arb_pH_loop[i] <span class="sc">&lt;</span> <span class="dv">5</span>) { <span class="co"># if pH is less than 5, add 3</span></span>
+<span id="cb30-12"><a href="modeling-conditionals-loops-functions.html#cb30-12" tabindex="-1"></a>    </span>
+<span id="cb30-13"><a href="modeling-conditionals-loops-functions.html#cb30-13" tabindex="-1"></a>    arb_pH_loop_corrected[i] <span class="ot">&lt;-</span> arb_pH_loop[i] <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb30-14"><a href="modeling-conditionals-loops-functions.html#cb30-14" tabindex="-1"></a>    </span>
+<span id="cb30-15"><a href="modeling-conditionals-loops-functions.html#cb30-15" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span>(arb_pH_loop[i] <span class="sc">&gt;</span> <span class="dv">8</span>) { <span class="co"># if pH is greater than 8, subtract 3</span></span>
+<span id="cb30-16"><a href="modeling-conditionals-loops-functions.html#cb30-16" tabindex="-1"></a>    </span>
+<span id="cb30-17"><a href="modeling-conditionals-loops-functions.html#cb30-17" tabindex="-1"></a>    arb_pH_loop_corrected[i] <span class="ot">&lt;-</span> arb_pH_loop[i] <span class="sc">-</span> <span class="dv">3</span></span>
+<span id="cb30-18"><a href="modeling-conditionals-loops-functions.html#cb30-18" tabindex="-1"></a>    </span>
+<span id="cb30-19"><a href="modeling-conditionals-loops-functions.html#cb30-19" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># if pH is between 5 and 8, don&#39;t correct it</span></span>
+<span id="cb30-20"><a href="modeling-conditionals-loops-functions.html#cb30-20" tabindex="-1"></a>    </span>
+<span id="cb30-21"><a href="modeling-conditionals-loops-functions.html#cb30-21" tabindex="-1"></a>    arb_pH_loop_corrected[i] <span class="ot">&lt;-</span> arb_pH_loop[i]</span>
+<span id="cb30-22"><a href="modeling-conditionals-loops-functions.html#cb30-22" tabindex="-1"></a>    </span>
+<span id="cb30-23"><a href="modeling-conditionals-loops-functions.html#cb30-23" tabindex="-1"></a>  }</span>
+<span id="cb30-24"><a href="modeling-conditionals-loops-functions.html#cb30-24" tabindex="-1"></a>}</span>
+<span id="cb30-25"><a href="modeling-conditionals-loops-functions.html#cb30-25" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="modeling-conditionals-loops-functions.html#cb30-26" tabindex="-1"></a><span class="fu">print</span>(arb_pH_loop_corrected)</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p><code>set.seed(1)</code></p>
+<ul>
+<li>This line ensures reproducibility when working with random number generation, specifically for <code>rnorm()</code> in the next line.</li>
+</ul></li>
+<li><p><code>arb_pH_loop &lt;- rnorm(n = 5, mean = 6, sd = 2)</code></p>
+<ul>
+<li>This line assigns <code>arb_pH_loop</code> 5 random numbers (<code>n=5</code>), with an average of 6 (<code>mean=6</code>), and within 2 standard deviations of our mean (<code>sd=2</code>). Randomly generated numbers (e.g. through <code>rnorm()</code>) are important for projecting data based on trends and similar applications.</li>
+</ul></li>
+<li><p>This conditional loop tells <code>R</code> to examine each value <code>i</code> in the vector <code>arb_pH_loop</code> and run it through the same conditions laid out in our previous example. The main difference here is every condition is within a <code>for</code> loop, and each object in our conditional statements is subset with <code>[i]</code>.</p></li>
+</ul>
+</div>
+<div id="connection-to-data-visualization" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Connection to Data Visualization<a href="modeling-conditionals-loops-functions.html#connection-to-data-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While proficiency with loops and conditional statements is great, it would be even better if we could display our findings with effective visuals. The following example comes from WFC 122: Population Dynamics and Estimation, and illustrates demographic stochasticity (randomness in individual survival in a population).</p>
+<p>This loop and subsequent figure deal with Southern Resident Killer Whale population trends. Researchers have determined a threshold below which the population is considered “collapsed,” represented by the horizontal line. This figure projects the population into the future multiple times, incorporating randomness.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="modeling-conditionals-loops-functions.html#cb31-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb31-2"><a href="modeling-conditionals-loops-functions.html#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="modeling-conditionals-loops-functions.html#cb31-3" tabindex="-1"></a><span class="co"># loading the data frame</span></span>
+<span id="cb31-4"><a href="modeling-conditionals-loops-functions.html#cb31-4" tabindex="-1"></a>whales <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/asethm/WFC_070/refs/heads/main/whales.csv&#39;</span>, </span>
+<span id="cb31-5"><a href="modeling-conditionals-loops-functions.html#cb31-5" tabindex="-1"></a>                   <span class="at">colClasses =</span> <span class="fu">c</span>(<span class="cn">NULL</span>, <span class="cn">NA</span>, <span class="cn">NA</span>))</span>
+<span id="cb31-6"><a href="modeling-conditionals-loops-functions.html#cb31-6" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="modeling-conditionals-loops-functions.html#cb31-7" tabindex="-1"></a><span class="co"># loading various objects (don&#39;t worry about specifics)</span></span>
+<span id="cb31-8"><a href="modeling-conditionals-loops-functions.html#cb31-8" tabindex="-1"></a>r_t <span class="ot">&lt;-</span> <span class="fu">log</span>(whales<span class="sc">$</span>Count[<span class="dv">2</span><span class="sc">:</span><span class="dv">46</span>]<span class="sc">/</span>whales<span class="sc">$</span>Count[<span class="dv">1</span><span class="sc">:</span><span class="dv">45</span>])</span>
+<span id="cb31-9"><a href="modeling-conditionals-loops-functions.html#cb31-9" tabindex="-1"></a>r.bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(r_t)</span>
+<span id="cb31-10"><a href="modeling-conditionals-loops-functions.html#cb31-10" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">sd</span>(r_t)</span>
+<span id="cb31-11"><a href="modeling-conditionals-loops-functions.html#cb31-11" tabindex="-1"></a>N.extinct <span class="ot">&lt;-</span> <span class="dv">40</span> <span class="co"># extinction threshold</span></span>
+<span id="cb31-12"><a href="modeling-conditionals-loops-functions.html#cb31-12" tabindex="-1"></a>N0 <span class="ot">&lt;-</span> whales<span class="sc">$</span>Count[<span class="fu">nrow</span>(whales)] <span class="co"># population size in last year of time series (2020)</span></span>
+<span id="cb31-13"><a href="modeling-conditionals-loops-functions.html#cb31-13" tabindex="-1"></a>r.random <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">99</span>, <span class="at">mean =</span> r.bar, <span class="at">sd =</span> sigma)</span>
+<span id="cb31-14"><a href="modeling-conditionals-loops-functions.html#cb31-14" tabindex="-1"></a>nyrs <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># no. years</span></span>
+<span id="cb31-15"><a href="modeling-conditionals-loops-functions.html#cb31-15" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fl">0.23</span></span>
+<span id="cb31-16"><a href="modeling-conditionals-loops-functions.html#cb31-16" tabindex="-1"></a>nsims <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="co"># number of simulations</span></span>
+<span id="cb31-17"><a href="modeling-conditionals-loops-functions.html#cb31-17" tabindex="-1"></a>N.mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">100</span>, <span class="at">ncol =</span> nsims)</span>
+<span id="cb31-18"><a href="modeling-conditionals-loops-functions.html#cb31-18" tabindex="-1"></a>N.mat[<span class="dv">1</span>,] <span class="ot">&lt;-</span> N0</span>
+<span id="cb31-19"><a href="modeling-conditionals-loops-functions.html#cb31-19" tabindex="-1"></a>went.extinct <span class="ot">&lt;-</span> <span class="fu">logical</span>(nsims)</span>
+<span id="cb31-20"><a href="modeling-conditionals-loops-functions.html#cb31-20" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="modeling-conditionals-loops-functions.html#cb31-21" tabindex="-1"></a><span class="co"># loop</span></span>
+<span id="cb31-22"><a href="modeling-conditionals-loops-functions.html#cb31-22" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsims) {</span>
+<span id="cb31-23"><a href="modeling-conditionals-loops-functions.html#cb31-23" tabindex="-1"></a>  eps <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> sigma)</span>
+<span id="cb31-24"><a href="modeling-conditionals-loops-functions.html#cb31-24" tabindex="-1"></a>  eta <span class="ot">&lt;-</span> <span class="fu">numeric</span>(nyrs)</span>
+<span id="cb31-25"><a href="modeling-conditionals-loops-functions.html#cb31-25" tabindex="-1"></a>  eta[<span class="dv">1</span>] <span class="ot">&lt;-</span> eps[<span class="dv">1</span>]</span>
+<span id="cb31-26"><a href="modeling-conditionals-loops-functions.html#cb31-26" tabindex="-1"></a>  <span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">99</span>) {</span>
+<span id="cb31-27"><a href="modeling-conditionals-loops-functions.html#cb31-27" tabindex="-1"></a>    r.random[t] <span class="ot">&lt;-</span> r.bar <span class="sc">+</span> eta[t]</span>
+<span id="cb31-28"><a href="modeling-conditionals-loops-functions.html#cb31-28" tabindex="-1"></a>    N.mat[t<span class="sc">+</span><span class="dv">1</span>, i] <span class="ot">&lt;-</span> <span class="fu">exp</span>(r.random[t]) <span class="sc">*</span> N.mat[t, i]</span>
+<span id="cb31-29"><a href="modeling-conditionals-loops-functions.html#cb31-29" tabindex="-1"></a>    eta[t<span class="sc">+</span><span class="dv">1</span>] <span class="ot">&lt;-</span> rho<span class="sc">*</span>eta[t] <span class="sc">+</span> eps[t<span class="sc">+</span><span class="dv">1</span>]<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">-</span>rho<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb31-30"><a href="modeling-conditionals-loops-functions.html#cb31-30" tabindex="-1"></a>  }</span>
+<span id="cb31-31"><a href="modeling-conditionals-loops-functions.html#cb31-31" tabindex="-1"></a>  went.extinct[i] <span class="ot">&lt;-</span> <span class="fu">min</span>(N.mat[,i]) <span class="sc">&lt;=</span> N.extinct</span>
+<span id="cb31-32"><a href="modeling-conditionals-loops-functions.html#cb31-32" tabindex="-1"></a>}</span>
+<span id="cb31-33"><a href="modeling-conditionals-loops-functions.html#cb31-33" tabindex="-1"></a></span>
+<span id="cb31-34"><a href="modeling-conditionals-loops-functions.html#cb31-34" tabindex="-1"></a></span>
+<span id="cb31-35"><a href="modeling-conditionals-loops-functions.html#cb31-35" tabindex="-1"></a><span class="co"># data management</span></span>
+<span id="cb31-36"><a href="modeling-conditionals-loops-functions.html#cb31-36" tabindex="-1"></a>N.mat.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(N.mat) <span class="co"># data frame</span></span>
+<span id="cb31-37"><a href="modeling-conditionals-loops-functions.html#cb31-37" tabindex="-1"></a>plot_N.mat.df <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(<span class="at">data =</span> N.mat.df, <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;X&quot;</span>))</span>
+<span id="cb31-38"><a href="modeling-conditionals-loops-functions.html#cb31-38" tabindex="-1"></a>plot_N.mat.df<span class="sc">$</span>Year <span class="ot">&lt;-</span> <span class="fu">num</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>)</span>
+<span id="cb31-39"><a href="modeling-conditionals-loops-functions.html#cb31-39" tabindex="-1"></a></span>
+<span id="cb31-40"><a href="modeling-conditionals-loops-functions.html#cb31-40" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb31-41"><a href="modeling-conditionals-loops-functions.html#cb31-41" tabindex="-1"></a><span class="fu">ggplot</span>(plot_N.mat.df, <span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> value, <span class="at">color =</span> name)) <span class="sc">+</span></span>
+<span id="cb31-42"><a href="modeling-conditionals-loops-functions.html#cb31-42" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-43"><a href="modeling-conditionals-loops-functions.html#cb31-43" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
+<span id="cb31-44"><a href="modeling-conditionals-loops-functions.html#cb31-44" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Population&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Southern Resident Killer Whale Population Simulations&quot;</span>)</span></code></pre></div>
+<p>The figure shows that one simulation of the population drops below the established threshold, which can help inform wildlife management agencies allocate resources according to overall population vulnerability.</p>
+</div>
+<div id="functions-in-r" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Functions in <code>R</code><a href="modeling-conditionals-loops-functions.html#functions-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Much of the work performed by <code>R</code> is thanks to functions. <code>c()</code>, <code>numeric()</code>, <code>length()</code>, <code>sum()</code>, etc. are examples of functions included in base <code>R</code>. Functions can also be included in packages, for example <code>ggplot()</code> from <code>ggplot2</code> (included in <code>tidyverse</code>). Functions are used for common processes because they’re more efficient and user-friendly than their source codes would be.</p>
+<p>Loops like the one above can get incredibly large for complicated processes. Using <code>function(){}</code>, you can write your own functions, which can save space and improve readability compared to directly working with large loops. The process of writing a function also allows you to familiarize yourself with the specific parameters of what you want to accomplish.</p>
+<p>When writing functions, it is important to test out the individual components to ensure they work before writing the function itself. For example, suppose we wanted to write a function that adds exactly 3 numbers.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="modeling-conditionals-loops-functions.html#cb32-1" tabindex="-1"></a><span class="co"># testing individual function parts</span></span>
+<span id="cb32-2"><a href="modeling-conditionals-loops-functions.html#cb32-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">8</span></span>
+<span id="cb32-3"><a href="modeling-conditionals-loops-functions.html#cb32-3" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb32-4"><a href="modeling-conditionals-loops-functions.html#cb32-4" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb32-5"><a href="modeling-conditionals-loops-functions.html#cb32-5" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="modeling-conditionals-loops-functions.html#cb32-6" tabindex="-1"></a>a <span class="sc">+</span> b <span class="sc">+</span> c</span>
+<span id="cb32-7"><a href="modeling-conditionals-loops-functions.html#cb32-7" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="modeling-conditionals-loops-functions.html#cb32-8" tabindex="-1"></a><span class="co"># Success! Writing the function</span></span>
+<span id="cb32-9"><a href="modeling-conditionals-loops-functions.html#cb32-9" tabindex="-1"></a>sum_three <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c){</span>
+<span id="cb32-10"><a href="modeling-conditionals-loops-functions.html#cb32-10" tabindex="-1"></a>  </span>
+<span id="cb32-11"><a href="modeling-conditionals-loops-functions.html#cb32-11" tabindex="-1"></a>  a <span class="sc">+</span> b <span class="sc">+</span> c</span>
+<span id="cb32-12"><a href="modeling-conditionals-loops-functions.html#cb32-12" tabindex="-1"></a>  </span>
+<span id="cb32-13"><a href="modeling-conditionals-loops-functions.html#cb32-13" tabindex="-1"></a>}</span>
+<span id="cb32-14"><a href="modeling-conditionals-loops-functions.html#cb32-14" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="modeling-conditionals-loops-functions.html#cb32-15" tabindex="-1"></a><span class="co"># example inputs</span></span>
+<span id="cb32-16"><a href="modeling-conditionals-loops-functions.html#cb32-16" tabindex="-1"></a><span class="fu">sum_three</span>(<span class="at">a =</span> <span class="dv">4</span>, <span class="at">b =</span> <span class="dv">5</span>, <span class="at">c =</span> <span class="dv">2</span>)</span>
+<span id="cb32-17"><a href="modeling-conditionals-loops-functions.html#cb32-17" tabindex="-1"></a></span>
+<span id="cb32-18"><a href="modeling-conditionals-loops-functions.html#cb32-18" tabindex="-1"></a><span class="fu">sum_three</span>(<span class="dv">45</span>, <span class="dv">65</span>, <span class="dv">12</span>)</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p>Just like with conditional and <code>for</code> statements, we enclose the arguments for <code>function()</code> in curly brackets <code>{}</code>.</p></li>
+<li><p><code>sum_three &lt;- function(a, b, c){</code></p>
+<ul>
+<li><p>This line tells <code>R</code> we want to make a function <code>sum_three</code>, that accepts the arguments <code>a</code>, <code>b</code>, and <code>c</code>.</p></li>
+<li><p>Functions can be written to accept any number of arguments.</p></li>
+</ul></li>
+<li><p><code>a + b + c</code></p>
+<ul>
+<li>This line contains what the function actually performs. For most functions, there will be more than one line.</li>
+</ul></li>
+<li><p><code>}</code></p>
+<ul>
+<li>Always remember to close your brackets!</li>
+</ul></li>
+</ul>
+<p>This function works great, and it is similar to the base <code>R</code> function <code>sum()</code>. But <code>sum()</code> accepts any number of arguments! We can write a function to accept a variable number of arguments by using dots <code>...</code>.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="modeling-conditionals-loops-functions.html#cb33-1" tabindex="-1"></a><span class="co"># recreating `sum()`</span></span>
+<span id="cb33-2"><a href="modeling-conditionals-loops-functions.html#cb33-2" tabindex="-1"></a>sum_nums <span class="ot">&lt;-</span> <span class="cf">function</span>(...){</span>
+<span id="cb33-3"><a href="modeling-conditionals-loops-functions.html#cb33-3" tabindex="-1"></a>  </span>
+<span id="cb33-4"><a href="modeling-conditionals-loops-functions.html#cb33-4" tabindex="-1"></a>  nums <span class="ot">&lt;-</span> <span class="fu">c</span>(...) <span class="co"># initialize our vector</span></span>
+<span id="cb33-5"><a href="modeling-conditionals-loops-functions.html#cb33-5" tabindex="-1"></a>  sums <span class="ot">&lt;-</span> <span class="dv">0</span> <span class="co"># set our sum to zero</span></span>
+<span id="cb33-6"><a href="modeling-conditionals-loops-functions.html#cb33-6" tabindex="-1"></a>  </span>
+<span id="cb33-7"><a href="modeling-conditionals-loops-functions.html#cb33-7" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.numeric</span>(nums)) { <span class="co"># print an error message if the function receives</span></span>
+<span id="cb33-8"><a href="modeling-conditionals-loops-functions.html#cb33-8" tabindex="-1"></a>                          <span class="co"># a non-numeric input</span></span>
+<span id="cb33-9"><a href="modeling-conditionals-loops-functions.html#cb33-9" tabindex="-1"></a>    </span>
+<span id="cb33-10"><a href="modeling-conditionals-loops-functions.html#cb33-10" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">red</span>(</span>
+<span id="cb33-11"><a href="modeling-conditionals-loops-functions.html#cb33-11" tabindex="-1"></a>        red<span class="sc">$</span>underline<span class="sc">$</span><span class="fu">bold</span>(<span class="st">&#39;Error:&#39;</span>) <span class="sc">%+%</span></span>
+<span id="cb33-12"><a href="modeling-conditionals-loops-functions.html#cb33-12" tabindex="-1"></a>            <span class="fu">red</span>(<span class="st">&#39; invalid argument type. Supply a &#39;</span>) <span class="sc">%+%</span></span>
+<span id="cb33-13"><a href="modeling-conditionals-loops-functions.html#cb33-13" tabindex="-1"></a>            red<span class="sc">$</span><span class="fu">italic</span>(<span class="st">&#39;numeric &#39;</span>) <span class="sc">%+%</span></span>
+<span id="cb33-14"><a href="modeling-conditionals-loops-functions.html#cb33-14" tabindex="-1"></a>            <span class="fu">red</span>(<span class="st">&#39;argument&#39;</span>)</span>
+<span id="cb33-15"><a href="modeling-conditionals-loops-functions.html#cb33-15" tabindex="-1"></a>          ))</span>
+<span id="cb33-16"><a href="modeling-conditionals-loops-functions.html#cb33-16" tabindex="-1"></a>    </span>
+<span id="cb33-17"><a href="modeling-conditionals-loops-functions.html#cb33-17" tabindex="-1"></a>    } <span class="cf">else</span> { <span class="co"># if the input is numeric, add the values together</span></span>
+<span id="cb33-18"><a href="modeling-conditionals-loops-functions.html#cb33-18" tabindex="-1"></a>      </span>
+<span id="cb33-19"><a href="modeling-conditionals-loops-functions.html#cb33-19" tabindex="-1"></a>        <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nums)){</span>
+<span id="cb33-20"><a href="modeling-conditionals-loops-functions.html#cb33-20" tabindex="-1"></a>        </span>
+<span id="cb33-21"><a href="modeling-conditionals-loops-functions.html#cb33-21" tabindex="-1"></a>          sums <span class="ot">&lt;-</span> sums <span class="sc">+</span> nums[i]</span>
+<span id="cb33-22"><a href="modeling-conditionals-loops-functions.html#cb33-22" tabindex="-1"></a>      </span>
+<span id="cb33-23"><a href="modeling-conditionals-loops-functions.html#cb33-23" tabindex="-1"></a>         }</span>
+<span id="cb33-24"><a href="modeling-conditionals-loops-functions.html#cb33-24" tabindex="-1"></a>      </span>
+<span id="cb33-25"><a href="modeling-conditionals-loops-functions.html#cb33-25" tabindex="-1"></a>    }</span>
+<span id="cb33-26"><a href="modeling-conditionals-loops-functions.html#cb33-26" tabindex="-1"></a>  </span>
+<span id="cb33-27"><a href="modeling-conditionals-loops-functions.html#cb33-27" tabindex="-1"></a>  <span class="fu">print</span>(sums) <span class="co"># print our sums</span></span>
+<span id="cb33-28"><a href="modeling-conditionals-loops-functions.html#cb33-28" tabindex="-1"></a>  </span>
+<span id="cb33-29"><a href="modeling-conditionals-loops-functions.html#cb33-29" tabindex="-1"></a>}</span>
+<span id="cb33-30"><a href="modeling-conditionals-loops-functions.html#cb33-30" tabindex="-1"></a></span>
+<span id="cb33-31"><a href="modeling-conditionals-loops-functions.html#cb33-31" tabindex="-1"></a><span class="co"># example inputs</span></span>
+<span id="cb33-32"><a href="modeling-conditionals-loops-functions.html#cb33-32" tabindex="-1"></a><span class="fu">sum_nums</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb33-33"><a href="modeling-conditionals-loops-functions.html#cb33-33" tabindex="-1"></a></span>
+<span id="cb33-34"><a href="modeling-conditionals-loops-functions.html#cb33-34" tabindex="-1"></a><span class="fu">sum_nums</span>(<span class="dv">5</span>, <span class="st">&quot;4&quot;</span>, <span class="dv">1</span>, <span class="dv">8</span>)</span></code></pre></div>
+<p>Syntax breakdown:</p>
+<ul>
+<li><p><code>sum_nums &lt;- function(...){</code></p>
+<ul>
+<li>Writing a function called <code>sum_nums</code>, which accepts any number of arguments (indicated by <code>...</code>).</li>
+</ul></li>
+<li><p><code>nums &lt;- c(...)</code> &amp; <code>sums &lt;- 0</code></p>
+<ul>
+<li>The <code>nums</code> assignment vectorizes our input, and we initialize <code>sums</code> before using it in our <code>for</code> loop. Setting <code>sums</code> to 0 also serves as a reset, so if we run the function multiple times, it doesn’t store sums from previous runs.</li>
+</ul></li>
+<li><p><code>if(!is.numeric(nums)) {</code></p>
+<ul>
+<li>This condition and the <code>cat()</code> lines that follow serve as a validity check, seeing if the function was given numerical data. If the supplied data was not numeric (<code>!is.numeric(nums)</code>), then it returns an error message.</li>
+</ul></li>
+<li><p>The <code>for</code> loop sequentially adds each number in our vector <code>nums</code> to <code>sums</code>.</p></li>
+<li><p><code>print(sums)</code></p>
+<ul>
+<li>Lastly, the function prints <code>sums</code>.</li>
+</ul></li>
+<li><p>As with all processes in <code>R</code>, there are many ways to accomplish the same thing. Instead of this approach we could have…</p>
+<ul>
+<li><p>Directly subsetted <code>c(...)</code> without assigning <code>nums</code>;</p></li>
+<li><p>Used <code>Reduce()</code> instead of the <code>for</code> loop;</p></li>
+<li><p>Simply used <code>sum()</code> in our function.</p></li>
+</ul></li>
+</ul>
+<p>Functions can also produce plots. For example, also drawing from WFC 122, we can write a function that plots logistic population growth over time. We will achieve this using the Gompertz function, which is a particular case of the logistic function.</p>
+<p><span class="math display">\[
+\text{Gompertz function}: \frac{dN}{dt}=aN\log\left(\frac bN\right)
+\]</span></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="modeling-conditionals-loops-functions.html#cb34-1" tabindex="-1"></a><span class="co"># plotting with a function</span></span>
+<span id="cb34-2"><a href="modeling-conditionals-loops-functions.html#cb34-2" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="modeling-conditionals-loops-functions.html#cb34-3" tabindex="-1"></a>plot_gompertz <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, N0) {</span>
+<span id="cb34-4"><a href="modeling-conditionals-loops-functions.html#cb34-4" tabindex="-1"></a>  <span class="co"># inputs</span></span>
+<span id="cb34-5"><a href="modeling-conditionals-loops-functions.html#cb34-5" tabindex="-1"></a>  <span class="do">## a: intrinsic growth rate</span></span>
+<span id="cb34-6"><a href="modeling-conditionals-loops-functions.html#cb34-6" tabindex="-1"></a>  <span class="do">## b: carrying capacity</span></span>
+<span id="cb34-7"><a href="modeling-conditionals-loops-functions.html#cb34-7" tabindex="-1"></a>  <span class="do">## N0: initial population size</span></span>
+<span id="cb34-8"><a href="modeling-conditionals-loops-functions.html#cb34-8" tabindex="-1"></a>  </span>
+<span id="cb34-9"><a href="modeling-conditionals-loops-functions.html#cb34-9" tabindex="-1"></a>  <span class="co"># makes a plot of the rate of the Gompertz population trajectory over time</span></span>
+<span id="cb34-10"><a href="modeling-conditionals-loops-functions.html#cb34-10" tabindex="-1"></a>  <span class="co"># using a continuous time model</span></span>
+<span id="cb34-11"><a href="modeling-conditionals-loops-functions.html#cb34-11" tabindex="-1"></a>  </span>
+<span id="cb34-12"><a href="modeling-conditionals-loops-functions.html#cb34-12" tabindex="-1"></a>  times <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">50</span>, <span class="at">length.out =</span> <span class="dv">100</span>) <span class="co"># sequence from 0 to 50</span></span>
+<span id="cb34-13"><a href="modeling-conditionals-loops-functions.html#cb34-13" tabindex="-1"></a>  </span>
+<span id="cb34-14"><a href="modeling-conditionals-loops-functions.html#cb34-14" tabindex="-1"></a>  N <span class="ot">&lt;-</span> b <span class="sc">*</span> (b <span class="sc">/</span> N0)<span class="sc">^</span>(<span class="sc">-</span><span class="fu">exp</span>(<span class="sc">-</span>a <span class="sc">*</span> times))</span>
+<span id="cb34-15"><a href="modeling-conditionals-loops-functions.html#cb34-15" tabindex="-1"></a>  </span>
+<span id="cb34-16"><a href="modeling-conditionals-loops-functions.html#cb34-16" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(times, N) <span class="co"># making a data frame for plotting</span></span>
+<span id="cb34-17"><a href="modeling-conditionals-loops-functions.html#cb34-17" tabindex="-1"></a>  </span>
+<span id="cb34-18"><a href="modeling-conditionals-loops-functions.html#cb34-18" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> d, <span class="fu">aes</span>(<span class="at">x =</span> times, <span class="at">y =</span> N)) <span class="sc">+</span> <span class="co"># storing our ggplot as an object</span></span>
+<span id="cb34-19"><a href="modeling-conditionals-loops-functions.html#cb34-19" tabindex="-1"></a>            <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb34-20"><a href="modeling-conditionals-loops-functions.html#cb34-20" tabindex="-1"></a>            <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Time (t)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Population size (N)&quot;</span>)</span>
+<span id="cb34-21"><a href="modeling-conditionals-loops-functions.html#cb34-21" tabindex="-1"></a>  </span>
+<span id="cb34-22"><a href="modeling-conditionals-loops-functions.html#cb34-22" tabindex="-1"></a>  p <span class="co"># + theme_dark()</span></span>
+<span id="cb34-23"><a href="modeling-conditionals-loops-functions.html#cb34-23" tabindex="-1"></a>  </span>
+<span id="cb34-24"><a href="modeling-conditionals-loops-functions.html#cb34-24" tabindex="-1"></a>}</span>
+<span id="cb34-25"><a href="modeling-conditionals-loops-functions.html#cb34-25" tabindex="-1"></a></span>
+<span id="cb34-26"><a href="modeling-conditionals-loops-functions.html#cb34-26" tabindex="-1"></a><span class="fu">plot_gompertz</span>(<span class="at">a =</span> <span class="fl">0.15</span>, <span class="at">b =</span> <span class="dv">2000</span>, <span class="at">N0 =</span> <span class="dv">45</span>)</span></code></pre></div>
+<p>This function generates a plot based on the supplied parameters for intrinsic growth rate, carrying capacity, and initial population size!</p>
+<ul>
+<li><p>The <code>seq()</code> function used when assigning our <code>times</code> object is valuable when plotting with a function and related tasks.</p>
+<ul>
+<li>Your turn: run <code>seq(from = 0, to = 50, length.out = 100)</code> in your console and look at the result. Try changing the <code>from =</code>, <code>to =</code>, and <code>length.out =</code> arguments to observe how it changes.</li>
+</ul></li>
+<li><p>The ggplot produced by the function was stored as an object <code>p</code>, which can be a convenient way to store plots for easy manipulation, much like how loops can be compressed into single-line functions.</p>
+<ul>
+<li>Your turn: remove the <code>#</code> commenting out <code>+ theme_dark()</code> from the line that prints our plot <code>p</code> and run the function again.</li>
+</ul></li>
+</ul>
+</div>
+<div id="conclusion" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Conclusion<a href="modeling-conditionals-loops-functions.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Congratulations! You have reached the end of this tutorial on loops, conditional statements, and function writing in <code>R</code>! I know that was a lot, and I strongly recommend using online resources for reinforcing concepts and learning syntax in more detail. Happy coding!</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mark-recapture.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="working-with-spatial-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/refurrow/wfc70/edit/main/09-modeling.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": "https://github.com/refurrow/wfc70/blob/main/09-modeling.Rmd",
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

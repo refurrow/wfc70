@@ -1,0 +1,444 @@
+
+
+# Modeling (conditionals, loops, functions)
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(crayon)
+```
+
+## Motivation: why learn loops and conditional statements?
+
+Loops (`for` statements), conditional statements (`if` and `else` statements), and writing functions are some of the most utilized purposes of `R` for ecologists. On their own, loops and conditional statements are great for speeding up tasks like processing data. When combined, they lay the groundwork for ecological modeling, an immensely powerful tool that is used in the real world to create stunning visuals, inform policy, and guide management decisions. Loops and conditional statements can get lengthy, so writing your own function can help streamline coding by not needing to copy and paste large code chunks, while also helping you understand the arguments and parameters of the systems you're studying.
+
+## Loops in `R` (`for` statements)
+
+Loops, conditionals, and writing functions all include using curly brackets (braces): `{}`. They indicate where a function starts and ends, and they require specific syntax. For example, suppose I am conducting Mallard point count surveys in the UC Davis Arboretum.
+
+```{r, eval = FALSE}
+# point count surveys of Mallards in the Arboretum
+duck_count <- c(13, 8, 13, 12, 10)
+```
+
+After gathering this data, I learn that the project I am gathering data for is interested in the duckling data, and not the adults. I observed 2 adult ducks every day, and a variable number of ducklings. I could manually edit the counts myself, or I could employ a loop to do that for me.
+
+```{r, eval = FALSE}
+# manual fix: I can manually change 
+duckling_count_manual <- c(11, 6, 11, 10, 8)
+```
+
+Manual edits like this work with small data sets, but become tedious if not impossible when working with larger data sets.
+
+```{r, eval = FALSE}
+# OR, I could use a `for` loop
+
+duckling_count_loop <- numeric(length(duck_count)) # initialize vector
+
+for(i in 1:length(duck_count)) { # for each value in duck_count, subtract 2
+  
+  duckling_count_loop[i] <- duck_count[i] - 2
+  
+  print(duckling_count_loop[i])
+  
+}
+```
+
+Syntax breakdown, line by line:
+
+-   `duckling_count_loop <- numeric(length(duck_count))`
+
+    -   This line makes (or "initializes") an empty vector, `duckling_count_loop`, the length of `duck_count`. Objects (generally) cannot be made within a loop, so we need to assign it beforehand.
+
+-   `for(i in 1:length(duck_count)) {`
+
+    -   `for` is a [reserved word](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) - a special statement with a hard-coded function. This means it cannot be assigned to values, lists, etc
+
+        -   Your turn: try running `for <- 1`. What happens?
+
+    -   `i` is the variable you want to iterate through with the loop. Your variable does not need to be `i`, but `i` is common for loops concerning counted numbers. Another common iterating variable is `t` when dealing with time data.
+
+    -   Verbally, this line reads "for (`for(`) each entry in `duck_count` (`i in 1:length(duck_count)) {`)..."
+
+-   `duckling_count_loop[i] <- duck_count[i] - 2`
+
+    -   This line tells `R` to update the `i`-th value of `duckling_count_loop` with the value of that position in `duck_count`, minus 2.
+        -   For example, the first value of `duck_count` was 13 (`duck_count[1] == 13`), so the first value of `duckling_count_loop` becomes 11 (`duckling_count_loop[1] == 11`).
+
+-   `}`
+
+    -   Importantly, the `for` loop is enclosed in curly brackets `{}` (sometimes called braces). Their placement tells `R` when the loop starts and ends.
+
+-   Detailed information can be found in the `R` documentation [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Control.html)
+
+As a brief aside, there is a third approach that can be employed to arrive at the same outcome:
+
+```{r, eval = FALSE}
+# simple subtraction
+
+duckling_count_simple <- duck_count - 2
+```
+
+This solution works, but it would fail to accomplish more complicated tasks. The real utility of `for` loops comes when you want to make changes to different values based on conditions, which shall be examined next.
+
+## Conditional Statements in `R` (`if`, `else`)
+
+Conditional statements, using the reserved words `if` and `else`, are just as important as `for` in terms of programming power. For example, suppose I am testing the pH of the water in the arboretum and obtain the following result:
+
+```{r, eval = FALSE}
+arb_pH <- c(3.6)
+```
+
+I notice that this is an unusually low recording, and I later discover the machine I was testing pH with was miscalibrated, so the anomalous reading should each be 3 pH higher. Once again, I have the option to correct this mistake manually, but I will choose to use conditional statements instead.
+
+```{r, eval = FALSE}
+# fixing pH measurements with conditional statements
+
+if(arb_pH < 5) { # if pH is less than 5, add 3
+  
+  corrected_pH <- arb_pH + 3
+  
+}
+```
+
+Syntax breakdown:
+
+-   `if(arb_pH < 5) {`
+
+    -   This line provides the condition of the conditional statement, namely to change any values of `arb_pH` that are less than a value we choose, in this case 5.
+
+    -   Verbally, this line reads "if the pH is less than 5, do the following:"
+
+-   `corrected_pH <- arb_pH + 3`
+
+    -   This line assigns our corrected pH value to be the current value stored in `arb_pH` and add 3.
+
+-   `}`
+
+    -   Just like `for` loops, conditional statements are enclosed in curly brackets `{}`.
+
+Carrying on, suppose I took an additional sample which was anomalously low and high. Instead of writing a whole new conditional setup, I can modify the existing one:
+
+```{r, eval = FALSE}
+# fixing pH measurements with multiple conditions (else)
+
+arb_pH_new <- 10.4
+
+if(arb_pH_new < 5) { # if pH is less than 5, add 3
+  
+  corrected_pH_new <- arb_pH_new + 3
+  
+} else { # otherwise, subtract 4
+  
+  corrected_pH_new <- arb_pH_new - 4
+
+}
+```
+
+Syntax breakdown:
+
+-   `} else {`
+
+    -   The beginning is the same, but now there is an `else` condition following our `if` condition. `else` is another reserved word, and works alongside `if` to enable more complicated logic.
+
+-   In all, this set of conditional statements tells `R` to correct our pH reading if it was too high *or* too low.
+
+    -   Your turn: try assigning new values to `arb_pH_new`. What happens when you assign it a value $<5$?
+
+That worked well since *all* my data was inaccurate, but what if some values are anomalous, but other values are logical? We can combine `if` and `else` statements!
+
+```{r, eval = FALSE}
+# using else if
+
+arb_pH_new <- 6.1
+
+if(arb_pH_new < 5) { # if pH is less than 5, add 3
+  
+  corrected_pH_new <- arb_pH_new + 3
+  
+} else if(arb_pH_new > 8) { # if pH is greater than 8, subtract 3
+  
+  corrected_pH_new <- arb_pH_new - 3
+
+} else { # if pH is between 5 and 8, don't correct it
+  
+  corrected_pH_new <- arb_pH_new
+
+}
+```
+
+Syntax breakdown:
+
+-   `} else if(arb_pH_new > 8) {`
+
+    -   `else if` statements like this allow for multiple conditions to be tested.
+
+    -   As opposed to our previous set of statements, which updated *all* values that were above 5, these conditions check if that value is also above 8 before updating.
+
+-   `corrected_pH_new <- arb_pH_new`
+
+    -   This line, as our final `else` statement, catches all values that were neither below 5 or above 8.
+
+    -   Now, pH values between 5 and 8 ($5 < x < 8$) will pass through these conditions unmodified.
+
+        -   Your turn: try assigning different values to `arb_pH_new` to observe how the conditional statements handle it.
+
+These statements work well, but they currently only handle one value at at time. If we want to correct multiple values at once, we must combine loops (`for` statements) with conditionals (`if` and `else` conditions).
+
+```{r, eval = FALSE}
+# assignments
+set.seed(1)
+
+arb_pH_loop <- rnorm(n = 5, mean = 6, sd = 2)
+
+arb_pH_loop_corrected <- numeric(length(arb_pH_loop))
+
+# conditional loop
+for(i in 1:length(arb_pH_loop)) { # for each pH value,
+  
+  if(arb_pH_loop[i] < 5) { # if pH is less than 5, add 3
+    
+    arb_pH_loop_corrected[i] <- arb_pH_loop[i] + 3
+    
+  } else if(arb_pH_loop[i] > 8) { # if pH is greater than 8, subtract 3
+    
+    arb_pH_loop_corrected[i] <- arb_pH_loop[i] - 3
+    
+  } else { # if pH is between 5 and 8, don't correct it
+    
+    arb_pH_loop_corrected[i] <- arb_pH_loop[i]
+    
+  }
+}
+
+print(arb_pH_loop_corrected)
+```
+
+Syntax breakdown:
+
+-   `set.seed(1)`
+
+    -   This line ensures reproducibility when working with random number generation, specifically for `rnorm()` in the next line.
+
+-   `arb_pH_loop <- rnorm(n = 5, mean = 6, sd = 2)`
+
+    -   This line assigns `arb_pH_loop` 5 random numbers (`n=5`), with an average of 6 (`mean=6`), and within 2 standard deviations of our mean (`sd=2`). Randomly generated numbers (e.g. through `rnorm()`) are important for projecting data based on trends and similar applications.
+
+-   This conditional loop tells `R` to examine each value `i` in the vector `arb_pH_loop` and run it through the same conditions laid out in our previous example. The main difference here is every condition is within a `for` loop, and each object in our conditional statements is subset with `[i]`.
+
+## Connection to Data Visualization
+
+While proficiency with loops and conditional statements is great, it would be even better if we could display our findings with effective visuals. The following example comes from WFC 122: Population Dynamics and Estimation, and illustrates demographic stochasticity (randomness in individual survival in a population).
+
+This loop and subsequent figure deal with Southern Resident Killer Whale population trends. Researchers have determined a threshold below which the population is considered "collapsed," represented by the horizontal line. This figure projects the population into the future multiple times, incorporating randomness.
+
+```{r, eval = FALSE}
+set.seed(1)
+
+# loading the data frame
+whales <- read.csv('https://raw.githubusercontent.com/asethm/WFC_070/refs/heads/main/whales.csv', 
+                   colClasses = c(NULL, NA, NA))
+
+# loading various objects (don't worry about specifics)
+r_t <- log(whales$Count[2:46]/whales$Count[1:45])
+r.bar <- mean(r_t)
+sigma <- sd(r_t)
+N.extinct <- 40 # extinction threshold
+N0 <- whales$Count[nrow(whales)] # population size in last year of time series (2020)
+r.random <- rnorm(n = 99, mean = r.bar, sd = sigma)
+nyrs <- 100 # no. years
+rho <- 0.23
+nsims <- 10 # number of simulations
+N.mat <- matrix(0, nrow = 100, ncol = nsims)
+N.mat[1,] <- N0
+went.extinct <- logical(nsims)
+
+# loop
+for(i in 1:nsims) {
+  eps <- rnorm(n = 100, mean = 0, sd = sigma)
+  eta <- numeric(nyrs)
+  eta[1] <- eps[1]
+  for(t in 1:99) {
+    r.random[t] <- r.bar + eta[t]
+    N.mat[t+1, i] <- exp(r.random[t]) * N.mat[t, i]
+    eta[t+1] <- rho*eta[t] + eps[t+1]*sqrt(1-rho^2)
+  }
+  went.extinct[i] <- min(N.mat[,i]) <= N.extinct
+}
+
+
+# data management
+N.mat.df <- data.frame(N.mat) # data frame
+plot_N.mat.df <- pivot_longer(data = N.mat.df, cols = starts_with("X"))
+plot_N.mat.df$Year <- num(1:1000)
+
+# plot
+ggplot(plot_N.mat.df, aes(x = Year, y = value, color = name)) +
+  geom_line() +
+  geom_hline(yintercept = 40) +
+  labs(y = "Population", title = "Southern Resident Killer Whale Population Simulations")
+```
+
+The figure shows that one simulation of the population drops below the established threshold, which can help inform wildlife management agencies allocate resources according to overall population vulnerability.
+
+## Functions in `R`
+
+Much of the work performed by `R` is thanks to functions. `c()`, `numeric()`, `length()`, `sum()`, etc. are examples of functions included in base `R`. Functions can also be included in packages, for example `ggplot()` from `ggplot2` (included in `tidyverse`). Functions are used for common processes because they're more efficient and user-friendly than their source codes would be.
+
+Loops like the one above can get incredibly large for complicated processes. Using `function(){}`, you can write your own functions, which can save space and improve readability compared to directly working with large loops. The process of writing a function also allows you to familiarize yourself with the specific parameters of what you want to accomplish.
+
+When writing functions, it is important to test out the individual components to ensure they work before writing the function itself. For example, suppose we wanted to write a function that adds exactly 3 numbers.
+
+```{r, eval = FALSE}
+# testing individual function parts
+a <- 8
+b <- 9
+c <- 7
+
+a + b + c
+
+# Success! Writing the function
+sum_three <- function(a, b, c){
+  
+  a + b + c
+  
+}
+
+# example inputs
+sum_three(a = 4, b = 5, c = 2)
+
+sum_three(45, 65, 12)
+```
+
+Syntax breakdown:
+
+-   Just like with conditional and `for` statements, we enclose the arguments for `function()` in curly brackets `{}`.
+
+-   `sum_three <- function(a, b, c){`
+
+    -   This line tells `R` we want to make a function `sum_three`, that accepts the arguments `a`, `b`, and `c`.
+
+    -   Functions can be written to accept any number of arguments.
+
+-   `a + b + c`
+
+    -   This line contains what the function actually performs. For most functions, there will be more than one line.
+
+-   `}`
+
+    -   Always remember to close your brackets!
+
+This function works great, and it is similar to the base `R` function `sum()`. But `sum()` accepts any number of arguments! We can write a function to accept a variable number of arguments by using dots `...`.
+
+```{r, eval = FALSE}
+# recreating `sum()`
+sum_nums <- function(...){
+  
+  nums <- c(...) # initialize our vector
+  sums <- 0 # set our sum to zero
+  
+  if(!is.numeric(nums)) { # print an error message if the function receives
+                          # a non-numeric input
+    
+    cat(red(
+        red$underline$bold('Error:') %+%
+            red(' invalid argument type. Supply a ') %+%
+            red$italic('numeric ') %+%
+            red('argument')
+          ))
+    
+    } else { # if the input is numeric, add the values together
+      
+        for(i in 1:length(nums)){
+        
+          sums <- sums + nums[i]
+      
+         }
+      
+    }
+  
+  print(sums) # print our sums
+  
+}
+
+# example inputs
+sum_nums(1,2,3,4,5)
+
+sum_nums(5, "4", 1, 8)
+```
+
+Syntax breakdown:
+
+-   `sum_nums <- function(...){`
+
+    -   Writing a function called `sum_nums`, which accepts any number of arguments (indicated by `...`).
+
+-   `nums <- c(...)` & `sums <- 0`
+
+    -   The `nums` assignment vectorizes our input, and we initialize `sums` before using it in our `for` loop. Setting `sums` to 0 also serves as a reset, so if we run the function multiple times, it doesn't store sums from previous runs.
+
+-   `if(!is.numeric(nums)) {`
+
+    -   This condition and the `cat()` lines that follow serve as a validity check, seeing if the function was given numerical data. If the supplied data was not numeric (`!is.numeric(nums)`), then it returns an error message.
+
+-   The `for` loop sequentially adds each number in our vector `nums` to `sums`.
+
+-   `print(sums)`
+
+    -   Lastly, the function prints `sums`.
+
+-   As with all processes in `R`, there are many ways to accomplish the same thing. Instead of this approach we could have...
+
+    -   Directly subsetted `c(...)` without assigning `nums`;
+
+    -   Used `Reduce()` instead of the `for` loop;
+
+    -   Simply used `sum()` in our function.
+
+Functions can also produce plots. For example, also drawing from WFC 122, we can write a function that plots logistic population growth over time. We will achieve this using the Gompertz function, which is a particular case of the logistic function.
+
+$$
+\text{Gompertz function}: \frac{dN}{dt}=aN\log\left(\frac bN\right)
+$$
+
+```{r, eval = FALSE}
+# plotting with a function
+
+plot_gompertz <- function(a, b, N0) {
+  # inputs
+  ## a: intrinsic growth rate
+  ## b: carrying capacity
+  ## N0: initial population size
+  
+  # makes a plot of the rate of the Gompertz population trajectory over time
+  # using a continuous time model
+  
+  times <- seq(from = 0, to = 50, length.out = 100) # sequence from 0 to 50
+  
+  N <- b * (b / N0)^(-exp(-a * times))
+  
+  d <- data.frame(times, N) # making a data frame for plotting
+  
+  p <- ggplot(data = d, aes(x = times, y = N)) + # storing our ggplot as an object
+            geom_line() +
+            labs(x = "Time (t)", y = "Population size (N)")
+  
+  p # + theme_dark()
+  
+}
+
+plot_gompertz(a = 0.15, b = 2000, N0 = 45)
+```
+
+This function generates a plot based on the supplied parameters for intrinsic growth rate, carrying capacity, and initial population size!
+
+-   The `seq()` function used when assigning our `times` object is valuable when plotting with a function and related tasks.
+
+    -   Your turn: run `seq(from = 0, to = 50, length.out = 100)` in your console and look at the result. Try changing the `from =`, `to =`, and `length.out =` arguments to observe how it changes.
+
+-   The ggplot produced by the function was stored as an object `p`, which can be a convenient way to store plots for easy manipulation, much like how loops can be compressed into single-line functions.
+
+    -   Your turn: remove the `#` commenting out `+ theme_dark()` from the line that prints our plot `p` and run the function again.
+
+## Conclusion
+
+Congratulations! You have reached the end of this tutorial on loops, conditional statements, and function writing in `R`! I know that was a lot, and I strongly recommend using online resources for reinforcing concepts and learning syntax in more detail. Happy coding!

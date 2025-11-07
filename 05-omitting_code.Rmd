@@ -1,0 +1,59 @@
+
+# Omitting code  
+
+Author: Seth Marshall
+
+## Default fields
+
+Functions in `R` often have default *fields* that occur in a given order, which can be found by looking up a function. For example, running `?ggplot` will open a help tab with information on how `ggplot()` is defined.
+
+```{r, eval = FALSE}
+library(tidyverse)
+?ggplot
+```
+
+The default fields for `ggplot()` are as follows:
+
+`ggplot(data = NULL, mapping = aes(), ..., environment = parent.frame())`
+
+`data` is the first field, followed by `mapping`, etc. Since this is the default order for the fields, once you're familiar enough with coding to understand where each argument goes and why, you can omit certain fields.
+
+```{r, eval = FALSE}
+# example data
+## recording the number of salamanders caught in pitfall traps per night
+pitfall_trap <- c(8, 20, 6, 15, 9, 12, 5, 21, 6, 18, 16, 17, 3, 15, 23, 9, 10, 7, 30, 11,
+                  11, 13, 7, 6, 18, 25, 0, 22, 14, 10)
+## pitfall surveys were done nightly for a month
+date <- c(1:30)
+
+## making a data frame
+pitfall_trap_data <-  data.frame(pitfall_trap, date)
+
+# plotting with explicitly defined fields
+ggplot(data = pitfall_trap_data, mapping = aes(x = date, y = pitfall_trap)) +
+  geom_point() +
+  labs(title = "Explicitly Defined Fields")
+
+# plotting with omitted defaults
+ggplot(pitfall_trap_data, aes(date, pitfall_trap)) +
+  geom_point() +
+  labs(title = "Omitted Defaults")
+```
+
+The two plots are the same, but the code is shorter in the second example.
+
+Omitting fields when working with functions can be a powerful tool, but should only be used when you're familiar with what each argument serves to not cause confusion.
+
+Additionally, field order can be changed by explicitly calling arguments, but is not compatible with omitting fields:
+
+```{r, eval = FALSE}
+# plotting with custom field order
+ggplot(mapping = aes(date, pitfall_trap), pitfall_trap_data) +
+  geom_point() +
+  labs(title = "Custom Field Order")
+
+# plotting with custom field order + omitting fields (error)
+ggplot(aes(date, pitfall_trap), pitfall_trap_data) +
+  geom_point() +
+  labs(title = "Custom Field Order with Omitting (error)")
+```

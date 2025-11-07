@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Getting Started | WFC 70: Data Literacy for Wildlife Biologists</title>
-  <meta name="description" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <title> 4 Omitting code | WFC 70: Data Literacy for Wildlife Biologists</title>
+  <meta name="description" content=" 4 Omitting code | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta property="og:title" content=" 4 Omitting code | WFC 70: Data Literacy for Wildlife Biologists" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Getting Started | WFC 70: Data Literacy for Wildlife Biologists" />
+  <meta name="twitter:title" content=" 4 Omitting code | WFC 70: Data Literacy for Wildlife Biologists" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="intro-to-r-and-r-studio.html"/>
+<link rel="prev" href="importing-data.html"/>
+<link rel="next" href="data-visualization.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -373,31 +373,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1 unnumbered hasAnchor">
-<h1>Getting Started<a href="getting-started.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Before we begin, it is recommended that you make a folder in your Google Drive and/or desktop on your personal computer, to keep your files. You may find Google Drive to be more effective due to it being able to be connected to multiple devices.</p>
-<div id="installing-r-and-r-studio" class="section level2 hasAnchor" number="0.1">
-<h2><span class="header-section-number">0.1</span> Installing R and R Studio<a href="getting-started.html#installing-r-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A program you will hopefully become familiar with is R and R Studio. Lecture and lab discusses the differences between these two.</p>
-<p>R is the language you are using to create the graphs. R Studio is where you input the code. One way to think about it is that R Studio is the kitchen and R represents all your ingredients.</p>
-<p>We will need both on your computer before your first lab. Even if you are not going to be bringing your personal computer to lab, having it can be helpful for homework and the Data Story.</p>
-<video width="420" height="340" controls loop="">
-<source src="https://github.com/refurrow/wfc70/raw/refs/heads/main/Draft%202.mov">
-</video>
-<p>Once you have successfully downloaded both, don’t be afraid to open R Studio and play around!</p>
-</div>
-<div id="tips-for-getting-started-with-labs" class="section level2 hasAnchor" number="0.2">
-<h2><span class="header-section-number">0.2</span> Tips for Getting Started With Labs<a href="getting-started.html#tips-for-getting-started-with-labs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A main component of WFC70 are the labs. The labs will be where you get to really practice the skills of data literacy. In lab, you will work within Rmarkdown files which allow you to insert code chunks while also simply writing. Lab rmds will be available to download in the files section of Canvas.</p>
-</div>
-<div id="tips-for-working-from-home" class="section level2 hasAnchor" number="0.3">
-<h2><span class="header-section-number">0.3</span> Tips for Working From Home<a href="getting-started.html#tips-for-working-from-home" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>As expected, most homework assignments will be completed at home also through Rmd files. At times, you will need to refer back to lab material to help accomplish the homework assignments, including the Data Story. Navigating things at home may be difficult, especially if you are utilizing your personal computer. This is why it is important to play around and get familiar with the R Studio workspace.</p>
-</div>
-<div id="shortcuts" class="section level2 hasAnchor" number="0.4">
-<h2><span class="header-section-number">0.4</span> Shortcuts<a href="getting-started.html#shortcuts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are lots of helpful keyboard shortcuts available to increase your workflow, not only for coding, but in general. Below is a link to a guide of shortcuts and their use, created by fellow Learning Assistant Zoe Smith.</p>
-<p><a href="https://zoesmithucd.github.io/" class="uri">https://zoesmithucd.github.io/</a></p>
+<div id="omitting-code" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number"> 4</span> Omitting code<a href="omitting-code.html#omitting-code" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Author: Seth Marshall</p>
+<div id="default-fields" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Default fields<a href="omitting-code.html#default-fields" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Functions in <code>R</code> often have default <em>fields</em> that occur in a given order, which can be found by looking up a function. For example, running <code>?ggplot</code> will open a help tab with information on how <code>ggplot()</code> is defined.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="omitting-code.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="omitting-code.html#cb6-2" tabindex="-1"></a>?ggplot</span></code></pre></div>
+<p>The default fields for <code>ggplot()</code> are as follows:</p>
+<p><code>ggplot(data = NULL, mapping = aes(), ..., environment = parent.frame())</code></p>
+<p><code>data</code> is the first field, followed by <code>mapping</code>, etc. Since this is the default order for the fields, once you’re familiar enough with coding to understand where each argument goes and why, you can omit certain fields.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="omitting-code.html#cb7-1" tabindex="-1"></a><span class="co"># example data</span></span>
+<span id="cb7-2"><a href="omitting-code.html#cb7-2" tabindex="-1"></a><span class="do">## recording the number of salamanders caught in pitfall traps per night</span></span>
+<span id="cb7-3"><a href="omitting-code.html#cb7-3" tabindex="-1"></a>pitfall_trap <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">6</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">5</span>, <span class="dv">21</span>, <span class="dv">6</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">3</span>, <span class="dv">15</span>, <span class="dv">23</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">7</span>, <span class="dv">30</span>, <span class="dv">11</span>,</span>
+<span id="cb7-4"><a href="omitting-code.html#cb7-4" tabindex="-1"></a>                  <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">0</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">10</span>)</span>
+<span id="cb7-5"><a href="omitting-code.html#cb7-5" tabindex="-1"></a><span class="do">## pitfall surveys were done nightly for a month</span></span>
+<span id="cb7-6"><a href="omitting-code.html#cb7-6" tabindex="-1"></a>date <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>)</span>
+<span id="cb7-7"><a href="omitting-code.html#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="omitting-code.html#cb7-8" tabindex="-1"></a><span class="do">## making a data frame</span></span>
+<span id="cb7-9"><a href="omitting-code.html#cb7-9" tabindex="-1"></a>pitfall_trap_data <span class="ot">&lt;-</span>  <span class="fu">data.frame</span>(pitfall_trap, date)</span>
+<span id="cb7-10"><a href="omitting-code.html#cb7-10" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="omitting-code.html#cb7-11" tabindex="-1"></a><span class="co"># plotting with explicitly defined fields</span></span>
+<span id="cb7-12"><a href="omitting-code.html#cb7-12" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pitfall_trap_data, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> pitfall_trap)) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="omitting-code.html#cb7-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-14"><a href="omitting-code.html#cb7-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Explicitly Defined Fields&quot;</span>)</span>
+<span id="cb7-15"><a href="omitting-code.html#cb7-15" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="omitting-code.html#cb7-16" tabindex="-1"></a><span class="co"># plotting with omitted defaults</span></span>
+<span id="cb7-17"><a href="omitting-code.html#cb7-17" tabindex="-1"></a><span class="fu">ggplot</span>(pitfall_trap_data, <span class="fu">aes</span>(date, pitfall_trap)) <span class="sc">+</span></span>
+<span id="cb7-18"><a href="omitting-code.html#cb7-18" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-19"><a href="omitting-code.html#cb7-19" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Omitted Defaults&quot;</span>)</span></code></pre></div>
+<p>The two plots are the same, but the code is shorter in the second example.</p>
+<p>Omitting fields when working with functions can be a powerful tool, but should only be used when you’re familiar with what each argument serves to not cause confusion.</p>
+<p>Additionally, field order can be changed by explicitly calling arguments, but is not compatible with omitting fields:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="omitting-code.html#cb8-1" tabindex="-1"></a><span class="co"># plotting with custom field order</span></span>
+<span id="cb8-2"><a href="omitting-code.html#cb8-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(date, pitfall_trap), pitfall_trap_data) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="omitting-code.html#cb8-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="omitting-code.html#cb8-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Custom Field Order&quot;</span>)</span>
+<span id="cb8-5"><a href="omitting-code.html#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="omitting-code.html#cb8-6" tabindex="-1"></a><span class="co"># plotting with custom field order + omitting fields (error)</span></span>
+<span id="cb8-7"><a href="omitting-code.html#cb8-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(date, pitfall_trap), pitfall_trap_data) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="omitting-code.html#cb8-8" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-9"><a href="omitting-code.html#cb8-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Custom Field Order with Omitting (error)&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -406,8 +423,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="intro-to-r-and-r-studio.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="importing-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -438,7 +455,7 @@ gitbook.start({
     "size": 2
   },
   "edit": {
-    "link": "https://github.com/refurrow/wfc70/edit/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/edit/main/05-omitting_code.Rmd",
     "text": "Edit"
   },
   "history": {
@@ -446,7 +463,7 @@ gitbook.start({
     "text": null
   },
   "view": {
-    "link": "https://github.com/refurrow/wfc70/blob/main/02-gettingstarted.Rmd",
+    "link": "https://github.com/refurrow/wfc70/blob/main/05-omitting_code.Rmd",
     "text": null
   },
   "download": null,

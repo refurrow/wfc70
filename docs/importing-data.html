@@ -23,7 +23,7 @@
 <meta name="author" content="Rob Furrow" />
 
 
-<meta name="date" content="2025-11-06" />
+<meta name="date" content="2025-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="code-not-working.html"/>
-<link rel="next" href="data-wrangling.html"/>
+<link rel="next" href="omitting-code.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -170,21 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#finding-data"><i class="fa fa-check"></i><b>3.1</b> Finding Data</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>4</b> Data Wrangling</a>
+<li class="chapter" data-level="4" data-path="omitting-code.html"><a href="omitting-code.html"><i class="fa fa-check"></i><b>4</b> Omitting code</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>4.1</b> Review</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>4.1.1</b> Filter</a></li>
-<li class="chapter" data-level="4.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>4.1.2</b> Joins</a></li>
-<li class="chapter" data-level="4.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>4.1.3</b> Select</a></li>
-<li class="chapter" data-level="4.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>4.1.4</b> Mutate</a></li>
-<li class="chapter" data-level="4.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>4.1.5</b> Pivot</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>4.2</b> Tying Everything Together</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>4.2.1</b> Checklist</a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>4.2.2</b> Example</a></li>
-</ul></li>
+<li class="chapter" data-level="4.1" data-path="omitting-code.html"><a href="omitting-code.html#default-fields"><i class="fa fa-check"></i><b>4.1</b> Default fields</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>5</b> Data Visualization</a>
 <ul>
@@ -197,14 +185,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="data-visualization.html"><a href="data-visualization.html#extra-resources"><i class="fa fa-check"></i><b>5.2</b> Extra Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="mark-recapture.html"><a href="mark-recapture.html"><i class="fa fa-check"></i><b>6</b> Mark-Recapture</a>
+<li class="chapter" data-level="6" data-path="data-wrangling.html"><a href="data-wrangling.html"><i class="fa fa-check"></i><b>6</b> Data Wrangling</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="mark-recapture.html"><a href="mark-recapture.html#example-1"><i class="fa fa-check"></i><b>6.1</b> Example</a></li>
-<li class="chapter" data-level="6.2" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-1-estimating-population-size"><i class="fa fa-check"></i><b>6.2</b> Practice 1: Estimating population size</a></li>
-<li class="chapter" data-level="6.3" data-path="mark-recapture.html"><a href="mark-recapture.html#mark-recaptured-in-r"><i class="fa fa-check"></i><b>6.3</b> Mark-Recaptured in R</a></li>
-<li class="chapter" data-level="6.4" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-2"><i class="fa fa-check"></i><b>6.4</b> Practice 2</a></li>
-<li class="chapter" data-level="6.5" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-3"><i class="fa fa-check"></i><b>6.5</b> Practice 3</a></li>
-<li class="chapter" data-level="6.6" data-path="mark-recapture.html"><a href="mark-recapture.html#answers"><i class="fa fa-check"></i><b>6.6</b> Answers</a></li>
+<li class="chapter" data-level="6.1" data-path="data-wrangling.html"><a href="data-wrangling.html#review"><i class="fa fa-check"></i><b>6.1</b> Review</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="data-wrangling.html"><a href="data-wrangling.html#filter"><i class="fa fa-check"></i><b>6.1.1</b> Filter</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-wrangling.html"><a href="data-wrangling.html#joins"><i class="fa fa-check"></i><b>6.1.2</b> Joins</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-wrangling.html"><a href="data-wrangling.html#select"><i class="fa fa-check"></i><b>6.1.3</b> Select</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-wrangling.html"><a href="data-wrangling.html#mutate"><i class="fa fa-check"></i><b>6.1.4</b> Mutate</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-wrangling.html"><a href="data-wrangling.html#pivot"><i class="fa fa-check"></i><b>6.1.5</b> Pivot</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-wrangling.html"><a href="data-wrangling.html#tying-everything-together"><i class="fa fa-check"></i><b>6.2</b> Tying Everything Together</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="data-wrangling.html"><a href="data-wrangling.html#checklist-1"><i class="fa fa-check"></i><b>6.2.1</b> Checklist</a></li>
+<li class="chapter" data-level="6.2.2" data-path="data-wrangling.html"><a href="data-wrangling.html#example"><i class="fa fa-check"></i><b>6.2.2</b> Example</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mark-recapture.html"><a href="mark-recapture.html"><i class="fa fa-check"></i><b>7</b> Mark-Recapture</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mark-recapture.html"><a href="mark-recapture.html#example-1"><i class="fa fa-check"></i><b>7.1</b> Example</a></li>
+<li class="chapter" data-level="7.2" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-1-estimating-population-size"><i class="fa fa-check"></i><b>7.2</b> Practice 1: Estimating population size</a></li>
+<li class="chapter" data-level="7.3" data-path="mark-recapture.html"><a href="mark-recapture.html#mark-recaptured-in-r"><i class="fa fa-check"></i><b>7.3</b> Mark-Recaptured in R</a></li>
+<li class="chapter" data-level="7.4" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-2"><i class="fa fa-check"></i><b>7.4</b> Practice 2</a></li>
+<li class="chapter" data-level="7.5" data-path="mark-recapture.html"><a href="mark-recapture.html#practice-3"><i class="fa fa-check"></i><b>7.5</b> Practice 3</a></li>
+<li class="chapter" data-level="7.6" data-path="mark-recapture.html"><a href="mark-recapture.html#answers"><i class="fa fa-check"></i><b>7.6</b> Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html"><i class="fa fa-check"></i><b>8</b> Modeling (conditionals, loops, functions)</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#motivation-why-learn-loops-and-conditional-statements"><i class="fa fa-check"></i><b>8.1</b> Motivation: why learn loops and conditional statements?</a></li>
+<li class="chapter" data-level="8.2" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#loops-in-r-for-statements"><i class="fa fa-check"></i><b>8.2</b> Loops in <code>R</code> (<code>for</code> statements)</a></li>
+<li class="chapter" data-level="8.3" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#conditional-statements-in-r-if-else"><i class="fa fa-check"></i><b>8.3</b> Conditional Statements in <code>R</code> (<code>if</code>, <code>else</code>)</a></li>
+<li class="chapter" data-level="8.4" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#connection-to-data-visualization"><i class="fa fa-check"></i><b>8.4</b> Connection to Data Visualization</a></li>
+<li class="chapter" data-level="8.5" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#functions-in-r"><i class="fa fa-check"></i><b>8.5</b> Functions in <code>R</code></a></li>
+<li class="chapter" data-level="8.6" data-path="modeling-conditionals-loops-functions.html"><a href="modeling-conditionals-loops-functions.html#conclusion"><i class="fa fa-check"></i><b>8.6</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="working-with-spatial-data.html"><a href="working-with-spatial-data.html"><i class="fa fa-check"></i><b>9</b> Working with Spatial Data</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="working-with-spatial-data.html"><a href="working-with-spatial-data.html#understanding-coordinate-reference-systemscrs"><i class="fa fa-check"></i><b>9.1</b> Understanding coordinate reference systems(CRS)</a></li>
 </ul></li>
 <li class="appendix"><span><b>WFC 70 Labs</b></span></li>
 <li class="chapter" data-level="A" data-path="lab-1-r-data-and-the-rstudio-panels-2025.html"><a href="lab-1-r-data-and-the-rstudio-panels-2025.html"><i class="fa fa-check"></i><b>A</b> Lab 1: R, data, and the RStudio panels (2025)</a>
@@ -387,7 +404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="code-not-working.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data-wrangling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="omitting-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
